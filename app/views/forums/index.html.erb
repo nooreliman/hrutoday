@@ -1,7 +1,7 @@
-<ol>
+<div class="cards">
   <% @forums.each do |forum| %>
-    <li>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
       <%= link_to forum.mood.name, forum_posts_path(forum) %>
-    </li>
+    </div>
   <% end %>
-</ol>
+</div>
