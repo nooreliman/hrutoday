@@ -8,7 +8,8 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
   has_many :posts, dependent: :destroy
-  has_many :user_moods, dependent: :destroy
+  has_many :user_moods
+  has_many :moods, through: :user_moods, dependent: :destroy
 
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true
