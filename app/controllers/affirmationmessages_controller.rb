@@ -1,6 +1,6 @@
 class AffirmationmessagesController < ApplicationController
   def index
-    @mood = Mood.find(params[:mood_id])
-    @messages = AffirmationMessage.where(mood_id: @mood)
+    @mood = Mood.find_by_name(params[:mood])
+    @messages = AffirmationMessage.where(mood: @mood)
   end
 end
