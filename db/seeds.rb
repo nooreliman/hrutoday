@@ -5,7 +5,6 @@ Forum.destroy_all
 Mood.destroy_all
 Comment.destroy_all
 Post.destroy_all
-UserMood.destroy_all
 AffirmationMessage.destroy_all
 Notification.destroy_all
 
@@ -127,27 +126,119 @@ puts "6 Mood Forums created"
 
 puts "Creating posts"
 
-post = Post.new(
+post_happy = Post.new(
   title: "I am happy",
   content: "Blehhhhh",
   status: "true"
 )
 
-post.forum = forum_happy
-post.user = user
-post.save!
+post_happy.forum = forum_happy
+post_happy.user = user
+post_happy.save!
 
-puts "Post created"
+post_sad = Post.new(
+  title: "I am sad",
+  content: "Blehhhhh",
+  status: "true"
+)
 
-puts "Creating comment"
+post_sad.forum = forum_sad
+post_sad.user = user
+post_sad.save!
 
-comment = Comment.new(
+post_angry = Post.new(
+  title: "I am angry",
+  content: "Blehhhhh",
+  status: "true"
+)
+
+post_angry.forum = forum_angry
+post_angry.user = user
+post_angry.save!
+
+post_scared = Post.new(
+  title: "I am scared",
+  content: "Blehhhhh",
+  status: "true"
+)
+
+post_scared.forum = forum_scared
+post_scared.user = user
+post_scared.save!
+
+post_love = Post.new(
+  title: "I am loved",
+  content: "Blehhhhh",
+  status: "true"
+)
+
+post_love.forum = forum_love
+post_love.user = user
+post_love.save!
+
+post_confused = Post.new(
+  title: "I am confused",
+  content: "Blehhhhh",
+  status: "true"
+)
+
+post_confused.forum = forum_confused
+post_confused.user = user
+post_confused.save!
+
+puts "6 Posts created"
+
+puts "Creating comment and reply"
+
+comment_one = Comment.new(
   content: "How are you?",
   status: "true"
 )
 
-comment.post = post
-comment.user = user
-comment.save!
+comment_one.post = post_happy
+comment_one.user = user
+comment_one.save!
 
-puts "Comment created"
+reply_one = Comment.new(
+  content: "There's been better days but I'm still coping!",
+  status: "true"
+)
+
+reply_one.post = post_happy
+reply_one.user = user_one
+reply_one.save!
+
+reply_one.reply_to(comment_one)
+
+puts "Comment and reply created"
+
+puts "Creating affirmation messages"
+affirm = AffirmationMessage.new(
+  message: "Don't know what went down but I'm so proud of you achieving big things!"
+)
+
+affirm.user = user
+affirm.mood = mood_happy
+affirm.save!
+
+affirm_sad = AffirmationMessage.new(
+  message: "Remember to take a break if you're overwhelmed!"
+)
+
+affirm_sad.user = user_one
+affirm_sad.mood = mood_sad
+affirm_sad.save!
+
+
+puts "Affirmation messages created"
+
+puts "Creating notifications"
+
+notif = Notification.new(
+  content: "XX replied to your post!",
+  status: "true"
+)
+notif.user = user
+notif.save!
+
+puts "Notifications created"
