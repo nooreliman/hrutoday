@@ -1,2 +1,16 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+ <div class="container">
+  <div class="mood-tracker">
+  <h3>Your moods this week:</h3>
+  </div>
+
+
+
+
+
+  <div class="log-mood">
+  <h3>How are you feeling today, <%= "#{current_user.email}" %></h3>
+  <% @moods.each do |mood| %>
+  <%= link_to mood.name,  user_affirmationmessages_path(current_user, mood_id: mood) %>
+  <% end %>
+  </div>
+</div>
