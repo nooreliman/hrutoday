@@ -9,4 +9,5 @@ class CreateCommentReplies < ActiveRecord::Migration[6.1]
 
     add_index :comment_replies, :comment_id
     add_index :comment_replies, :reply_id
+  end
 end
