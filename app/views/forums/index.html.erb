@@ -1,0 +1,7 @@
+<ol>
+  <% @forums.each do |forum| %>
+    <li>
+      <%= link_to forum.mood.name, forum_posts_path(forum) %>
+    </li>
+  <% end %>
+</ol>
