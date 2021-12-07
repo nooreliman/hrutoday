@@ -12,4 +12,5 @@ class Comment < ApplicationRecord
   def new_reply(comment)
     self.replies << comment
   end
+
 end

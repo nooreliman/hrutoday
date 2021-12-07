@@ -4,9 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :affirmation_messages
-  has_many :comments
-  has_many :notifications
-  has_many :posts
-  has_many :user_moods
+  has_many :affirmation_messages, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :notifications, dependent: :destroy
+  has_many :posts, dependent: :destroy
+  has_many :user_moods, dependent: :destroy
+
+  validates :username, presence: true, uniqueness: true
+  validates :email, presence: true
+  validates :age, presence: true
 end
