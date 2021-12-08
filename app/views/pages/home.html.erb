@@ -11,7 +11,7 @@
     <div class="cards">
       <% @moods.each do |mood| %>
       <div class="card-mood">
-        <%= image_tag mood.image %><br><%= link_to mood.name, "/affirmationmessages/#{mood.name}", class:"mood-title text-decoration: none" %>
+        <%= image_tag mood.image %><%= link_to mood.name, "/affirmationmessages/#{mood.name}", class:"mood-title" %>
       </div>
       <% end %>
     </div>
