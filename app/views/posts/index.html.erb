@@ -2,13 +2,13 @@
   <h2>#<%= @forum.mood.name %></h2>
   <% @posts.each do |post| %>
     <div class="card" style="width: 18rem;">
-      <%= link_to post do %>
+      <%= link_to post_path(post) do %>
         <div class="card-body">
           <h5 class="card-title"><%= post.title %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= post.created_at %></h6>
+          <h6 class="card-subtitle mb-2 text-muted"><%= post.created_at.strftime("%e %b %y") %></h6>
           <p class="card-text"><%= post.content %></p>
+          <%= link_to pluralize(post.comments.count, "Comment"), post_path(post) %>
           <%= link_to "Like", post %>
-          <%= link_to "Comments", post %>
         </div>
       <% end %>
     </div>

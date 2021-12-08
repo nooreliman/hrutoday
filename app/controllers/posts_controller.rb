@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comment = Comment.new
   end
 
   def new
@@ -19,7 +20,7 @@ class PostsController < ApplicationController
       @forum = Forum.find(params[:forum_id])
       @post.forum = @forum
       if @post.save
-        redirect_to post_path(@post)
+        redirect_to post_comments_path(@post)
         flash[:notice] = 'Post successfully created!'
       end
   end
