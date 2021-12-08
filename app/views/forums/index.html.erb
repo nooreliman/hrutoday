@@ -1,7 +1,11 @@
-<ol>
-  <% @forums.each do |forum| %>
-    <li>
-      <%= link_to forum.mood.name, forum_posts_path(forum) %>
-    </li>
-  <% end %>
-</ol>
+<div class="container">
+  <h2>Forums</h2>
+  <p>Which would you like to visit?</p>
+  <div class="cards">
+    <% @forums.each do |forum| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+        <%= link_to forum.mood.name.upcase, forum_posts_path(forum) %>
+      </div>
+    <% end %>
+  </div>
+</div>
