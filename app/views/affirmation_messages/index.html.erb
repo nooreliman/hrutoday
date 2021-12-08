@@ -5,7 +5,7 @@
 
 <div class="container affirmation-page">
 <!-- Button trigger modal -->
-  <% @messages.each do |message| %>
+  <% @messages.sample(4).each do |message| %>
       <%= image_tag message.mood.image, data: {
         toggle: "modal",
         target: "#modal-#{message.id}"
@@ -21,4 +21,8 @@
       </div>
     </div>
   <% end %>
+  <%= @messages.last.message %>
 </div>
+
+<%= link_to "refresh page for more messages!", "/affirmationmessages/#{@mood.name}", :method => :get, class: "btn btn-light"%>
+
