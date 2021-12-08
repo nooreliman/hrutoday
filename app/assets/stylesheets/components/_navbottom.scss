@@ -1,13 +1,9 @@
 .navbar-bottom {
   justify-content: space-between;
-  background: white;
-  position: sticky;
-}
-
-.navbar-bottom .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-bottom .navbar-brand img {
-  width: 40px;
+  background: #f6f5f0;
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  height: 55px;
+  border-top: 1px solid darkgrey;
 }
