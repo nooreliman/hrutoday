@@ -1,0 +1,19 @@
+<div class="container affirmation-page">
+<!-- Button trigger modal -->
+  <% @messages.each do |message| %>
+      <%= image_tag message.mood.image, data: {
+        toggle: "modal",
+        target: "#modal-#{message.id}"
+      }%>
+  <!-- Modal -->
+    <div class="modal fade " id="modal-<%= message.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <p class="affirmation"><%= message.message %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
