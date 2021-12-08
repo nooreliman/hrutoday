@@ -1,8 +1,11 @@
-<% @messages.each do |message| %>
+<% @messages.sample(5).each do |message| %>
   <%= message.message %><br>
 <% end %>
+<%= @messages.last.message %>
 
 <%= simple_form_for [ @mood, @affirmation_message ] do |f| %>
   <%= f.input :message %>
   <%= f.submit "Submit message", class: "btn btn-primary" %>
 <% end %>
+
+<%= link_to "refresh page for more messages!", "/affirmationmessages/#{@mood.name}", :method => :get, class: "btn btn-light"%>
