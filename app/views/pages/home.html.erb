@@ -1,2 +1,20 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container landing-page">
+  <div class="mood-tracker">
+    <h3 class="mood-today">Your moods this week</h3>
+    <%= image_tag "graph.png", class:"graph"%>
+  </div>
+
+
+
+  <div class="container log-mood">
+  <h3 class="feeling-today">How are you feeling today, <%= "#{current_user.username}" %> ?</h3>
+    <div class="cards">
+      <% @moods.each do |mood| %>
+      <div class="card-category">
+        <%= image_tag mood.image %><br><%= link_to mood.name, "/affirmationmessages/#{mood.name}", class:"mood-title text-decoration: none" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  </div>
+</div>
