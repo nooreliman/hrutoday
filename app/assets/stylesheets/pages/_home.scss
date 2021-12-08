@@ -1,7 +1,10 @@
 // Specific CSS for your home-page
+body {
+  padding-bottom: 70px;
+}
+
 .log-mood {
   background-color: #f0eae1;
-
 }
 
 .mood-title {
@@ -41,8 +44,6 @@
   font-size: 30px;
 }
 
-
-
 .card-mood {
   background-position: center;
   height: 180px;
@@ -52,6 +53,6 @@
   color: white;
   font-size: 24px;
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 }
