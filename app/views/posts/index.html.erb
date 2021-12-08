@@ -1,0 +1,4 @@
+<h2><%= pluralize(@posts.count, "post") %></h2>
+<% @posts.each do |post| %>
+  <%= post.content %>
+<% end %>

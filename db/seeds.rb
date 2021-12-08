@@ -15,7 +15,7 @@ user = User.new(
   email: "msjdtd@gmail.com",
   password: "punker77",
   age: 18,
-  photo: ""
+  photo: "",
 )
 
 user.save!
@@ -25,7 +25,7 @@ user_one = User.new(
   email: "mysterygenuis@gmail.com",
   password: "password123",
   age: 21,
-  photo: ""
+  photo: "",
 )
 
 user_one.save!
@@ -36,42 +36,42 @@ puts "Creating moods"
 
 mood_happy = Mood.new(
   name: "Happy",
-  image: ""
+  image: "happy.png",
 )
 
 mood_happy.save!
 
 mood_sad = Mood.new(
   name: "Sad",
-  image: ""
+  image: "sad.png",
 )
 
 mood_sad.save!
 
 mood_angry = Mood.new(
   name: "Angry",
-  image: ""
+  image: "angry.png",
 )
 
 mood_angry.save!
 
 mood_scared = Mood.new(
   name: "Scared",
-  image: ""
+  image: "scared.png",
 )
 
 mood_scared.save!
 
 mood_love = Mood.new(
   name: "Love",
-  image: ""
+  image: "love.png",
 )
 
 mood_love.save!
 
 mood_confused = Mood.new(
   name: "Confused",
-  image: ""
+  image: "confused.png",
 )
 
 mood_confused.save!
@@ -81,42 +81,42 @@ puts "6 Moods created"
 puts "Creating forums"
 
 forum_happy = Forum.new(
-  description: "Happy"
+  description: "Happy",
 )
 
 forum_happy.mood = mood_happy
 forum_happy.save!
 
 forum_sad = Forum.new(
-  description: "Sad"
+  description: "Sad",
 )
 
 forum_sad.mood = mood_sad
 forum_sad.save!
 
 forum_angry = Forum.new(
-  description: "Angry"
+  description: "Angry",
 )
 
 forum_angry.mood = mood_angry
 forum_angry.save!
 
 forum_scared = Forum.new(
-  description: "Scared"
+  description: "Scared",
 )
 
 forum_scared.mood = mood_scared
 forum_scared.save!
 
 forum_love = Forum.new(
-  description: "Loved"
+  description: "Loved",
 )
 
 forum_love.mood = mood_love
 forum_love.save!
 
 forum_confused = Forum.new(
-  description: "Confused"
+  description: "Confused",
 )
 
 forum_confused.mood = mood_confused
@@ -129,7 +129,7 @@ puts "Creating posts"
 post_happy = Post.new(
   title: "I am happy",
   content: "Blehhhhh",
-  status: "true"
+  status: "true",
 )
 
 post_happy.forum = forum_happy
@@ -139,7 +139,7 @@ post_happy.save!
 post_sad = Post.new(
   title: "I am sad",
   content: "Blehhhhh",
-  status: "true"
+  status: "true",
 )
 
 post_sad.forum = forum_sad
@@ -149,7 +149,7 @@ post_sad.save!
 post_angry = Post.new(
   title: "I am angry",
   content: "Blehhhhh",
-  status: "true"
+  status: "true",
 )
 
 post_angry.forum = forum_angry
@@ -159,7 +159,7 @@ post_angry.save!
 post_scared = Post.new(
   title: "I am scared",
   content: "Blehhhhh",
-  status: "true"
+  status: "true",
 )
 
 post_scared.forum = forum_scared
@@ -169,7 +169,7 @@ post_scared.save!
 post_love = Post.new(
   title: "I am loved",
   content: "Blehhhhh",
-  status: "true"
+  status: "true",
 )
 
 post_love.forum = forum_love
@@ -179,7 +179,7 @@ post_love.save!
 post_confused = Post.new(
   title: "I am confused",
   content: "Blehhhhh",
-  status: "true"
+  status: "true",
 )
 
 post_confused.forum = forum_confused
@@ -192,7 +192,7 @@ puts "Creating comment and reply"
 
 comment_one = Comment.new(
   content: "How are you?",
-  status: "true"
+  status: "true",
 )
 
 comment_one.post = post_happy
@@ -201,7 +201,7 @@ comment_one.save!
 
 reply_one = Comment.new(
   content: "There's been better days but I'm still coping!",
-  status: "true"
+  status: "true",
 )
 
 reply_one.post = post_happy
@@ -214,7 +214,7 @@ puts "Comment and reply created"
 
 puts "Creating affirmation messages"
 affirm = AffirmationMessage.new(
-  message: "Don't know what went down but I'm so proud of you achieving big things!"
+  message: "Don't know what went down but I'm so proud of you achieving big things!",
 )
 
 affirm.user = user
@@ -222,13 +222,12 @@ affirm.mood = mood_happy
 affirm.save!
 
 affirm_sad = AffirmationMessage.new(
-  message: "Remember to take a break if you're overwhelmed!"
+  message: "Remember to take a break if you're overwhelmed!",
 )
 
 affirm_sad.user = user_one
 affirm_sad.mood = mood_sad
 affirm_sad.save!
-
 
 puts "Affirmation messages created"
 
@@ -236,7 +235,7 @@ puts "Creating notifications"
 
 notif = Notification.new(
   content: "XX replied to your post!",
-  status: "true"
+  status: "true",
 )
 notif.user = user
 notif.save!

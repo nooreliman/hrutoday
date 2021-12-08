@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 2021_12_07_051136) do
   end
 
   create_table "comment_replies", force: :cascade do |t|
-    t.integer "comment_id", null: false
-    t.integer "reply_id", null: false
+    t.bigint "comment_id", null: false
+    t.bigint "reply_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["comment_id"], name: "index_comment_replies_on_comment_id"
