@@ -1,3 +1,5 @@
+<div class="container">
 <% @messages.each do |message| %>
-  <%= message.message %><br>
+  <%= message.message %><%= image_tag message.mood.image %>
 <% end %>
+</div>
