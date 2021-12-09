@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   resources :posts do
     collection do
       get 'myposts'
+      get 'favorites'
+    end
+    member do
+      get 'favorite', to: "posts#favorite"
+      put 'favorite', to: "posts#favorite"
     end
     resources :comments
   end
