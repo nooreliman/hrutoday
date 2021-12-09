@@ -7,8 +7,11 @@ Rails.application.routes.draw do
   end
 
   resources :posts do
-    resources :comments
+    resources :comments, only: [:new, :create]
+    # get '/posts/:post_id/comments/new/(:comment_id)', to: 'comments#new', as: :new_comment
   end
+
+  resources :comments, only: [:show, :update]
 
   get "affirmationmessages/:mood", to: "affirmation_messages#index"
 
