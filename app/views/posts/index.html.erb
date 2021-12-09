@@ -7,7 +7,7 @@
           <h6 class="card-subtitle mb-2 text-muted"><%= post.created_at.strftime("%e %b %y") %></h6>
           <% if post.get_dislikes.size >= 3 %>
             <div class="card-wrapper" data-controller="post-card">
-              <p data-post-card-target="content" class="d-none" data-action="click->post-card#no_show"><%= post.content %></p>
+              <p data-post-card-target="content" class="d-none"><%= post.content %></p>
               <span data-post-card-target="message" data-action="click->post-card#show_content" class="text-center">This post contains sensitive content.<br><span class="badge badge-dark">Show More</span></span>
             </div>
             <% elsif post.get_dislikes.size >= 5 %>
