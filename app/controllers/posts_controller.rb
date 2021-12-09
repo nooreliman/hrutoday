@@ -32,8 +32,7 @@ class PostsController < ApplicationController
     flash[:notice] = "Post successfully deleted!"
   end
 
-  def mylikes
-  end
+
 
   private
 
