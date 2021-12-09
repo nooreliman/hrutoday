@@ -24,8 +24,12 @@
       <%= simple_form_for [@post, @comment] do |f| %>
         <%= f.input :content, as: :text %>
         <%= f.submit "Comment", class: "btn btn-primary" %>
+        <% if current_user.favorited?(@post) %>
+          <%= link_to icon("fas","heart"), favorite_post_path(@post) %>
+        <% else %>
+          <%= link_to icon("far","heart"), favorite_post_path(@post) %>
         <% end %>
-      <%= link_to "Like", @post %>
+      <% end %>
     </div>
   </div>
 </div>

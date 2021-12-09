@@ -50,6 +50,15 @@ class PostsController < ApplicationController
     @posts = current_user.posts
   end
 
+  def favorite
+    @post = Post.find(params[:id])
+    current_user.favorited?(@post) ? current_user.unfavorite(@post) : current_user.favorite(@post)
+    redirect_to post_path(@post)
+  end
+
+  def favorites
+    @favorites = current_user.all_favorited
+  end
 
   private
 

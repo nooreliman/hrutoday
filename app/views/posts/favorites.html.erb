@@ -1,6 +1,5 @@
 <div class="container">
-  <h2>#<%= @forum.mood.name %></h2>
-  <% @posts.each do |post| %>
+  <% @favorites.each do |post| %>
     <div class="card" style="width: 18rem;">
       <%= link_to post_path(post) do %>
         <div class="card-body">
@@ -17,5 +16,4 @@
       <% end %>
     </div>
   <% end %>
-  <%= link_to "Create new post", new_forum_post_path(@forum) %>
 </div>
