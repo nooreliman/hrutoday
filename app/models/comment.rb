@@ -5,6 +5,8 @@ class Comment < ApplicationRecord
   has_many :comment_replies
   has_many :replies, through: :comment_replies, source: :reply
 
+  acts_as_votable
+
   def reply_to(parent)
     parent.replies << self
   end

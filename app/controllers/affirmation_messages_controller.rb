@@ -18,6 +18,11 @@ class AffirmationMessagesController < ApplicationController
     end
   end
 
+  def flag
+    @affirmation_message = AffirmationMessage.find(params[:id])
+    @affirmation_message.dislike_by current_user
+  end
+
   private
 
   def affirm_params

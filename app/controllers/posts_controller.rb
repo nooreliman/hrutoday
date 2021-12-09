@@ -45,11 +45,14 @@ class PostsController < ApplicationController
     flash[:notice] = "Post successfully deleted!"
   end
 
-
   def myposts
     @posts = current_user.posts
   end
 
+  def flag
+    @post = Post.find(params[:id])
+    @post.dislike_by current_user
+  end
 
   private
 

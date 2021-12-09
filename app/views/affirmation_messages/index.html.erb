@@ -11,15 +11,29 @@
         target: "#modal-#{message.id}"
       }%>
   <!-- Modal -->
-    <div class="modal fade " id="modal-<%= message.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-body">
-            <p class="affirmation"><%= message.message %></p>
+      <div class="modal fade " id="modal-<%= message.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <% if message.get_dislikes.size >= 3 %>
+              <div class="card-wrapper" data-controller="post-card">
+              <p data-post-card-target="content" class="d-none"><%= message.message %></p>
+              <span data-post-card-target="message" data-action="click->post-card#show_content" class="message-flag">This message contains sensitive content.<br><span class="badge-show badge-dark">Show More</span></span>
+            </div>
+            <% elsif message.get_dislikes.size >= 5 %>
+              <p>This message is being taken down for review.</p>
+            <% else %>
+              <p class="affirmation"><%= message.message %>
+              <% end %>
+              <%= link_to flag_affirmation_message_path(message), method: :put, data: { confirm: "Are you sure you want to flag this message?" } do %>
+              <div class="affirmation-flag">
+              <%= image_tag("flag.png") %><%= message.get_dislikes.size %></p>
+            </div>
+            <% end %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
   <% end %>
 </div>
 
