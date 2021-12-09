@@ -33,6 +33,10 @@ class PostsController < ApplicationController
   end
 
 
+  def myposts
+    @posts = current_user.posts
+  end
+
 
   private
 
