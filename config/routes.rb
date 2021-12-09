@@ -14,4 +14,6 @@ Rails.application.routes.draw do
   resources :affirmationmessages, only: [:index, :new, :create, :show]
 
   resources :notifications, only: [:index, :create, :update]
+
+  resources :usermoods, only: [:create]
 end

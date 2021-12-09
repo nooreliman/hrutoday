@@ -1,12 +1,32 @@
 <div class="container landing-page">
-  <div class="mood-tracker">
     <h3 class="mood-today">Your moods this week</h3>
-    <%= image_tag "graph.png", class:"graph"%>
+  <div class="mood-tracker">
+    <% 7.times do |day| %>
+      <div>
+        <div class="row">
+          <div>
+            <%= @curr_day %>
+          </div>
+          <div>
+            <% if current_user.moods_for_day(@curr_day) %>
+              <% current_user.moods_for_day(@curr_day).each do |curr|  %>
+                <%= image_tag curr.mood.image, class: "mood"%>
+              <% end %>
+            <% else %>
+              nothing to show
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <% @curr_day = @curr_day == 6 ? 0 : @curr_day + 1  %>
+
+      <% end %>
   </div>
 
 
 
-  <div class="container log-mood">
+  <div class="container log-mood mt-1">
   <h3 class="feeling-today">How are you feeling today, <%= "#{current_user.username}" %> ?</h3>
     <div class="cards">
       <% @moods.each do |mood| %>
