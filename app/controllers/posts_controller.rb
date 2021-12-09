@@ -40,8 +40,9 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
+    @forum = @post.forum
     @post.destroy
-    redirect_to posts_path
+    redirect_to forum_posts_path(@forum)
     flash[:notice] = "Post successfully deleted!"
   end
 
