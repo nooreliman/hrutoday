@@ -213,6 +213,7 @@ reply_one.reply_to(comment_one)
 puts "Comment and reply created"
 
 puts "Creating affirmation messages"
+
 affirm = AffirmationMessage.new(
   message: "Don't know what went down but I'm so proud of you achieving big things!",
 )
@@ -221,13 +222,46 @@ affirm.user = user
 affirm.mood = mood_happy
 affirm.save!
 
+
 affirm_sad = AffirmationMessage.new(
-  message: "Remember to take a break if you're overwhelmed!",
+  message:  "Remember to take a break if you're overwhelmed!",
 )
 
 affirm_sad.user = user_one
 affirm_sad.mood = mood_sad
 affirm_sad.save!
+
+affirm_sad_one = AffirmationMessage.new(
+  message:  "You got this!",
+)
+
+affirm_sad_one.user = user_one
+affirm_sad_one.mood = mood_sad
+affirm_sad_one.save!
+
+affirm_sad_two = AffirmationMessage.new(
+  message:  "I am so proud of you! Have a great day ahead",
+)
+
+affirm_sad_two.user = user_one
+affirm_sad_two.mood = mood_sad
+affirm_sad_two.save!
+
+affirm_sad_three = AffirmationMessage.new(
+  message:  "You can do this! I am sure of it.",
+)
+
+affirm_sad_three.user = user_one
+affirm_sad_three.mood = mood_sad
+affirm_sad_three.save!
+
+affirm_sad_four = AffirmationMessage.new(
+  message:  "You are not alone in this. Heads up!",
+)
+
+affirm_sad_four.user = user_one
+affirm_sad_four.mood = mood_sad
+affirm_sad_four.save!
 
 puts "Affirmation messages created"
 

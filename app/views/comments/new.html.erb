@@ -1,0 +1,6 @@
+<div class="container">
+  <%= simple_form_for [@post, @comment] do |f| %>
+      <%= f.input :content, as: :text %>
+      <%= f.submit "Comment", class: "btn btn-primary" %>
+  <% end %>
+</div>

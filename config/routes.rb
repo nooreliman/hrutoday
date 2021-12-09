@@ -10,8 +10,11 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  get "affirmationmessages/:mood", to: "affirmationmessages#index"
-  resources :affirmationmessages, only: [:index, :new, :create, :show]
+  get "affirmationmessages/:mood", to: "affirmation_messages#index"
+
+  resources :moods do
+    resources :affirmation_messages, only: [:create, :show]
+  end
 
   resources :notifications, only: [:index, :create, :update]
 

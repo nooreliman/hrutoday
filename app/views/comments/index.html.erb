@@ -1,0 +1,21 @@
+<div class="container">
+<h3>Written by:<%= @post.user.username %></h3>
+<h3>Posted:<%= @post.created_at %></h3>
+<%# <h3>Last logged mood:<%= @post.user.mood.name %></h3>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+      <h5 class="card-title"><%= @post.title %></h5>
+      <h6 class="card-subtitle mb-2 text-muted"><%= @post.created_at %></h6>
+      <p class="card-text"><%= @post.content %></p>
+      <ul class="list-group list-group-flush">
+        <% @post.comments.each do |comment| %>
+          <li class="list-group-item">
+          <%= comment.content %>
+          </li>
+        <% end %>
+      </ul>
+      <%= link_to "Like", @post %>
+      <%= link_to "Leave a comment", new_post_comment_path(@post) %>
+    </div>
+  </div>
+</div>
