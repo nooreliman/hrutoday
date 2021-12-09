@@ -8,34 +8,33 @@
       <h6 class="card-subtitle mb-2 text-muted"><%= @post.created_at.strftime("%e %b %y") %></h6>
       <p class="card-text"><%= @post.content %></p>
         <% if current_user == @post.user %>
-        <%= link_to "Delete",
-                    post_path(@post),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" }, class:"btn-posts" %>
-        <%= link_to "Edit", edit_post_path(@post) %>
-      <% end %>
+
+          <%= link_to "Delete",
+                      post_path(@post),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" },
+                      class:"btn-posts" %>
+
+          <%= link_to "Edit", edit_post_path(@post) %>
+        <% end %>
+
       <ul class="list-group list-group-flush">
-       <%= render @post.comments.order(created_at: :desc) %>
+        <%= render @post.comments.order(created_at: :desc) %>
       </ul>
 
       <%= simple_form_for [@post, @comment] do |f| %>
-
         <%= f.input :id, as: :hidden %>
         <%= f.input :content, as: :text, label: "Write something" %>
         <%= f.submit "Submit", class: "btn btn-primary" %>
       <% end %>
 
-        <br>
-      <%= link_to "Like", @post %>
-
-        <%= f.input :content, as: :text %>
-        <%= f.submit "Comment", class: "btn btn-primary" %>
-        <% if current_user.favorited?(@post) %>
-          <%= link_to icon("fas","heart"), favorite_post_path(@post) %>
-        <% else %>
-          <%= link_to icon("far","heart"), favorite_post_path(@post) %>
-        <% end %>
+      <br>
+      <% if current_user.favorited?(@post) %>
+        <%= link_to icon("fas","heart"), favorite_post_path(@post) %>
+      <% else %>
+        <%= link_to icon("far","heart"), favorite_post_path(@post) %>
       <% end %>
+
     </div>
   </div>
 </div>
