@@ -17,7 +17,7 @@
             <div class="modal-body">
               <% if message.get_dislikes.size >= 3 %>
               <div class="card-wrapper" data-controller="post-card">
-              <p data-post-card-target="content" class="d-none"><%= message.message %></p>
+              <p data-post-card-target="content" class="affirmation d-none" ><%= message.message %></p>
               <span data-post-card-target="message" data-action="click->post-card#show_content" class="message-flag">This message contains sensitive content.<br><span class="badge-show badge-dark">Show More</span></span>
             </div>
             <% elsif message.get_dislikes.size >= 5 %>
