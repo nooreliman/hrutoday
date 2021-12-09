@@ -15,14 +15,24 @@ class PostsController < ApplicationController
   end
 
   def create
-      @post = Post.new(post_params)
-      @post.user = current_user
-      @forum = Forum.find(params[:forum_id])
-      @post.forum = @forum
-      if @post.save
-        redirect_to post_comments_path(@post)
-        flash[:notice] = 'Post successfully created!'
-      end
+    @post = Post.new(post_params)
+    @post.user = current_user
+    @forum = Forum.find(params[:forum_id])
+    @post.forum = @forum
+    if @post.save
+      redirect_to post_comments_path(@post)
+      flash[:notice] = "Post successfully created!"
+    end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path
+    flash[:notice] = "Post successfully deleted!"
+  end
+
+  def mylikes
   end
 
   private
