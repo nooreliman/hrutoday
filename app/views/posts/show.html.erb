@@ -8,9 +8,10 @@
       <h6 class="card-subtitle mb-2 text-muted"><%= @post.created_at.strftime("%e %b %y") %></h6>
       <p class="card-text"><%= @post.content %></p>
       <ul class="list-group list-group-flush">
-        <% @post.comments.each do |comment| %>
+        <% @post.comments.order(created_at: :desc).each do |comment| %>
           <li class="list-group-item">
           <%= comment.content %>
+          <%= comment.created_at.strftime("%e %b %y") %>
           </li>
         <% end %>
       </ul>
