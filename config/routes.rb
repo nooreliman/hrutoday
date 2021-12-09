@@ -20,4 +20,6 @@ Rails.application.routes.draw do
   end
 
   resources :notifications, only: [:index, :create, :update]
+
+  resources :usermoods, only: [:create]
 end
