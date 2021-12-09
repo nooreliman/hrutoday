@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>#<%= @forum.mood.name %></h2>
+  <h2>My posts</h2>
   <% @posts.each do |post| %>
     <div class="card" style="width: 18rem;">
       <%= link_to post_path(post) do %>
@@ -8,14 +8,9 @@
           <h6 class="card-subtitle mb-2 text-muted"><%= post.created_at.strftime("%e %b %y") %></h6>
           <p class="card-text"><%= post.content %></p>
           <%= link_to pluralize(post.comments.count, "Comment"), post_path(post) %>
-          <% if current_user.favorited?(post) %>
-            <%= link_to icon("fas","heart"), favorite_post_path(post) %>
-          <% else %>
-            <%= link_to icon("far","heart"), favorite_post_path(post) %>
-          <% end %>
+          <%= link_to "Like", post %>
         </div>
       <% end %>
     </div>
   <% end %>
-  <%= link_to "Create new post", new_forum_post_path(@forum) %>
 </div>

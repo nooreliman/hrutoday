@@ -1,22 +1,26 @@
 <div class="container landing-page">
     <h3 class="mood-today">Your moods this week</h3>
-  <div class="mood-tracker">
+  <div class="mood-tracker container">
     <% 7.times do |day| %>
-      <div>
-        <div class="row">
-          <div>
-            <%= @curr_day %>
+
+        <div class="row mood-tracker-days">
+          <div class="col-1 font-weight-bold border-right pr-1 ">
+            <div class="days d-flex align-items-center">
+              <%= PagesController::DAYS[@curr_day] %>
+            </div>
           </div>
-          <div>
-            <% if current_user.moods_for_day(@curr_day) %>
-              <% current_user.moods_for_day(@curr_day).each do |curr|  %>
-                <%= image_tag curr.mood.image, class: "mood"%>
+          <div class="col-11">
+            <div class="moods">
+              <% if current_user.moods_for_day(@curr_day) %>
+                <% current_user.moods_for_day(@curr_day).each do |curr|  %>
+                  <%= image_tag curr.mood.image, class: "mood ml-1 my-1"%>
+                <% end %>
+              <% else %>
+                nothing to show
               <% end %>
-            <% else %>
-              nothing to show
-            <% end %>
+            </div>
           </div>
-        </div>
+
       </div>
 
       <% @curr_day = @curr_day == 6 ? 0 : @curr_day + 1  %>

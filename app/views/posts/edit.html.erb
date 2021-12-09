@@ -1,0 +1,13 @@
+<div class="container">
+  <h2>Edit post</h2>
+</div>
+<div class="row">
+  <div class="col-sm-6 mx-auto">
+    <%= simple_form_for(@post) do |f| %>
+      <%= f.input :title %>
+      <%= f.input :content %>
+      <%= f.submit "Save edit", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+  
