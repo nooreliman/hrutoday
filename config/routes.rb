@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   end
 
   resources :posts do
+    resources :comments, only: [:new, :create]
+    # get '/posts/:post_id/comments/new/(:comment_id)', to: 'comments#new', as: :new_comment
     collection do
       get 'myposts'
       get 'favorites'
@@ -17,6 +19,8 @@ Rails.application.routes.draw do
     end
     resources :comments
   end
+
+  resources :comments, only: [:show, :update]
 
   get "affirmationmessages/:mood", to: "affirmation_messages#index"
 

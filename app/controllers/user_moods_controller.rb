@@ -4,6 +4,6 @@ class UserMoodsController < ApplicationController
     @um.user = current_user
     @um.save
 
-    redirect_to affirmationmessages_path
+    redirect_to "/affirmationmessages/#{@mood.name}"
   end
 end

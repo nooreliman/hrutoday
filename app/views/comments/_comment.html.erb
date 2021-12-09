@@ -1,0 +1,5 @@
+<li class="list-group-item">
+  <%= comment.content %> <%= "(#{pluralize(comment.replies.count, "reply")})" unless comment.replies.nil? %>
+  <%= comment.created_at.strftime("%e %b %y") %>
+  <%= link_to "Reply", comment_path(comment)  %>
+</li>
