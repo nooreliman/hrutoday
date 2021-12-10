@@ -1,7 +1,9 @@
-<%= simple_form_for [ @mood, @affirmation_message ] do |f| %>
-  <%= f.input :message %>
-  <%= f.submit "Submit message", class: "btn btn-primary" %>
-<% end %>
+<div class="container">
+  <%= simple_form_for [ @mood, @affirmation_message ] do |f| %>
+    <%= f.input :message %>
+    <%= f.submit "Submit message", class: "btn btn-primary" %>
+  <% end %>
+</div>
 
 <div class="container affirmation-page">
 <!-- Button trigger modal -->
