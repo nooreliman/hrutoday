@@ -1,11 +1,12 @@
-<div class="container">
+<div class="container forum-posts mt-3 py-3">
   <h2>#<%= @forum.mood.name %></h2>
 
   <% @posts.each do |post| %>
 
-    <div class="card mb-2">
+    <div class="card mt-1">
       <div class="card-body">
         <div class="card-wrapper" data-controller="post-card">
+
 
           <h6 class="card-subtitle mb-2 text-muted"><%= post.created_at.strftime("%e %b %y") %></h6>
 
@@ -61,4 +62,9 @@
     </div>
 
   <% end %>
+
+</div>
+
+<div class="container">
+  <%= link_to "Create new post", new_forum_post_path(@forum), class:"btn btn-primary btn-lg btn-block mt-2" %>
 </div>
