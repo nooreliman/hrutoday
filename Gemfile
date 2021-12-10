@@ -72,3 +72,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "google-cloud-language", "~> 1.3"
 
 gem 'acts_as_votable'
+
+gem 'turbolinks_render'

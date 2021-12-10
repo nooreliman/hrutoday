@@ -7,7 +7,7 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-  static targets = ["content", "message"];
+  static targets = ["content", "message", "flagnum"];
 
   // connect() {
   //   console.log("Generated Controller Connected!");
@@ -16,6 +16,18 @@ export default class extends Controller {
   show_content(e) {
     // this.contentTarget.classList.toggle("d-none");
     this.messageTarget.classList.add("d-none");
-    this.contentTarget.classList.remove("d-none")
+    this.contentTarget.classList.remove("d-none");
   }
+
+  update_flags(e) {
+   const url = `${e.currentTarget.dataset.link}`;
+    fetch(url, {
+      method: "PUT",
+      headers: { Accept: "text/html" },
+    })
+    .then(response => response.text())
+    .then((data) => {
+      this.flagnumTarget.html(data);
+    });
 }
+  }
