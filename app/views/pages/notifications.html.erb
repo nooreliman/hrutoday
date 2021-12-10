@@ -1,9 +1,8 @@
-<div class="container">
+<div class="container mt-1">
   <h1>Updates</h1>
     <p>
       <% @comments.each do |comment| %>
-        <div class="card">
-          <br>
+        <div class="card notification mt-1 p-1">
           Posted By: <%= comment.user.username %>
           <br>
           <%= comment.content %>
