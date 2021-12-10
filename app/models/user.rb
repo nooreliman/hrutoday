@@ -28,7 +28,7 @@ class User < ApplicationRecord
 
 
   def moods_for_day(day)
-    week_moods = UserMood.where(created_at: (Time.now.midnight - 6.days)...(Time.now), user: :current_user)
+    week_moods = user_moods.where(created_at: (Time.now.midnight - 6.days)...(Time.now))
     week_moods.filter do |mood|
       mood.created_at.wday == day
     end
