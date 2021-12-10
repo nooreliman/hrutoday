@@ -1,7 +1,7 @@
 <div class="container">
 <h3>Written by:<%= @post.user.username %></h3>
 <h3>Posted:<%= @post.created_at.strftime("%e %b %y") %></h3>
-<%# <h3>Last logged mood:<%= @post.user.mood.name %></h3>
+
 <div class="card" style="width: 18rem;">
   <div class="card-body">
       <h5 class="card-title"><%= @post.title %></h5>
@@ -38,12 +38,32 @@
               <p class="text-right"><%= image_tag("flag.png") %><%= comment.get_dislikes.size %></p>
           <% end %>
           </li>
+
+          <%= link_to "Delete",
+                      post_path(@post),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" },
+                      class:"btn-posts" %>
+
+          <%= link_to "Edit", edit_post_path(@post) %>
         <% end %>
+
+      <ul class="list-group list-group-flush">
+        <%= render @post.comments.order(created_at: :desc) %>
       </ul>
+
       <%= simple_form_for [@post, @comment] do |f| %>
-        <%= f.input :content, as: :text %>
-        <%= f.submit "Comment", class: "btn btn-primary" %>
-        <% end %>
-      <%= link_to "Like", @post %>
+        <%= f.input :id, as: :hidden %>
+        <%= f.input :content, as: :text, label: "Write something" %>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+      <% end %>
+
+      <br>
+      <% if current_user.favorited?(@post) %>
+        <%= link_to icon("fas","heart"), favorite_post_path(@post) %>
+      <% else %>
+        <%= link_to icon("far","heart"), favorite_post_path(@post) %>
+      <% end %>
+
     </div>
 </div>

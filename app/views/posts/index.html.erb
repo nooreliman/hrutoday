@@ -21,6 +21,10 @@
           <div class="engagement">
           <p class="text-right"><%= image_tag("flag.png") %><%= post.get_dislikes.size %></p>
           </div>
+          <% if current_user.favorited?(post) %>
+            <%= link_to icon("fas","heart"), favorite_post_path(post) %>
+          <% else %>
+            <%= link_to icon("far","heart"), favorite_post_path(post) %>
           <% end %>
         </div>
     </div>

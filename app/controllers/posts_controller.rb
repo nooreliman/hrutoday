@@ -20,8 +20,8 @@ class PostsController < ApplicationController
     @forum = Forum.find(params[:forum_id])
     @post.forum = @forum
     if @post.save
-      redirect_to post_comments_path(@post)
-      flash[:notice] = "Post successfully created!"
+      redirect_to post_path(@post)
+      flash[:notice] = 'Post successfully created!'
     end
   end
 
@@ -40,8 +40,9 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
+    @forum = @post.forum
     @post.destroy
-    redirect_to posts_path
+    redirect_to forum_posts_path(@forum)
     flash[:notice] = "Post successfully deleted!"
   end
 
@@ -52,6 +53,15 @@ class PostsController < ApplicationController
   def flag
     @post = Post.find(params[:id])
     @post.dislike_by current_user
+
+  def favorite
+    @post = Post.find(params[:id])
+    current_user.favorited?(@post) ? current_user.unfavorite(@post) : current_user.favorite(@post)
+    redirect_to post_path(@post)
+  end
+
+  def favorites
+    @favorites = current_user.all_favorited
   end
 
   private
