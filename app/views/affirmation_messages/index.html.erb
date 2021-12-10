@@ -1,6 +1,7 @@
+
 <div class="container">
   <%= simple_form_for [ @mood, @affirmation_message ] do |f| %>
-    <%= f.input :message %>
+    <%= f.input :message, placeholder: "Write your message here.." %>
     <%= f.submit "Submit message", class: "btn btn-primary" %>
   <% end %>
 </div>
@@ -11,9 +12,9 @@
       <%= image_tag message.mood.image, data: {
         toggle: "modal",
         target: "#modal-#{message.id}"
-      }%>
+      }, class: "mt-3 a"%>
   <!-- Modal -->
-      <div class="modal fade " id="modal-<%= message.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id="modal-<%= message.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-body">
@@ -39,4 +40,4 @@
   <% end %>
 </div>
 
-<%= link_to "refresh page for more messages!", "/affirmationmessages/#{@mood.name}", :method => :get, class: "btn btn-light"%>
+<%= link_to "refresh page for more messages!", "/affirmationmessages/#{@mood.name}", :method => :get, class: "btn btn-light btn-sm"%>
