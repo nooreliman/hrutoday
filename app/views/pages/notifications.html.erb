@@ -8,7 +8,6 @@
           <br>
           <%= comment.content %>
           <br>
-          <% raise %>
           <% time_passed = Time.now - comment.created_at %>
           <%= time_ago_in_words((time_passed/1.day)) %>
       </div>
