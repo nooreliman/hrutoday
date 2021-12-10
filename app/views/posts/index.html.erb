@@ -11,7 +11,7 @@
           <h6 class="card-subtitle mb-2 text-muted"><%= post.created_at.strftime("%e %b %y") %></h6>
 
           <h4 class="card-title">
-            <%= post.title %>
+            <%= link_to post.title, post_path(post), class: "post-name" %>
           </h4>
 
           <% unless post.needs_review? %>
@@ -35,7 +35,7 @@
           <% end %>
 
           <!-- ./ comments -->
-            <%= link_to pluralize(post.comments.count, "Comment"), post_path(post)%>
+            <%= link_to pluralize(post.comments.count, "Comment"), post_path(post), class: "comments"%>
 
 
           <div class="engagement">
