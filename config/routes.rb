@@ -7,6 +7,12 @@ Rails.application.routes.draw do
   end
 
   resources :posts do
+    member do
+      put "flag", to: "posts#flag"
+    end
+    collection do
+      get "myposts"
+    end
     resources :comments, only: [:new, :create]
     # get '/posts/:post_id/comments/new/(:comment_id)', to: 'comments#new', as: :new_comment
     collection do
@@ -25,10 +31,21 @@ Rails.application.routes.draw do
   get "affirmationmessages/:mood", to: "affirmation_messages#index"
 
   resources :moods do
-    resources :affirmation_messages, only: [:create, :show]
+    resources :affirmation_messages, only: [:create, :show, :index]
   end
 
+  resources :affirmation_messages, only: [:index] do
+    member do
+      put "flag", to: "affirmation_messages#flag", as: "flag"
+    end
+  end
   resources :notifications, only: [:index, :create, :update]
 
   resources :usermoods, only: [:create]
+
+  resources :comments do
+    member do
+      put "flag", to: "comments#flag"
+    end
+  end
 end
