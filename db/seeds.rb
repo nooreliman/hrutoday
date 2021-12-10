@@ -264,14 +264,3 @@ affirm_sad_four.mood = mood_sad
 affirm_sad_four.save!
 
 puts "Affirmation messages created"
-
-puts "Creating notifications"
-
-notif = Notification.new(
-  content: "XX replied to your post!",
-  status: "true",
-)
-notif.user = user
-notif.save!
-
-puts "Notifications created"

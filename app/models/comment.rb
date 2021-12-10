@@ -15,4 +15,21 @@ class Comment < ApplicationRecord
     self.replies << comment
   end
 
+  def read?
+    self.status
+  end
+
+  def read!
+    self.status = true
+    self.save!
+  end
+
+  def sensitive?
+    (3...5) === self.get_dislikes.size
+  end
+
+  def offensive?
+    self.get_dislikes.size >= 5
+  end
+
 end
