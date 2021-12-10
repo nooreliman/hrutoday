@@ -25,7 +25,6 @@ body {
   padding-top: 5px;
   max-width: 100%;
   display: block;
-
 }
 
 .mood-tracker {
@@ -56,4 +55,20 @@ body {
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
+}
+
+.forum-name {
+  color: white;
+  font-family: "Quicksand";
+  font-size: 15px;
+  letter-spacing: 0.7rem;
+}
+
+.forum-name:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.forums h2 {
+  font-family: "Roboto";
 }
