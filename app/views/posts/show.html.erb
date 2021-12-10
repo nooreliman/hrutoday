@@ -43,7 +43,7 @@
           <% if comment.get_dislikes.size >= 3 %>
           <div class="card-wrapper" data-controller="post-card">
               <p data-post-card-target="content" class="d-none"><%= comment.content %></p>
-              <span data-post-card-target="message" data-action="click->post-card#show_content" class="text-center">This comment contains sensitive content.<br><span class="badge-show badge-dark">Show More</span></span>
+              <span data-post-card-target="message" data-action="click->post-card#show_content" class="smessage">This comment contains sensitive content.<br><span class="badge-show badge-dark">Show More</span></span>
             </div>
             <% elsif comment.get_dislikes.size >= 5 %>
             <p>This comment is down for review.</p>
