@@ -21,7 +21,7 @@ class PostsController < ApplicationController
     @post.forum = @forum
     if @post.save
       redirect_to post_path(@post)
-      flash[:notice] = 'Post successfully created!'
+      flash[:notice] = "Post successfully created!"
     end
   end
 
@@ -53,6 +53,7 @@ class PostsController < ApplicationController
   def flag
     @post = Post.find(params[:id])
     @post.dislike_by current_user
+  end
 
   def favorite
     @post = Post.find(params[:id])
