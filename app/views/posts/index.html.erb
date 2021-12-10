@@ -1,41 +1,70 @@
 <div class="container forum-posts mt-3 py-3">
   <h2>#<%= @forum.mood.name %></h2>
-  <% @posts.each do |post| %>
-    <div class="card mt-1">
-        <div class="card-body">
-          <h5 class="card-title"><%= post.title %><span class="heart-icon"><% if current_user.favorited?(post) %>
-            <%= link_to icon("fas","heart"), favorite_post_path(post) %>
-          <% else %>
-            <%= link_to icon("far","heart"), favorite_post_path(post) %>
-          <% end %></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= post.created_at.strftime("%e %b %y") %></h6>
-          <% if post.get_dislikes.size >= 3 %>
-            <div class="card-wrapper" data-controller="post-card">
-              <p data-post-card-target="content" class="d-none"><%= post.content %></p>
-              <span data-post-card-target="message" data-action="click->post-card#show_content" class="text-center">This post contains sensitive content.<br><span class="badge badge-light">Show More</span></span>
-            </div>
-            <% elsif post.get_dislikes.size >= 5 %>
-              <p>This post is being taken down for review.</p>
-            <% else %>
-              <%= link_to post.content, post_path(post) %>
-          <% end %>
-          <br>
-          <%= link_to pluralize(post.comments.count, "Comment"), post_path(post) %>
-          <%= link_to flag_post_path(post), method: :put, data: { confirm: "Are you sure you want to flag this post?"} do %>
-          <div class="engagement">
-          <p class="text-right"><%= image_tag("flag.png") %><%= post.get_dislikes.size %></p>
-          </div>
 
+  <% @posts.each do |post| %>
+
+    <div class="card mt-1">
+      <div class="card-body">
+        <div class="card-wrapper" data-controller="post-card">
+
+
+          <h6 class="card-subtitle mb-2 text-muted"><%= post.created_at.strftime("%e %b %y") %></h6>
+
+          <h4 class="card-title">
+            <%= post.title %>
+          </h4>
+
+          <% unless post.needs_review? %>
+            <p data-post-card-target="content" class="<%= "d-none" if post.sensitive? %>">
+              <%= post.content %>
+            </p>
           <% end %>
-          <% if current_user.favorited?(post) %>
-            <%= link_to icon("fas","heart"), favorite_post_path(post) %>
-          <% else %>
-            <%= link_to icon("far","heart"), favorite_post_path(post) %>
+
+          <% if post.sensitive? %>
+            <div data-post-card-target="message">
+              <p class="sensitive">
+                This post may contain sensitive content.
+              </p>
+
+              <span data-action="click->post-card#show_content" class="badge badge-light pb-2">Show Content</span>
+            </div>
           <% end %>
+
+          <% if post.needs_review?%>
+            <p class="sensitive">This post is under review.</p>
+          <% end %>
+
+          <!-- ./ comments -->
+            <%= link_to pluralize(post.comments.count, "Comment"), post_path(post)%>
+
+
+          <div class="engagement">
+
+            <!-- ./ flag -->
+            <%= link_to flag_post_path(post), method: :put, data: { confirm: "Are you sure you want to flag this post?"} do %>
+              <%= image_tag("flag.png") %><%= post.get_dislikes.size %>
+            <% end %>
+
+            <!-- ./ heart -->
+            <span class="heart-icon">
+              <% if current_user.favorited?(post) %>
+                <%= link_to icon("fas","heart"), favorite_post_path(post) %>
+              <% else %>
+                <%= link_to icon("far","heart"), favorite_post_path(post) %>
+              <% end %>
+            </span>
+
+          </div>
+          <!-- ./engagement -->
+
         </div>
+      </div>
     </div>
+
   <% end %>
+
 </div>
+
 <div class="container">
   <%= link_to "Create new post", new_forum_post_path(@forum), class:"btn btn-primary btn-lg btn-block mt-2" %>
 </div>
