@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-bottom">
   <%= link_to icon("fas", "home"), root_path, class: "navbar-brand" %>
   <% if !current_user.nil? && !current_user.moods.last.nil? %>
-    <%= link_to icon("fas", "heart"), "/affirmationmessages/#{current_user.moods.order(created_at: :desc).first.name}", class: "navbar-brand" %>
+    <%= link_to icon("fas", "heart"), "/affirmationmessages/#{current_user.user_moods.last.mood.name}", class: "navbar-brand" %>
   <% end %>
   <%= link_to icon("fas", "comments"), forums_path, class: "navbar-brand" %>
   <%= link_to icon("fas", "bell"), root_path, class: "navbar-brand" %>

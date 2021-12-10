@@ -4,7 +4,9 @@ class AffirmationMessagesController < ApplicationController
     @user_mood = UserMood.new
     @user_mood.user = current_user
     @user_mood.mood = @mood
-    @user_mood.save
+    if (current_user.user_moods.empty? || @user_mood.mood != current_user.user_moods.last.mood)
+      @user_mood.save
+    end
     @affirmation_message = AffirmationMessage.new
 
     @messages = AffirmationMessage.where(mood: @mood)
