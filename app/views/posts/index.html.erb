@@ -3,6 +3,7 @@
   <% @posts.each do |post| %>
     <div class="card" style="width: 18rem;">
         <div class="card-body">
+            <div class="card-wrapper" data-controller="post-card">
           <h5 class="card-title"><%= post.title %><span class="heart-icon"><% if current_user.favorited?(post) %>
             <%= link_to icon("fas","heart"), favorite_post_path(post) %>
           <% else %>
@@ -10,7 +11,6 @@
           <% end %></h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= post.created_at.strftime("%e %b %y") %></h6>
           <% if post.get_dislikes.size >= 3 %>
-            <div class="card-wrapper" data-controller="post-card">
               <p data-post-card-target="content" class="d-none"><%= post.content %></p>
               <span data-post-card-target="message" data-action="click->post-card#show_content" class="text-center">This post contains sensitive content.<br><span class="badge badge-light">Show More</span></span>
             </div>
@@ -21,19 +21,13 @@
           <% end %>
           <br>
           <%= link_to pluralize(post.comments.count, "Comment"), post_path(post) %>
-          <%= link_to flag_post_path(post), method: :put, data: { confirm: "Are you sure you want to flag this post?"} do %>
           <div class="engagement">
-          <p class="text-right"><%= image_tag("flag.png") %><%= post.get_dislikes.size %></p>
+              <%= link_to flag_post_path(post), method: :put, data: { confirm: "Are you sure you want to flag this post?"} do %>
+              <%= image_tag("flag.png") %><%= post.get_dislikes.size %>
+            <% end %>
           </div>
-
-          <% end %>
-          <% if current_user.favorited?(post) %>
-            <%= link_to icon("fas","heart"), favorite_post_path(post) %>
-          <% else %>
-            <%= link_to icon("far","heart"), favorite_post_path(post) %>
-          <% end %>
         </div>
     </div>
   <% end %>
-  <%= link_to "Create new post", new_forum_post_path(@forum) %>
 </div>
+  <%= link_to "Create new post", new_forum_post_path(@forum) %>

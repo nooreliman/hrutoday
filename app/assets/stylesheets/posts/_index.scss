@@ -3,9 +3,6 @@
 }
 
 
-.card-wrapper {
-    text-align: center;
-}
 
 .badge {
     position: absolute;
@@ -18,4 +15,9 @@
 .heart-icon {
   position: absolute;
   right: 10%
+}
+
+.engagement {
+  text-align: right;
+  max-width: 100%;
 }
