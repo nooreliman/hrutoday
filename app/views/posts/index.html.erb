@@ -48,9 +48,9 @@
             <!-- ./ heart -->
             <span class="heart-icon">
               <% if current_user.favorited?(post) %>
-                <%= link_to icon("fas","heart"), favorite_post_path(post) %>
+                <%= link_to icon("fas","heart"), favorite_post_path(post), data:{ post_card_target: 'favorite', action: 'click->post-card#favorite' } %>
               <% else %>
-                <%= link_to icon("far","heart"), favorite_post_path(post) %>
+                <%= link_to icon("far","heart"), favorite_post_path(post), data:{ post_card_target: 'favorite', action: 'click->post-card#favorite' } %>
               <% end %>
             </span>
 
