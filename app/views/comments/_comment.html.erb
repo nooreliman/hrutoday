@@ -1,5 +1,34 @@
 <li class="list-group-item">
-  <%= comment.content %> <%= "(#{pluralize(comment.replies.count, "reply")})" unless comment.replies.nil? %>
-  <%= comment.created_at.strftime("%e %b %y") %>
+    <% if comment.sensitive? %>
+      <div class="card-wrapper" data-controller="post-card">
+        <p data-post-card-target="content" class="d-none">
+          <%= comment.content %>
+        </p>
+        <span data-post-card-target="message" data-action="click->post-card#show_content" class="smessage">
+          This comment contains sensitive content.<br>
+          <span class="badge-show badge-dark">Show More</span>
+        </span>
+      </div>
+    <% elsif comment.offensive? %>
+      <p>This comment is down for review.</p>
+    <% else %>
+      <%= comment.content %>
+      <small><%= comment.created_at.strftime("%e %b %y") %></small>
+
+      <%# replies %>
+      <% if comment.replies.length > 0 %>
+        <% comment.replies.each do |reply| %>
+          <p class="reply"><%= reply.content %></p>
+        <% end %>
+      <% end %>
+
+    <% end %>
+
+  <%# flag comment %>
+  <%= link_to flag_comment_path(comment), method: :put, data: { confirm: "Are you sure you want to flag this comment?" } do %>
+    <div class="engagement">
+    <p class="text-right"><%= image_tag("flag.png") %><%= comment.get_dislikes.size %></p>
+  <% end %>
+
   <%= link_to "Reply", comment_path(comment)  %>
 </li>
