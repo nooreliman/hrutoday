@@ -4,6 +4,6 @@
     <%= link_to icon("fas", "heart"), "/affirmationmessages/#{current_user.user_moods.last.mood.name}", class: "navbar-brand" %>
   <% end %>
   <%= link_to icon("fas", "comments"), forums_path, class: "navbar-brand" %>
-  <%= link_to icon("fas", "bell"), root_path, class: "navbar-brand" %>
+  <%= link_to icon("fas", "bell"), notifications_path, class: "navbar-brand" %>
 
 </div>

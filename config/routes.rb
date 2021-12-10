@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :posts
   end
 
+  get 'notifications', to: 'pages#notifications'
+
   resources :posts do
     member do
       put "flag", to: "posts#flag"
@@ -39,7 +41,6 @@ Rails.application.routes.draw do
       put "flag", to: "affirmation_messages#flag", as: "flag"
     end
   end
-  resources :notifications, only: [:index, :create, :update]
 
   resources :usermoods, only: [:create]
 

@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Updates</h1>
+    <p>
+      <% @comments.each do |comment| %>
+        <div class="card">
+          <br>
+          Posted By: <%= comment.user.username %>
+          <br>
+          <%= comment.content %>
+          <br>
+          <% raise %>
+          <% time_passed = Time.now - comment.created_at %>
+          <%= time_ago_in_words((time_passed/1.day)) %>
+      </div>
+      <% end %>
+    </p>
+</div>
