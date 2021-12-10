@@ -16,6 +16,7 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :age, presence: true
 
+  acts_as_voter
 
   def moods_for_day(day)
     week_moods = UserMood.where(created_at: (Time.now.midnight - 6.days)...(Time.now))

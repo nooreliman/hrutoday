@@ -8,6 +8,36 @@
       <h6 class="card-subtitle mb-2 text-muted"><%= @post.created_at.strftime("%e %b %y") %></h6>
       <p class="card-text"><%= @post.content %></p>
         <% if current_user == @post.user %>
+        <%= link_to "Delete",
+                    post_path(@post),
+                    method: :delete,
+                    data: { confirm: "Are you sure?" }, class:"btn-posts" %>
+        <%= link_to "Edit", edit_post_path(@post) %>
+        <% end %>
+        <%= link_to flag_post_path(@post), method: :put, data: { confirm: "Are you sure you want to flag this post?" } do %>
+        <div class="engagement">
+          <p class="text-right"><%= image_tag("flag.png") %><%= @post.get_dislikes.size %></p>
+        </div>
+        <% end %>
+      <ul class="list-group list-group-flush">
+        <% @post.comments.each do |comment| %>
+          <li class="list-group-item">
+          <% if comment.get_dislikes.size >= 3 %>
+          <div class="card-wrapper" data-controller="post-card">
+              <p data-post-card-target="content" class="d-none"><%= comment.content %></p>
+              <span data-post-card-target="message" data-action="click->post-card#show_content" class="text-center">This comment contains sensitive content.<br><span class="badge-show badge-dark">Show More</span></span>
+            </div>
+            <% elsif comment.get_dislikes.size >= 5 %>
+            <p>This comment is being taken down for review.</p>
+            <% else %>
+              <%= comment.content %>
+              </div>
+              <% end %>
+              <%= link_to flag_comment_path(comment), method: :put, data: { confirm: "Are you sure you want to flag this comment?" } do %>
+              <div class="engagement">
+              <p class="text-right"><%= image_tag("flag.png") %><%= comment.get_dislikes.size %></p>
+          <% end %>
+          </li>
 
           <%= link_to "Delete",
                       post_path(@post),
@@ -36,5 +66,4 @@
       <% end %>
 
     </div>
-  </div>
 </div>

@@ -29,6 +29,11 @@ class CommentsController < ApplicationController
     end
   end
 
+  def flag
+    @comment = Comment.find(params[:id])
+    @comment.dislike_by current_user
+  end
+
   private
 
   def comment_params
