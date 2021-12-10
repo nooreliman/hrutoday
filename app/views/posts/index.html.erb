@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container forum-posts mt-3 py-3">
   <h2>#<%= @forum.mood.name %></h2>
   <% @posts.each do |post| %>
-    <div class="card" style="width: 18rem;">
+    <div class="card mt-1">
         <div class="card-body">
           <h5 class="card-title"><%= post.title %><span class="heart-icon"><% if current_user.favorited?(post) %>
             <%= link_to icon("fas","heart"), favorite_post_path(post) %>
@@ -35,5 +35,7 @@
         </div>
     </div>
   <% end %>
-  <%= link_to "Create new post", new_forum_post_path(@forum) %>
+</div>
+<div class="container">
+  <%= link_to "Create new post", new_forum_post_path(@forum), class:"btn btn-primary btn-lg btn-block mt-2" %>
 </div>

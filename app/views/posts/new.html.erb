@@ -1,14 +1,16 @@
-<div class="container">
+<div class="container new-post">
   <h2>Create new post in</h2>
   <h3>#<%= @forum.mood.name %></h3>
 </div>
-<div class="row">
-    <div class="col-sm-6 mx-auto">
-      <%= simple_form_for [@forum, @post] do |f| %>
-        <%= f.input :title %>
-        <%= f.input :content %>
-        <%= f.submit "Create post", class: "btn btn-primary" %>
-      <% end %>
-    </div>
+<div class="container post-form py-3">
+  <div class="row">
+      <div class="col mx-auto">
+        <%= simple_form_for [@forum, @post] do |f| %>
+          <%= f.input :title %>
+          <%= f.input :content %>
+          <%= f.submit "Create post", class: "btn btn-primary" %>
+        <% end %>
+        <%= link_to "Cancel", forum_posts_path(@forum), class: "btn btn-danger mt-1" %>
+      </div>
   </div>
-  
+</div>
