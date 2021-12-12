@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     collection do
       get "myposts"
     end
-    resources :comments, only: [:new, :create]
+    resources :comments, only: [:new, :create, :show, :index]
     # get '/posts/:post_id/comments/new/(:comment_id)', to: 'comments#new', as: :new_comment
     collection do
       get 'myposts'
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
     member do
       get 'favorite', to: "posts#favorite"
-      put 'favorite', to: "posts#favorite"
+      put 'favorite', to: "posts#favorite", as: "fav"
     end
     resources :comments
   end

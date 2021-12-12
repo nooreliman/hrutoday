@@ -7,9 +7,7 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-
   static targets = ["content", "message", "favorite", "flag"];
-
 
   // connect() {
   //   console.log("Generated Controller Connected!");
@@ -29,8 +27,15 @@ export default class extends Controller {
   }
 
   favorite(e) {
-    event.preventDefault();
-    console.log("favorite!")
+    console.log(this.favoriteTarget);
+    if (this.favoriteTarget.classList.value.includes("fas fa-heart")) {
+      this.favoriteTarget.classList.remove("fas", "fa-heart");
+      this.favoriteTarget.classList.add("far", "fa-heart");
+    } else {
+      this.favoriteTarget.classList.remove("far", "fa-heart");
+      this.favoriteTarget.classList.add("fas", "fa-heart");
+    }
+    e.preventDefault();
   }
 }
 // [...]
