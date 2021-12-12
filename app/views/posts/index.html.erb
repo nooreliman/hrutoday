@@ -41,17 +41,10 @@
           <div class="engagement">
 
             <!-- ./ flag -->
-             <span data-action="click->post-card#update_flags"  data-link="<%= flag_post_path(post) %>">
-              <%#= link_to flag_post_path(post), method: :put, data: { confirm: "Are you sure you want to flag this post?"} do %>
-                <div>
-                  <%= image_tag("flag.png") %>
-                  <span data-post-card-target="flagnum">
-                    <%= post.get_dislikes.size %>
-                  </span>
-                </div>
-              <%# end %>
-            </span>
-
+               <%= link_to raw("<button data-action=\"click->post-card#flag\" data-post-card-target=\"flag\" class=\"far fa-flag flag-btn\"></button>"), flag_post_path(post), method: :put, data: { confirm: "Are you sure you want to flag this post?"} if post.get_dislikes.size === 0 %>
+                <% if post.get_dislikes.size > 0 %>
+                    <i class="fas fa-flag"></i>
+                <% end %>
 
             <!-- ./ heart -->
             <span class="heart-icon">
