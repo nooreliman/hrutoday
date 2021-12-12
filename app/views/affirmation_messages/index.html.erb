@@ -5,8 +5,10 @@
     <%= f.submit "Submit message", class: "btn btn-primary" %>
   <% end %>
 </div>
-
 <div class="container affirmation-page">
+  <div class="user-count mt-1">
+    <p><%= @mood.user_moods.count %> users have logged the same.</p>
+  </div>
 <!-- Button trigger modal -->
   <% @messages.sample(5).each do |message| %>
       <%= image_tag message.mood.image, data: {

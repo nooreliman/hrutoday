@@ -1,12 +1,12 @@
 <div class="container">
   <% @favorites.each do |post| %>
-    <div class="card" style="width: 18rem;">
+    <div class="card mt-2 notification-card">
       <%= link_to post_path(post) do %>
         <div class="card-body">
           <h5 class="card-title"><%= post.title %></h5>
           <h6 class="card-subtitle mb-2 text-muted"><%= post.created_at.strftime("%e %b %y") %></h6>
           <p class="card-text"><%= post.content %></p>
-          <%= link_to pluralize(post.comments.count, "Comment"), post_path(post) %>
+          <%= link_to pluralize(post.comments.count, "Comment"), post_path(post), class: "comments" %>
           <% if current_user.favorited?(post) %>
             <%= link_to icon("fas","heart"), favorite_post_path(post) %>
           <% else %>
