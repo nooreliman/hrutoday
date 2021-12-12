@@ -7,7 +7,9 @@
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-  static targets = ["content", "message", "favorite"];
+
+  static targets = ["content", "message", "favorite", "flag"];
+
 
   // connect() {
   //   console.log("Generated Controller Connected!");
@@ -16,7 +18,14 @@ export default class extends Controller {
   show_content(e) {
     // this.contentTarget.classList.toggle("d-none");
     this.messageTarget.classList.add("d-none");
-    this.contentTarget.classList.remove("d-none")
+    this.contentTarget.classList.remove("d-none");
+  }
+
+  flag(e) {
+    this.flagTarget.disabled = true;
+    this.flagTarget.classList.remove("far", "fa-flag");
+    this.flagTarget.classList.add("fas", "fa-flag", "flagged");
+    e.preventDefault();
   }
 
   favorite(e) {
