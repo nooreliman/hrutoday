@@ -11,7 +11,7 @@
           <h6 class="card-subtitle mb-2 text-muted"><%= post.created_at.strftime("%e %b %y") %></h6>
 
           <h4 class="card-title">
-            <%= post.title %>
+            <%= link_to post.title, post_path(post), class: "post-name" %>
           </h4>
 
           <% unless post.needs_review? %>
@@ -35,7 +35,7 @@
           <% end %>
 
           <!-- ./ comments -->
-            <%= link_to pluralize(post.comments.count, "Comment"), post_path(post)%>
+            <%= link_to pluralize(post.comments.count, "Comment"), post_path(post), class: "comments"%>
 
 
           <div class="engagement">
@@ -49,9 +49,9 @@
             <!-- ./ heart -->
             <span class="heart-icon">
               <% if current_user.favorited?(post) %>
-                <%= link_to icon("fas","heart"), favorite_post_path(post) %>
+                <%= link_to icon("fas","heart"), favorite_post_path(post), data:{ post_card_target: 'favorite', action: 'click->post-card#favorite' } %>
               <% else %>
-                <%= link_to icon("far","heart"), favorite_post_path(post) %>
+                <%= link_to icon("far","heart"), favorite_post_path(post), data:{ post_card_target: 'favorite', action: 'click->post-card#favorite' } %>
               <% end %>
             </span>
 
@@ -67,5 +67,5 @@
 </div>
 
 <div class="container">
-  <%= link_to "Create new post", new_forum_post_path(@forum), class:"btn btn-primary btn-lg btn-block mt-2" %>
+  <%= link_to "New post", new_forum_post_path(@forum), class:"btn btn-primary btn-sm new-post" %>
 </div>

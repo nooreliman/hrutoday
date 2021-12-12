@@ -98,3 +98,41 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+.card-title {
+  color: #242424;
+}
+
+.card-text {
+  color: #242424;
+}
+
+.post-name {
+  color: #4a5568;
+}
+
+.post-name:hover {
+  text-decoration: none;
+  color: #4a5568;
+}
+
+.post-card {
+  background-color: #f0eae1;
+}
+
+.comments {
+  color: #4a5568;
+}
+
+.comments:hover {
+  text-decoration: none;
+  color: #4a5568;
+}
+
+.notification {
+  background-color: #f0eae1;
+}
+
+.notification-card {
+  background-color: #f0eae1;
+}
