@@ -1,13 +1,21 @@
-
 <div class="container mt-2" >
+  <div class="flex-for-skip-btn">
+    <p><b><i><%= pluralize(@mood.user_moods.count, "user") %> have logged the same mood as you.</i></b></p>
+    <%= link_to "Skip", forums_path, class: "affirm-skip-btn" %>
+  </div>
+
   <%= simple_form_for [ @mood, @affirmation_message ] do |f| %>
-    <%= f.input :message, label: "Write something nice to others who are feeling the same:" %>
-    <%= f.submit "Submit message", class: "btn btn-primary" %>
+    <%= f.input :message, label: "Write something nice to them:" %>
+    <%= f.submit "Submit", class: "btn btn-outline-primary btn-sm" %>
   <% end %>
 </div>
+
+
 <div class="container affirmation-page">
-  <div class="user-count mt-1">
-    <p><%= @mood.user_moods.count %> users have logged the same.</p>
+  <div class="user-count mt-3">
+    <p>
+    Tap on the faces below to read their messages to you!
+    </p>
   </div>
 <!-- Button trigger modal -->
   <% @messages.sample(5).each do |message| %>
