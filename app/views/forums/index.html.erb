@@ -1,6 +1,6 @@
 <div class="container forums">
-  <h2>Forums</h2>
-  <p>Pick the one you'd like to visit</p>
+  <h1>Forums</h1>
+  <p>Pick one you would like to visit</p>
   <div class="forum-cards">
     <% @forums.each do |forum| %>
       <div class="card-category align-items-end pb-5" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= asset_path "forum-#{ forum.mood.name.downcase}.png" %>)">
