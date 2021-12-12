@@ -1,6 +1,6 @@
 <div class="container">
   <% @favorites.each do |post| %>
-    <div class="card mt-2 notification-card">
+    <div class="card mt-1 notification-card">
       <%= link_to post_path(post) do %>
         <div class="card-body">
           <h5 class="card-title"><%= post.title %></h5>
