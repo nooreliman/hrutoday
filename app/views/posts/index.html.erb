@@ -67,5 +67,30 @@
 </div>
 
 <div class="container">
-  <%= link_to "New post", new_forum_post_path(@forum), class:"btn btn-primary btn-sm new-post" %>
+  <%#= link_to "New post", new_forum_post_path(@forum), class:"btn btn-primary btn-sm new-post", data-toggle:"modal", data-target:"#exampleModal" %>
+</div>
+
+<button type="button" class="btn btn-primary new-post" data-toggle="modal" data-target="#exampleModal">
+  New Post
+</button>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Create new post</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <%= simple_form_for [@forum, @post] do |f| %>
+          <%= f.input :title %>
+          <%= f.input :content %>
+          <%= f.submit "Create post", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
