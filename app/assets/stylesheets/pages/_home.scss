@@ -10,11 +10,11 @@ body {
 
 .mood-title {
   position: absolute;
-  padding-top: 110px;
+  padding-top: 105px;
   text-decoration: none;
-  color: black;
+  color: $dark-gray;
   font-family: "Quicksand";
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .landing-page {
@@ -30,8 +30,7 @@ body {
 
 .mood-tracker {
   text-align: left;
-  color: black;
-  border-radius: 10px;
+  color: $dark-gray;
 }
 
 .mood-selector {
@@ -41,13 +40,13 @@ body {
 .mood-today {
   padding-top: 10px;
   font-family: "Roboto";
-  font-size: 30px;
+  font-size: 24px;
 }
 
 .feeling-today {
   font-family: "Roboto";
   padding-top: 10px;
-  font-size: 30px;
+  font-size: 24px;
 }
 
 .card-mood {
@@ -56,11 +55,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  font-size: 24px;
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
 }
 
 .forum-name {
