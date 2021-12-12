@@ -6,47 +6,50 @@
 <div class="container post mt-3 py-3">
   <div class="card">
     <div class="card-body">
+      <div class="card-wrapper" data-controller="post-card">
 
-      <h5 class="card-title"><%= @post.title %></h5>
-      <h6 class="card-subtitle mb-2 text-muted"><%= @post.created_at.strftime("%e %b %y") %></h6>
 
-      <p class="card-text"><%= @post.content %></p>
+        <h5 class="card-title"><%= @post.title %></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= @post.created_at.strftime("%e %b %y") %></h6>
 
-      <%# buttons %>
-      <% if current_user == @post.user %>
-        <%= link_to "Edit", edit_post_path(@post), class: "btn-posts" %>
-        <%= link_to "Delete",
-                    post_path(@post),
-                    method: :delete,
-                    data: { confirm: "Are you sure?" },
-                    class:"btn-posts" %>
-      <% end %>
+        <p class="card-text"><%= @post.content %></p>
 
-      <%# Like %>
-      <% if current_user.favorited?(@post) %>
-        <%= link_to icon("fas","heart"), favorite_post_path(@post) %>
-      <% else %>
-        <%= link_to icon("far","heart"), favorite_post_path(@post) %>
-      <% end %>
+        <%# buttons %>
+        <% if current_user == @post.user %>
+          <%= link_to "Edit", edit_post_path(@post), class: "btn-posts" %>
+          <%= link_to "Delete",
+                      post_path(@post),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" },
+                      class:"btn-posts" %>
+        <% end %>
 
-      <%# flag post %>
-      <%= link_to raw("<button data-action=\"click->post-card#flag\" data-post-card-target=\"flag\" class=\"far fa-flag flag-btn\"></button>"), flag_post_path(@post), method: :put, data: { confirm: "Are you sure you want to flag this post?"} if @post.get_dislikes.size === 0 %>
-                <% if @post.get_dislikes.size > 0 %>
-                    <i class="fas fa-flag"></i>
-                <% end %>
+        <%# Like %>
+        <% if current_user.favorited?(@post) %>
+          <%= link_to icon("fas","heart"), favorite_post_path(@post) %>
+        <% else %>
+          <%= link_to icon("far","heart"), favorite_post_path(@post) %>
+        <% end %>
 
-      <%# comments %>
-      <ul class="list-group list-group-flush mt-4">
-        <%= render @post.comments %>
-      </ul>
+        <%# flag post %>
+        <%= link_to raw("<button data-action=\"click->post-card#flag\" data-post-card-target=\"flag\" class=\"far fa-flag flag-btn\"></button>"), flag_post_path(@post), method: :put, data: { confirm: "Are you sure you want to flag this post?"} if @post.get_dislikes.size === 0 %>
+                  <% if @post.get_dislikes.size > 0 %>
+                      <i class="fas fa-flag"></i>
+                  <% end %>
 
-      <%# new comment form %>
-      <%= simple_form_for [@post, @comment] do |f| %>
-        <%= f.input :id, as: :hidden %>
-        <%= f.input :content, as: :text, label: "Write something" %>
-        <%= f.submit "Submit", class: "btn btn-primary m-3" %>
-      <% end %>
+        <%# comments %>
+        <ul class="list-group list-group-flush mt-4">
+          <%= render @post.comments %>
+        </ul>
 
+        <%# new comment form %>
+        <%= simple_form_for [@post, @comment] do |f| %>
+          <%= f.input :id, as: :hidden %>
+          <%= f.input :content, as: :text, label: "Write something" %>
+          <%= f.submit "Submit", class: "btn btn-primary m-3" %>
+        <% end %>
+
+      </div>
     </div>
   </div>
 </div>
