@@ -9,7 +9,7 @@ class PagesController < ApplicationController
   end
 
   def notifications
-    @comments = current_user.notifications
+    @comments = current_user.notifications.sort{ |a,b| b.created_at <=> a.created_at }
 
     @comments.each do |comment|
       comment.read!
