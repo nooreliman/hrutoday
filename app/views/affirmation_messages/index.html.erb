@@ -5,9 +5,10 @@
   </div>
 
 
+
  <!---input message--->
- <%= simple_form_for [ @mood, @affirmation_message ] do |f| %>
-    <%= f.input :message, label: "Write something nice to them:" %>
+  <%= simple_form_for [ @mood, @affirmation_message ] do |f| %>
+    <%= f.input :message, label: "Write something nice to other users:" %>
     <%= f.submit "Submit", class: "btn btn-outline-primary btn-sm" %>
   <% end %>
 </div>
@@ -27,7 +28,6 @@
         toggle: "modal",
         target: "#modal-#{message.id}"
       }, class: "mt-3 a"%>
-
 
     <!-- Modal -->
     <div class="modal fade" id="modal-<%= message.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -67,6 +67,7 @@
                       <i class="fas fa-flag"></i>
                   <% end %>
               </div>
+            
             </div>
           </div>
         </div>

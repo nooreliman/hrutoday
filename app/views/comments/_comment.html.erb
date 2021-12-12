@@ -4,7 +4,7 @@
         <p data-post-card-target="content" class="d-none">
           <%= comment.content %>
         </p>
-        <span data-post-card-target="message" data-action="click->post-card#show_content" class="smessage">
+        <span data-post-card-target="message" data-action="click->post-card#show_content" class="sensi-message">
           This comment contains sensitive content.<br>
           <span class="badge-show badge-dark">Show More</span>
         </span>
@@ -24,11 +24,13 @@
 
     <% end %>
 
-  <%# flag comment %>
-  <%= link_to flag_comment_path(comment), method: :put, data: { confirm: "Are you sure you want to flag this comment?" } do %>
-    <div class="engagement">
-    <p class="text-right"><%= image_tag("flag.png") %><%= comment.get_dislikes.size %></p>
-  <% end %>
+    <%# flag comment %>
+    <div class="engagement text-right">
+      <%= link_to raw("<button data-action=\"click->post-card#flag\" data-post-card-target=\"flag\" class=\"far fa-flag flag-btn\"></button>"), flag_post_path(comment), method: :put, data: { confirm: "Are you sure you want to flag this comment?"} if comment.get_dislikes.size === 0 %>
+        <% if comment.get_dislikes.size > 0 %>
+            <i class="fas fa-flag"></i>
+        <% end %>
+    </div>
 
   <%= link_to "Reply", comment_path(comment)  %>
 </li>

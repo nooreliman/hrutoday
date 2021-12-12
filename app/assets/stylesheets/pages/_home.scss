@@ -1,4 +1,9 @@
 // Specific CSS for your home-page
+h1 {
+  font-size: 24px;
+  padding-top: 10px;
+}
+
 body {
   padding-bottom: 70px;
   background-color: #f6f5f0;
@@ -35,18 +40,6 @@ body {
 
 .mood-selector {
   border-radius: 10px;
-}
-
-.mood-today {
-  padding-top: 10px;
-  font-family: "Roboto";
-  font-size: 24px;
-}
-
-.feeling-today {
-  font-family: "Roboto";
-  padding-top: 10px;
-  font-size: 24px;
 }
 
 .card-mood {

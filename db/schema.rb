@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_09_062211) do
+ActiveRecord::Schema.define(version: 2021_12_12_102909) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,8 +26,8 @@ ActiveRecord::Schema.define(version: 2021_12_09_062211) do
   end
 
   create_table "comment_replies", force: :cascade do |t|
-    t.integer "comment_id", null: false
-    t.integer "reply_id", null: false
+    t.bigint "comment_id", null: false
+    t.bigint "reply_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["comment_id"], name: "index_comment_replies_on_comment_id"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 2021_12_09_062211) do
     t.bigint "mood_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "context"
     t.index ["mood_id"], name: "index_forums_on_mood_id"
   end
 
