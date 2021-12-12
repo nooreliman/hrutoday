@@ -4,49 +4,74 @@
     <%= link_to "Skip", forums_path, class: "affirm-skip-btn" %>
   </div>
 
-  <%= simple_form_for [ @mood, @affirmation_message ] do |f| %>
+
+ <!---input message--->
+ <%= simple_form_for [ @mood, @affirmation_message ] do |f| %>
     <%= f.input :message, label: "Write something nice to them:" %>
     <%= f.submit "Submit", class: "btn btn-outline-primary btn-sm" %>
   <% end %>
 </div>
 
 
+
 <div class="container affirmation-page">
   <div class="user-count mt-3">
     <p>
-    Tap on the faces below to read their messages to you!
+      Tap on the faces below to read their messages to you!
     </p>
   </div>
-<!-- Button trigger modal -->
+
+  <!-- Button trigger modal -->
   <% @messages.sample(5).each do |message| %>
       <%= image_tag message.mood.image, data: {
         toggle: "modal",
         target: "#modal-#{message.id}"
       }, class: "mt-3 a"%>
-  <!-- Modal -->
-      <div class="modal fade" id="modal-<%= message.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-body">
-              <% if message.get_dislikes.size >= 3 %>
-              <div class="card-wrapper" data-controller="post-card">
-              <p data-post-card-target="content" class="affirmation d-none" ><%= message.message %></p>
-              <span data-post-card-target="message" data-action="click->post-card#show_content" class="message-flag">This message contains sensitive content.<br><span class="badge-show badge-dark">Show More</span></span>
-            </div>
-            <% elsif message.get_dislikes.size >= 5 %>
-              <p>This message is being taken down for review.</p>
-            <% else %>
-              <p class="affirmation"><%= message.message %>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="modal-<%= message.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="card-wrapper" data-controller="post-card">
+
+              <% unless message.needs_review? %>
+                <p data-post-card-target="content" class="<%= "d-none" if message.sensitive? %>">
+                <p class="affirmation"><%= message.message %></p>
+                </p>
               <% end %>
-              <%= link_to flag_affirmation_message_path(message), method: :put, data: { confirm: "Are you sure you want to flag this message?" } do %>
+
+
+              <% if message.sensitive? %>
+                <div data-post-card-target="message">
+                  <p class="sensitive">
+                    This post may contain sensitive content.
+                  </p>
+
+                  <span data-action="click->post-card#show_content" class="badge badge-light pb-2">Show Content</span>
+                </div>
+              <% end %>
+
+
+              <% if message.needs_review?%>
+                <p class="sensitive">This post is under review.</p>
+              <% end %>
+
+
+
+              <!---flag-affirmatiom-->
               <div class="affirmation-flag">
-              <%= image_tag("flag.png") %><%= message.get_dislikes.size %></p>
-            </div>
-            <% end %>
+                <%= link_to raw("<button data-action=\"click->post-card#flag\" data-post-card-target=\"flag\" class=\"far fa-flag flag-btn\"></button>"), flag_post_path(message), method: :put, data: { confirm: "Are you sure you want to flag this message?"} if message.get_dislikes.size === 0 %>
+                  <% if message.get_dislikes.size > 0 %>
+                      <i class="fas fa-flag"></i>
+                  <% end %>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
   <% end %>
 </div>
 
