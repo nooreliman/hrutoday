@@ -18,9 +18,14 @@ class AffirmationMessagesController < ApplicationController
     @affirmation_message = AffirmationMessage.new(affirm_params)
     @affirmation_message.user = current_user
     @affirmation_message.mood = @mood
+
+    @messages = AffirmationMessage.where(mood: @mood)
+
     if @affirmation_message.save
-    redirect_to "/affirmationmessages/#{@mood.name}"
-    flash[:notice] = 'Thank you for sharing some kind words to others feeling the same!'
+      redirect_to "/affirmationmessages/#{@mood.name}"
+      flash[:notice] = 'Thank you for sharing some kind words to others feeling the same!'
+    else
+      render :index
     end
   end
 
