@@ -24,9 +24,9 @@
   </div>
 
   <!-- Button trigger modal -->
-  <div id="messages">
+  <div id="messages" data-controller="affirmation" >
     <% @messages.sample(5).each_with_index do |message, index| %>
-      <div class="mood-message <%= "message-alt" if index.even? %>" style="transform: translateX(0)">
+      <div class="mood-message <%= "message-alt" if index.even? %>" data-affirmation-target="face">
         <%= image_tag message.mood.image, data: {
           toggle: "modal",
           target: "#modal-#{message.id}"
