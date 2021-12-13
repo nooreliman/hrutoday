@@ -1,15 +1,14 @@
 <div class="container mt-2">
   <h3>Written by: @<%= @comment.post.user.username %></h3>
   <h3>Posted:<%= @comment.post.created_at.strftime("%e %b %y") %></h3>
-  <%#= render "reply", collection: @comment.replies, as: :reply %>
   <h3>Comment: <%= @comment.content %></h3>
-  <% @comment.replies.each do |reply| %>
-    <%= render "reply", reply: reply %>
-  <% end %>
+  <%# @comment.replies.each do |reply| %>
+    <%#= render "reply", reply: reply %>
+  <%# end %>
 
 
   <%= simple_form_for [@comment.post, @reply] do |f| %>
-    <input type="hidden" name="comment[parent_id]" value="<%= @comment.id %>">
+    <input type="hidden" name="comment[parent_id]" value="= @comment.id">
     <%= f.input :content, as: :text, label: "Write something" %>
     <%= f.submit "Submit", class: "btn btn-primary" %>
   <% end %>

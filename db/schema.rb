@@ -25,18 +25,10 @@ ActiveRecord::Schema.define(version: 2021_12_13_105036) do
     t.index ["user_id"], name: "index_affirmation_messages_on_user_id"
   end
 
-  create_table "comment_replies", force: :cascade do |t|
-    t.integer "comment_id", null: false
-    t.integer "reply_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["comment_id"], name: "index_comment_replies_on_comment_id"
-    t.index ["reply_id"], name: "index_comment_replies_on_reply_id"
-  end
-
   create_table "comments", force: :cascade do |t|
     t.text "content"
     t.boolean "status"
+    t.integer "parent_id"
     t.bigint "user_id", null: false
     t.bigint "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
