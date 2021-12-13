@@ -20,6 +20,7 @@ ActiveStorage.start();
 // External imports
 import "bootstrap";
 import "controllers";
+import { initIntro } from "../modules/init_introjs";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
@@ -27,4 +28,5 @@ import "controllers";
 document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initIntro();
 });
