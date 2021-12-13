@@ -12,8 +12,11 @@
     <% elsif comment.offensive? %>
       <p>This comment is down for review.</p>
     <% else %>
-      <%= comment.content %>
-      <small><%= comment.created_at.strftime("%e %b %y") %></small>
+      <div class="comment-top">
+        <small><%= comment.created_at.strftime("%e %b %y") %></small>
+        <%= link_to icon("fas", "reply"), comment_path(comment)  %>
+      </div>
+        <%= comment.content %>
 
       <%# replies %>
       <% if comment.replies.length > 0 %>
@@ -32,5 +35,9 @@
         <% end %>
     </div>
 
-  <%= link_to "Reply", comment_path(comment)  %>
+    <%# flag comment %>
+    <div class="delete">
+      <%= link_to icon("fas", "trash"), post_comment_path(@post, comment),
+            method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
 </li>

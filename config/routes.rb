@@ -28,7 +28,7 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :comments, only: [:show, :update]
+  resources :comments, only: [:show, :update, :destroy]
 
   get "affirmationmessages/:mood", to: "affirmation_messages#index"
 
