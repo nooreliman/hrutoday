@@ -8,7 +8,6 @@
     <div class="card-body">
       <div class="card-wrapper" data-controller="post-card">
 
-
         <h5 class="card-title"><%= @post.title %></h5>
         <h6 class="card-subtitle mb-2 text-muted"><%= @post.created_at.strftime("%e %b %y") %></h6>
 
@@ -25,17 +24,16 @@
         <% end %>
 
         <%# Like %>
-        <% if current_user.favorited?(@post) %>
-          <%= link_to icon("fas","heart"), favorite_post_path(@post) %>
-        <% else %>
-          <%= link_to icon("far","heart"), favorite_post_path(@post) %>
-        <% end %>
+        <span class="heart-icon">
+          <%= link_to '', fav_post_path(@post), method: :put, class: current_user.favorited?(@post) ? "fas fa-heart fav-posts" : "far fa-heart fav-posts", data:{ post_card_target: 'favorite', action: 'click->post-card#favorite' } %>
+        </span>
 
         <%# flag post %>
         <%= link_to raw("<button data-action=\"click->post-card#flag\" data-post-card-target=\"flag\" class=\"far fa-flag flag-btn\"></button>"), flag_post_path(@post), method: :put, data: { confirm: "Are you sure you want to flag this post?"} if @post.get_dislikes.size === 0 %>
-                  <% if @post.get_dislikes.size > 0 %>
-                      <i class="fas fa-flag"></i>
-                  <% end %>
+          <% if @post.get_dislikes.size > 0 %>
+              <i class="fas fa-flag"></i>
+          <% end %>
+     
 
         <%# comments %>
         <ul class="list-group list-group-flush mt-4">
@@ -48,6 +46,8 @@
           <%= f.input :content, as: :text, label: "Write something" %>
           <%= f.submit "Submit", class: "btn btn-primary m-3" %>
         <% end %>
+
+  
 
       </div>
     </div>
