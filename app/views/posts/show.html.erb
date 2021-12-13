@@ -4,9 +4,9 @@
    </div>
 </div>
 
-<div class="container post mt-3 py-3">
+<div class="container post mt-3 py-3" style="background-color: <%= @post.forum.mood.color %>;>
   <div class="card">
-    <div class="card-body">
+    <div class="card-body" style="background-color: #f6f5f0">
       <div class="card-wrapper" data-controller="post-card">
 
         <h5 class="card-title"><%= @post.title %></h5>

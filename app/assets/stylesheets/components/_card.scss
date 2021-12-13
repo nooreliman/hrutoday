@@ -24,6 +24,10 @@
   border-radius: 10px;
 }
 
+.card-body {
+  border-radius: 10px;
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
