@@ -27,7 +27,6 @@ export default class extends Controller {
   }
 
   favorite(e) {
-    console.log(this.favoriteTarget);
     if (this.favoriteTarget.classList.value.includes("fas fa-heart")) {
       this.favoriteTarget.classList.remove("fas", "fa-heart");
       this.favoriteTarget.classList.add("far", "fa-heart");
