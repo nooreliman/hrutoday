@@ -36,42 +36,42 @@ puts "Creating moods"
 
 mood_happy = Mood.new(
   name: "Happy",
-  image: "happy.png",
+  image: "happy.png"
 )
 
 mood_happy.save!
 
 mood_sad = Mood.new(
   name: "Sad",
-  image: "sad.png",
+  image: "sad.png"
 )
 
 mood_sad.save!
 
 mood_angry = Mood.new(
   name: "Angry",
-  image: "angry.png",
+  image: "angry.png"
 )
 
 mood_angry.save!
 
 mood_scared = Mood.new(
   name: "Scared",
-  image: "scared.png",
+  image: "scared.png"
 )
 
 mood_scared.save!
 
 mood_love = Mood.new(
   name: "Love",
-  image: "love.png",
+  image: "love.png"
 )
 
 mood_love.save!
 
 mood_confused = Mood.new(
   name: "Confused",
-  image: "confused.png",
+  image: "confused.png"
 )
 
 mood_confused.save!
@@ -82,6 +82,7 @@ puts "Creating forums"
 
 forum_happy = Forum.new(
   description: "Happy",
+  context: "Share the good news!"
 )
 
 forum_happy.mood = mood_happy
@@ -89,6 +90,7 @@ forum_happy.save!
 
 forum_sad = Forum.new(
   description: "Sad",
+  context: "Unpack your emotions"
 )
 
 forum_sad.mood = mood_sad
@@ -96,6 +98,7 @@ forum_sad.save!
 
 forum_angry = Forum.new(
   description: "Angry",
+  context: "Release your frustrations"
 )
 
 forum_angry.mood = mood_angry
@@ -103,6 +106,7 @@ forum_angry.save!
 
 forum_scared = Forum.new(
   description: "Scared",
+  context: "Share your fears - you're not alone"
 )
 
 forum_scared.mood = mood_scared
@@ -110,6 +114,7 @@ forum_scared.save!
 
 forum_love = Forum.new(
   description: "Loved",
+  context:"What are we grateful for today?"
 )
 
 forum_love.mood = mood_love
@@ -117,6 +122,7 @@ forum_love.save!
 
 forum_confused = Forum.new(
   description: "Confused",
+  context: "Talk it out, you might find clarity!"
 )
 
 forum_confused.mood = mood_confused
