@@ -29,14 +29,14 @@
         </span>
 
         <%# flag post %>
-        <%= link_to flag_post_path(@post), method: :put, data: { confirm: "Are you sure you want to flag this post?" } do %>
-          <div class="engagement">
-            <p class="text-right"><%= image_tag("flag.png") %><%= @post.get_dislikes.size %></p>
-          </div>
-        <% end %>
+        <%= link_to raw("<button data-action=\"click->post-card#flag\" data-post-card-target=\"flag\" class=\"far fa-flag flag-btn\"></button>"), flag_post_path(@post), method: :put, data: { confirm: "Are you sure you want to flag this post?"} if @post.get_dislikes.size === 0 %>
+          <% if @post.get_dislikes.size > 0 %>
+              <i class="fas fa-flag"></i>
+          <% end %>
+     
 
         <%# comments %>
-        <ul class="list-group list-group-flush">
+        <ul class="list-group list-group-flush mt-4">
           <%= render @post.comments %>
         </ul>
 
@@ -47,9 +47,12 @@
           <%= f.submit "Submit", class: "btn btn-primary m-3" %>
         <% end %>
 
+  
 
-
-     </div>
+      </div>
     </div>
   </div>
 </div>
+
+
+<
