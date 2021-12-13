@@ -1,6 +1,6 @@
-<li class="list-group-item">
+<li class="list-group-item" data-controller="comment" id="comment-<%= comment.id %>">
     <% if comment.sensitive? %>
-      <div class="card-wrapper" data-controller="post-card">
+      <div class="card-wrapper">
         <p data-post-card-target="content" class="d-none">
           <%= comment.content %>
         </p>
@@ -15,13 +15,6 @@
       <%= comment.content %>
       <small><%= comment.created_at.strftime("%e %b %y") %></small>
 
-      <%# replies %>
-      <% if comment.replies.length > 0 %>
-        <% comment.replies.each do |reply| %>
-          <p class="reply"><%= reply.content %></p>
-        <% end %>
-      <% end %>
-
     <% end %>
 
     <%# flag comment %>
@@ -32,5 +25,25 @@
         <% end %>
     </div>
 
-  <%= link_to "Reply", comment_path(comment)  %>
+    <% if comment.replies.any? %>
+      <% comment.replies.each do |reply| %>
+        <%= render 'comments/reply', reply: reply %>
+      <% end %>
+    <% end %>
+
+      <%#= link_to "Reply", forum_post_path(@post, parent_id: comment.id), data:{ post_card_target: 'reply', action: 'click->post-card#reply' } %>
+      <a data-comment-target="reply" data-action="click->comment#reply" >Reply</a>
+       <div id="reply-form-<%= comment.id %>">
+          <%# STEP 1 %>
+          <%# set the parent in the instance %>
+          <% @comment.parent_id = comment.id %>
+          <%# render out the reply form for this specific comment %>
+          <%= render "comments/reply_form" %>
+          <%# make sure the form works %>
+
+          <%# STEP 2 %>
+          <%# apply class "d-none" to the form on load %>
+          <%# remove in stimulus on action->reply %>
+
+       </div>
 </li>

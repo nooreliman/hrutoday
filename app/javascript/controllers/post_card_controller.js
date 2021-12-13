@@ -10,7 +10,7 @@ export default class extends Controller {
   static targets = ["content", "message", "favorite", "flag"];
 
   // connect() {
-  //   console.log("Generated Controller Connected!");
+  //   console.log(this.formTargets);
   // }
 
   show_content(e) {
@@ -37,4 +37,3 @@ export default class extends Controller {
     e.preventDefault();
   }
 }
-// [...]

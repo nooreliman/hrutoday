@@ -38,12 +38,11 @@
 
         <%# comments %>
         <ul class="list-group list-group-flush mt-4">
-          <%= render @post.comments %>
+          <%= render @post.comments.where(parent_id: nil) %>
         </ul>
 
         <%# new comment form %>
           <%= simple_form_for [@post, @comment] do |f| %>
-            <%= f.input :id, as: :hidden %>
             <%= f.input :content, as: :text, label: "Write something" %>
             <%= f.submit "Submit", class: "btn btn-primary m-3" %>
           <% end %>

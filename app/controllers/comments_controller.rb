@@ -5,8 +5,9 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @post = @comment.post
-    @reply = Comment.new
+    # @post = @comment.post
+    @post = Post.find(params[:post_id])
+    @reply = Comment.new(parent_id: params[:parent_id])
   end
 
   def create
@@ -21,11 +22,13 @@ class CommentsController < ApplicationController
         @parent = Comment.find(comment_params.require(:parent_id))
 
         # if yes, create the relationship
-        @comment.reply_to(@parent)
+        @reply = @comment.reply_to(@parent)
       end
 
-      @parent ? redirect_to(@parent) : redirect_to(post_path(@comment.post))
-      @parent ? flash[:notice] = 'Reply sent' : flash[:notice] = 'Comment successfully created!'
+      redirect_to post_path(@comment.post, anchor: "comment-#{@parent ? @parent.id : @comment.id}")
+
+      # @parent ? redirect_to(@parent) : redirect_to(post_path(@comment.post))
+      # @parent ? flash[:notice] = 'Reply sent' : flash[:notice] = 'Comment successfully created!'
     end
   end
 
