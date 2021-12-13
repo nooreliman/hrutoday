@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :posts
   end
 
+  get 'notifications', to: 'pages#notifications'
+
   resources :posts do
     member do
       put "flag", to: "posts#flag"
@@ -13,7 +15,7 @@ Rails.application.routes.draw do
     collection do
       get "myposts"
     end
-    resources :comments, only: [:new, :create]
+    resources :comments, only: [:new, :create, :show, :index]
     # get '/posts/:post_id/comments/new/(:comment_id)', to: 'comments#new', as: :new_comment
     collection do
       get 'myposts'
@@ -21,12 +23,12 @@ Rails.application.routes.draw do
     end
     member do
       get 'favorite', to: "posts#favorite"
-      put 'favorite', to: "posts#favorite"
+      put 'favorite', to: "posts#favorite", as: "fav"
     end
     resources :comments
   end
 
-  resources :comments, only: [:show, :update]
+  resources :comments, only: [:show, :update, :destroy]
 
   get "affirmationmessages/:mood", to: "affirmation_messages#index"
 
@@ -39,7 +41,6 @@ Rails.application.routes.draw do
       put "flag", to: "affirmation_messages#flag", as: "flag"
     end
   end
-  resources :notifications, only: [:index, :create, :update]
 
   resources :usermoods, only: [:create]
 

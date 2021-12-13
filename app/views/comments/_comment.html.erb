@@ -1,5 +1,60 @@
-<li class="list-group-item">
-  <%= comment.content %> <%= "(#{pluralize(comment.replies.count, "reply")})" unless comment.replies.nil? %>
-  <%= comment.created_at.strftime("%e %b %y") %>
-  <%= link_to "Reply", comment_path(comment)  %>
+<li class="list-group-item" data-controller="comment" id="comment-<%= comment.id %>">
+    <% if comment.sensitive? %>
+      <div class="card-wrapper">
+        <p data-post-card-target="content" class="d-none">
+          <%= comment.content %>
+        </p>
+        <span data-post-card-target="message" data-action="click->post-card#show_content" class="sensi-message">
+          This comment contains sensitive content.<br>
+          <span class="badge-show badge-dark">Show More</span>
+        </span>
+      </div>
+    <% elsif comment.offensive? %>
+      <p>This comment is down for review.</p>
+    <% else %>
+      <div class="comment-top">
+        <small><%= comment.created_at.strftime("%e %b %y") %></small>
+        <%= link_to icon("fas", "reply"), comment_path(comment)  %>
+      </div>
+        <%= comment.content %>
+
+    <% end %>
+
+    <%# flag comment %>
+    <div class="engagement text-right">
+      <%= link_to raw("<button data-action=\"click->post-card#flag\" data-post-card-target=\"flag\" class=\"far fa-flag flag-btn\"></button>"), flag_post_path(comment), method: :put, data: { confirm: "Are you sure you want to flag this comment?"} if comment.get_dislikes.size === 0 %>
+        <% if comment.get_dislikes.size > 0 %>
+            <i class="fas fa-flag"></i>
+        <% end %>
+    </div>
+
+    <% if comment.replies.any? %>
+      <% comment.replies.each do |reply| %>
+        <%= render 'comments/reply', reply: reply %>
+      <% end %>
+    <% end %>
+
+      <%#= link_to "Reply", forum_post_path(@post, parent_id: comment.id), data:{ post_card_target: 'reply', action: 'click->post-card#reply' } %>
+      <a data-comment-target="reply" data-action="click->comment#reply" >Reply</a>
+       <div id="reply-form-<%= comment.id %>">
+          <%# STEP 1 %>
+          <%# set the parent in the instance %>
+          <% @comment.parent_id = comment.id %>
+          <%# render out the reply form for this specific comment %>
+          <%= render "comments/reply_form" %>
+          <%# make sure the form works %>
+
+          <%# STEP 2 %>
+          <%# apply class "d-none" to the form on load %>
+          <%# remove in stimulus on action->reply %>
+
+       </div>
+
+    <%# delete comment %>
+    <% if current_user == comment.user %>
+      <div class="delete">
+        <%= link_to icon("fas", "trash"), post_comment_path(@post, comment),
+              method: :delete, data: { confirm: "Are you sure?" } %>
+      </div>
+    <% end %>
 </li>

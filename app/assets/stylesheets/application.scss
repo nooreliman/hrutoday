@@ -7,10 +7,10 @@
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@700&family=Roboto:wght@500&display=swap');
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
 @import "affirmationmessages/index";
-@import "posts/index"
+@import "posts/index";
+@import "posts/show";

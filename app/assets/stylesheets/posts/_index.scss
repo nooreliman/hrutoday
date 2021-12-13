@@ -2,20 +2,46 @@
   text-align: center;
 }
 
-
-.card-wrapper {
-    text-align: center;
-}
-
 .badge {
-    position: absolute;
-    top: 55%;
-    right:39%;
-    border-radius: 5%;
-    color:darkgrey
+  position: absolute;
+  top: 58%;
+  right: 39%;
+  border-radius: 5%;
+  color: darkgrey;
 }
 
 .heart-icon {
-  position: absolute;
-  right: 10%
+  margin: 0 8px;
+}
+
+.engagement {
+  text-align: right;
+  max-width: 100%;
+}
+
+.sensitive {
+  background-color: #e5e4e2;
+  text-align: center;
+  border-radius: 5%;
+}
+
+.sensi-message {
+  text-align: center;
+}
+
+.flagged {
+  color: black;
+}
+
+.flag-btn {
+  background-color: inherit;
+  border: none;
+}
+
+.fav-posts {
+  text-decoration: none;
+}
+
+.fav-posts:hover {
+  text-decoration: none;
 }

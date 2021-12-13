@@ -1,0 +1,28 @@
+.post-title {
+  position:relative;
+}
+
+.arrow-left {
+  font-size: 1.2em;
+  position: absolute;
+  text-decoration: none;
+  color: grey;
+  left: 7%;
+  top: 15%;
+}
+
+.arrow-left:hover {
+  text-decoration: none;
+  color: grey;
+
+}
+
+.user-name {
+  padding-top: 1%;
+}
+
+.comment-top {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: bottom;
+}

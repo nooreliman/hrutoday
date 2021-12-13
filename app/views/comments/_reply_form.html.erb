@@ -1,0 +1,9 @@
+<div class="card ml-5 d-none" data-comment-target="form">
+  <div class="card-body">
+    <%= simple_form_for [@post, @comment] do |f| %>
+      <%= f.input :parent_id, as: :hidden %>
+      <%= f.input :content, as: :text, label: "Write something" %>
+      <%= f.submit "Submit", class: "btn btn-primary m-3" %>
+    <% end %>
+  </div>
+</div>

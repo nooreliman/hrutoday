@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   def index
     @forum = Forum.find(params[:forum_id])
     @posts = Post.where(forum_id: @forum)
+    @post = Post.new
   end
 
   def show
@@ -57,8 +58,11 @@ class PostsController < ApplicationController
 
   def favorite
     @post = Post.find(params[:id])
-    current_user.favorited?(@post) ? current_user.unfavorite(@post) : current_user.favorite(@post)
-    redirect_to post_path(@post)
+    if current_user.favorited?(@post) ? current_user.unfavorite(@post) : current_user.favorite(@post)
+      # redirect_to forum_posts_path(@post.forum)
+    else
+      # render 'forum_posts/show'
+    end
   end
 
   def favorites

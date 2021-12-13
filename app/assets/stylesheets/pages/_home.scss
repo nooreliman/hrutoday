@@ -1,6 +1,12 @@
 // Specific CSS for your home-page
+h1 {
+  font-size: 24px;
+  padding-top: 10px;
+}
+
 body {
   padding-bottom: 70px;
+  background-color: #f6f5f0;
 }
 
 .log-mood {
@@ -9,11 +15,11 @@ body {
 
 .mood-title {
   position: absolute;
-  padding-top: 110px;
+  padding-top: 105px;
   text-decoration: none;
-  color: black;
+  color: $dark-gray;
   font-family: "Quicksand";
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .landing-page {
@@ -29,19 +35,11 @@ body {
 
 .mood-tracker {
   text-align: left;
-  color: black;
+  color: $dark-gray;
 }
 
-.mood-today {
-  padding-top: 10px;
-  font-family: "Roboto";
-  font-size: 30px;
-}
-
-.feeling-today {
-  font-family: "Roboto";
-  padding-top: 10px;
-  font-size: 30px;
+.mood-selector {
+  border-radius: 10px;
 }
 
 .card-mood {
@@ -50,18 +48,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  font-size: 24px;
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  border-radius: 5px;
 }
 
 .forum-name {
   color: white;
-  font-family: "Quicksand";
   font-size: 15px;
-  letter-spacing: 0.7rem;
+  letter-spacing: 0.5rem;
 }
 
 .forum-name:hover {
@@ -69,6 +62,33 @@ body {
   color: white;
 }
 
-.forums h2 {
-  font-family: "Roboto";
+.forum-context {
+  font-size: 9px;
+  text-align: center;
+}
+
+.forum-posts {
+  // background-color: $;
+  border-radius: 10px;
+  width: 95%;
+}
+
+.post {
+  // background-color: #bfd8e5;
+  border-radius: 10px;
+  width: 95%;
+}
+
+.post-title {
+  text-align: center;
+}
+
+.new-post {
+  text-align: center;
+}
+
+.post-form {
+  background-color: #bfd8e5;
+  border-radius: 10px;
+  width: 95%;
 }

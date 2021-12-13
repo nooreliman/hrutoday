@@ -5,11 +5,44 @@
 }
 
 .btn-posts {
-  color: #4A4A4A;
-  border: 1px solid #4A4A4A;
+  color: #4a4a4a;
+  border: 1px solid #4a4a4a;
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
+}
+
+.btn {
+  border-radius: 10px;
+}
+
+.new-post {
+  position: fixed;
+  bottom: 69px;
+  right: 34px;
+}
+
+.btn-signup {
+  background-color: #74a2d4;
+  color: $dark-gray;
+  border: none;
+}
+
+.btn-login {
+  background-color: $logo-green;
+  color: $logo-yellow;
+  border: none;
+}
+
+.btn-login:hover {
+  text-decoration: none;
+  background-color: #f7eecb;
+  border: none;
+}
+
+.btn-back {
+  position: absolute;
+  left: 20;
 }

@@ -1,44 +1,46 @@
 <div class="container landing-page">
-    <h3 class="mood-today">Your moods this week</h3>
+  <h1 class="feeling-today">How are you feeling now,
+  <br>
+  @<%= "#{current_user.username}" %> ?</h1>
+
+  <div class="container log-mood mood-selector">
+    <div class="cards">
+      <% @moods.each do |mood| %>
+        <div class="card-mood">
+          <%= image_tag mood.image %><%= link_to mood.name, "/affirmationmessages/#{mood.name}", class:"mood-title" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <%# mood log %>
+  <h1 class="mood-today">Your moods this week</h1>
+
   <div class="mood-tracker container">
     <% 7.times do |day| %>
-
-        <div class="row mood-tracker-days">
-          <div class="col-1 font-weight-bold border-right pr-1 ">
-            <div class="days d-flex align-items-center">
-              <%= PagesController::DAYS[@curr_day] %>
-            </div>
+      <div class="row mood-tracker-days">
+        <div class="col-1 font-weight-bold border-right pr-1 ">
+          <div class="days d-flex align-items-center">
+            <%= PagesController::DAYS[@curr_day] %>
           </div>
-          <div class="col-11">
-            <div class="moods">
-              <% if current_user.moods_for_day(@curr_day) %>
-                <% current_user.moods_for_day(@curr_day).each do |curr|  %>
-                  <%= image_tag curr.mood.image, class: "mood ml-1 my-1"%>
-                <% end %>
-              <% else %>
-                nothing to show
+        </div>
+
+        <div class="col-11">
+          <div class="moods">
+            <% if current_user.moods_for_day(@curr_day) %>
+              <% current_user.moods_for_day(@curr_day).each do |curr|  %>
+                <%= image_tag curr.mood.image, class: "mood ml-1 my-1"%>
               <% end %>
-            </div>
+            <% else %>
+              nothing to show
+            <% end %>
           </div>
-
+        </div>
       </div>
 
       <% @curr_day = @curr_day == 6 ? 0 : @curr_day + 1  %>
 
-      <% end %>
+    <% end %>
   </div>
 
-
-
-  <div class="container log-mood mt-1">
-  <h3 class="feeling-today">How are you feeling today, <%= "#{current_user.username}" %> ?</h3>
-    <div class="cards">
-      <% @moods.each do |mood| %>
-      <div class="card-mood">
-        <%= image_tag mood.image %><%= link_to mood.name, "/affirmationmessages/#{mood.name}", class:"mood-title" %>
-      </div>
-      <% end %>
-    </div>
-  </div>
-  </div>
 </div>
