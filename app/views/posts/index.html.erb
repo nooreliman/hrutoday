@@ -1,4 +1,4 @@
-<div class="container forum-posts mt-3 py-3">
+<div class="container forum-posts mt-3 py-3" style="background-color: <%= @forum.mood.color %>;">
   <h2>#<%= @forum.mood.name %></h2>
 
   <% @posts.each do |post| %>
