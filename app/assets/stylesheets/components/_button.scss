@@ -24,7 +24,25 @@
   right: 34px;
 }
 
+.btn-signup {
+  background-color: #74a2d4;
+  color: $dark-gray;
+  border: none;
+}
+
+.btn-login {
+  background-color: $logo-green;
+  color: $logo-yellow;
+  border: none;
+}
+
+.btn-login:hover {
+  text-decoration: none;
+  background-color: #f7eecb;
+  border: none;
+}
+
 .btn-back {
-  position:absolute;
-  left:20;
+  position: absolute;
+  left: 20;
 }

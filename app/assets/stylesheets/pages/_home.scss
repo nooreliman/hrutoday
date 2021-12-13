@@ -62,14 +62,19 @@ body {
   color: white;
 }
 
+.forum-context {
+  font-size: 9px;
+  text-align: center;
+}
+
 .forum-posts {
-  background-color: #bfd8e5;
+  // background-color: $;
   border-radius: 10px;
   width: 95%;
 }
 
 .post {
-  background-color: #bfd8e5;
+  // background-color: #bfd8e5;
   border-radius: 10px;
   width: 95%;
 }

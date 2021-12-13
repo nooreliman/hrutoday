@@ -30,3 +30,17 @@
   box-shadow: 0 0 0 0 rgba(255, 255, 255, 1);
   animation: pulse-white 2s infinite;
 }
+
+#messages {
+  overflow: hidden;
+}
+
+.mood-message {
+  transition: 400ms;
+  transform: translateX(-100%);
+}
+
+.message-alt {
+  transition: 400ms;
+  transform: translateX(100%);
+}
