@@ -34,6 +34,14 @@ class CommentsController < ApplicationController
     @comment.dislike_by current_user
   end
 
+  def destroy
+    @post = Post.find(params[:post_id])
+    @comment = Comment.find(params[:id])
+    @comment.destroy
+    redirect_to post_path(@post)
+    flash[:notice] = "Comment successfully deleted!"
+  end
+
   private
 
   def comment_params
