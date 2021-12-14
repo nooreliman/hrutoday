@@ -30,18 +30,40 @@
 }
 
 .flagged {
-  color: black;
+  color: #242424;
 }
 
 .flag-btn {
   background-color: inherit;
   border: none;
+  color: #242424;
 }
 
 .fav-posts {
   text-decoration: none;
+  color: #242424;
+  padding-right: 1%;
+
 }
 
 .fav-posts:hover {
   text-decoration: none;
+  color: #242424;
+
+}
+
+.edit-btn {
+  color: #242424;
+  padding-right: 1%;
+}
+
+.delete-btn {
+  padding-right: 1%;
+  padding-left: 1%;
+  color: #242424;
+
+}
+
+.fa-flag:before {
+  color: #242424;
 }
