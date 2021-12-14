@@ -7,3 +7,14 @@
   height: 55px;
   border-top: 1px solid darkgrey;
 }
+
+.dropup .dropdown-menu {
+  bottom: 120%;
+}
+
+.dropdown-menu {
+  border-radius: 10px;
+  background-color: $container-beige;
+  right: 0;
+  left: initial;
+}
