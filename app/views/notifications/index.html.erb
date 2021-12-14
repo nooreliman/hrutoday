@@ -1,0 +1,4 @@
+
+<% @notifications.each do |noti| %>
+  <%= link_to noti.to_notification.message, noti.to_notification.url %>
+<% end %>

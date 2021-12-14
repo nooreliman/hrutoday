@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :posts
   end
 
-  get 'notifications', to: 'pages#notifications'
+  resources :notifications
 
   resources :posts do
     member do

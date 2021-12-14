@@ -17,6 +17,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
+      CommentNotification.with(post: @comment.post).deliver(@comment.post.user)
       if comment_params.include? :parent_id
         # check if there is a parent
         @parent = Comment.find(comment_params.require(:parent_id))

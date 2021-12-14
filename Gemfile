@@ -76,3 +76,5 @@ gem "google-cloud-language", "~> 1.3"
 gem 'acts_as_votable'
 
 gem 'turbolinks_render'
+
+gem "noticed", "~> 1.5"
