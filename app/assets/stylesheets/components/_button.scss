@@ -15,13 +15,29 @@
 }
 
 .btn {
-  border-radius: 10px;
+  border-radius: 20px;
 }
 
-.new-post {
+.btn-show {
+  border-radius: 20px;
+  border: 1px solid $dark-gray;
+  background: #f7eecb;
+  opacity: 85%;
+}
+
+.post-bottom {
   position: fixed;
-  bottom: 69px;
-  right: 34px;
+  bottom: 70px;
+  left: 260px;
+  z-index: 99;
+}
+
+#scrollBtn {
+  // display: none; /* Hidden by default */
+  border: none;
+  border-radius: 20px;
+  border: 1px solid $dark-gray;
+  background: #f7eecb;
 }
 
 .btn-signup {
