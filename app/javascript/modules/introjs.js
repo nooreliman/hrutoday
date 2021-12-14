@@ -29,11 +29,6 @@ const initIntro = () => {
               intro: "Returns you to the homepage(here!)",
             },
             {
-              element: document.querySelector(".affirm"),
-              intro:
-                "To view our affirmation page and read supportive messages!",
-            },
-            {
               element: document.querySelector(".forum"),
               intro: "To view our forums and start posting!",
             },
@@ -43,7 +38,7 @@ const initIntro = () => {
             },
             {
               title: "Farewell!",
-              intro: "And we have come to the end of our tour!",
+              intro: "You can start by logging in your mood 😊",
             },
           ],
         })
