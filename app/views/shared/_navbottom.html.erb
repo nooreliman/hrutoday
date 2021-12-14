@@ -1,9 +1,9 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-bottom">
-  <%= link_to icon("fas", "home"), root_path, class: "navbar-brand" %>
+  <%= link_to icon("fas", "home"), root_path, class: "navbar-brand home" %>
   <% if !current_user.nil? && !current_user.moods.last.nil? %>
-    <%= link_to icon("fas", "heart"), "/affirmationmessages/#{current_user.user_moods.last.mood.name}", class: "navbar-brand" %>
+    <%= link_to icon("fas", "heart"), "/affirmationmessages/#{current_user.user_moods.last.mood.name}", class: "navbar-brand affirm" %>
   <% end %>
-  <%= link_to icon("fas", "comments"), forums_path, class: "navbar-brand" %>
-  <%= link_to icon("fas", "bell"), notifications_path, class: "navbar-brand" %>
+  <%= link_to icon("fas", "comments"), forums_path, class: "navbar-brand forum" %>
+  <%= link_to icon("fas", "bell"), notifications_path, class: "navbar-brand notification" %>
 
 </div>
