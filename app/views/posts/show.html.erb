@@ -15,6 +15,7 @@
         <p class="card-text"><%= @post.content %></p>
 
         <%# buttons %>
+
         <div class="text-right pr-3">
             <% if current_user == @post.user %>
               <%= link_to "", edit_post_path(@post), class: "fas fa-edit edit-btn" %>
@@ -36,6 +37,7 @@
                   <i class="fas fa-flag"></i>
             <% end %>
           </div>
+
 
 
         <%# comments %>
