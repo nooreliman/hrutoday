@@ -21,8 +21,8 @@ user = User.new(
 user.save!
 
 user_one = User.new(
-  username: "mysterygenuis",
-  email: "mysterygenuis@gmail.com",
+  username: "paul99",
+  email: "paul@gmail.com",
   password: "password123",
   age: 21,
   photo: "https://avatars.dicebear.com/api/croodles/jayz.svg",
