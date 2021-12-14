@@ -25,6 +25,7 @@ export default class extends Controller {
     // fetch(url)
     //   .then((res) => res.json())
     //   .then((data) => console.log(data));
+    e.preventDefault();
     this.flagTarget.disabled = true;
     this.flagTarget.classList.remove("far", "fa-flag");
     this.flagTarget.classList.add("fas", "fa-flag", "flagged");
@@ -34,12 +35,12 @@ export default class extends Controller {
 
   favorite(e) {
     e.preventDefault();
-    if (this.favoriteTarget.classList.value.includes("fas fa-heart")) {
-      this.favoriteTarget.classList.remove("fas", "fa-heart");
-      this.favoriteTarget.classList.add("far", "fa-heart");
+    if (this.favoriteTarget.classList.value.includes("fas fa-bookmark")) {
+      this.favoriteTarget.classList.remove("fas", "fa-bookmark");
+      this.favoriteTarget.classList.add("far", "fa-bookmark");
     } else {
-      this.favoriteTarget.classList.remove("far", "fa-heart");
-      this.favoriteTarget.classList.add("fas", "fa-heart");
+      this.favoriteTarget.classList.remove("far", "fa-bookmark");
+      this.favoriteTarget.classList.add("fas", "fa-bookmark");
     }
   }
 }
