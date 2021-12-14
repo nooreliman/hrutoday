@@ -130,7 +130,7 @@ forum_scared.save!
 
 forum_love = Forum.new(
   description: "Loved",
-  context:"What are we grateful for today?"
+  context:"What are you grateful for today?"
 )
 
 forum_love.mood = mood_love
