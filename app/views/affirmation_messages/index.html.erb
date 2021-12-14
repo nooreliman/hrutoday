@@ -66,7 +66,7 @@
 
               <!---flag-affirmatiom-->
               <div class="affirmation-flag">
-                <%= link_to raw("<button data-action=\"click->post-card#flag\" data-post-card-target=\"flag\" class=\"far fa-flag flag-btn\"></button>"), flag_post_path(message), method: :put, data: { confirm: "Are you sure you want to flag this message?"} if message.get_dislikes.size === 0 %>
+                <%= link_to raw("<button data-action=\"click->post-card#flag\" data-post-card-target=\"flag\" class=\"far fa-flag flag-btn\"></button>"), flag_affirmation_message_path(message), method: :put, data: { confirm: "Are you sure you want to flag this message?"} if message.get_dislikes.size === 0 %>
                   <% if message.get_dislikes.size > 0 %>
                       <i class="fas fa-flag"></i>
                   <% end %>
