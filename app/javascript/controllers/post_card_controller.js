@@ -34,12 +34,12 @@ export default class extends Controller {
 
   favorite(e) {
     e.preventDefault();
-    if (this.favoriteTarget.classList.value.includes("fas fa-heart")) {
-      this.favoriteTarget.classList.remove("fas", "fa-heart");
-      this.favoriteTarget.classList.add("far", "fa-heart");
+    if (this.favoriteTarget.classList.value.includes("fas fa-bookmark")) {
+      this.favoriteTarget.classList.remove("fas", "fa-bookmark");
+      this.favoriteTarget.classList.add("far", "fa-bookmark");
     } else {
-      this.favoriteTarget.classList.remove("far", "fa-heart");
-      this.favoriteTarget.classList.add("fas", "fa-heart");
+      this.favoriteTarget.classList.remove("far", "fa-bookmark");
+      this.favoriteTarget.classList.add("fas", "fa-bookmark");
     }
   }
 }
