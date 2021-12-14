@@ -6,8 +6,6 @@
     <div class="card mt-1">
       <div class="card-body">
         <div class="card-wrapper" data-controller="post-card">
-
-
           <h6 class="card-subtitle mb-2 text-muted"><%= post.created_at.strftime("%e %b %y") %></h6>
 
           <h4 class="card-title">
@@ -25,7 +23,6 @@
               <p class="sensitive">
                 This post may contain sensitive content.
               </p>
-
               <span data-action="click->post-card#show_content" class="badge badge-light pb-2">Show Content</span>
             </div>
           <% end %>
@@ -35,8 +32,7 @@
           <% end %>
 
           <!-- ./ comments -->
-            <%= link_to pluralize(post.comments.count, "Comment"), post_path(post), class: "comments"%>
-
+          <%= link_to pluralize(post.comments.count, "Comment"), post_path(post), class: "comments"%>
 
           <div class="engagement">
 
@@ -59,13 +55,14 @@
     </div>
 
   <% end %>
+</div>
 
+<div class="container post-bottom">
+  <button type="button" class="btn-show btn-lg new-post fas fa-plus" data-toggle="modal" data-target="#exampleModal"></button>
+  <button class="btn-show btn-lg fas fa-arrow-up" id="scrollBtn" title="Go to top"></button>
 </div>
 
 
-<button type="button" class="btn btn-primary new-post" data-toggle="modal" data-target="#exampleModal">
-  New Post
-</button>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">

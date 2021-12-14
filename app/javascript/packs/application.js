@@ -23,12 +23,22 @@ import "controllers";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import { initIntro } from  "../modules/introjs"
-import { alert } from  "../modules/alert"
+import { initIntro } from "../modules/introjs";
+import { alert } from "../modules/alert";
+import { topFunction } from "../modules/scroll";
 
 document.addEventListener("turbolinks:load", () => {
   // Call your functions here, e.g:
   // initSelect2();
   initIntro();
-  alert()
+  alert();
+
+  // scroll to top btn
+  const mybutton = document.getElementById("scrollBtn");
+  if (mybutton) {
+    mybutton.addEventListener("click", (event) => {
+      // Do something (callback)
+      topFunction();
+    });
+  }
 });
