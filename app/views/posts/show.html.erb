@@ -39,9 +39,11 @@
 
 
         <%# comments %>
-        <ul class="list-group list-group-flush mt-4">
-          <%= render @post.comments.where(parent_id: nil) %>
-        </ul>
+        <div class="container">
+          <ul class="list-group list-group-flush mt-4">
+            <%= render @post.comments.where(parent_id: nil) %>
+          </ul>
+        </div>
 
         <%# new comment form %>
           <%= simple_form_for [@post, @comment] do |f| %>
