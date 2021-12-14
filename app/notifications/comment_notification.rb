@@ -13,19 +13,19 @@ class CommentNotification < Noticed::Base
 
   # Add required params
   #
-  param :post, :comment
+  param :comment
 
   # Define helper methods to make rendering easier.
 
-  def message
-    t(".message")
-  end
+  # def message
+  #   t(".message")
+  # end
 
-  def url
-    comment_path(params[:comment])
-  end
+  # def url
+  #   comment_path(params[:comment])
+  # end
 
-  def sender
-    @post
+  def color
+    self.read? ? 'white' : '$container-beige'
   end
 end

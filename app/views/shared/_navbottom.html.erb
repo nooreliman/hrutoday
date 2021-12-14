@@ -4,6 +4,7 @@
     <%= link_to icon("fas", "heart"), "/affirmationmessages/#{current_user.user_moods.last.mood.name}", class: "navbar-brand affirm" %>
   <% end %>
   <%= link_to icon("fas", "comments"), forums_path, class: "navbar-brand forum" %>
-  <%= link_to icon("fas", "bell"), notifications_path, class: "navbar-brand notification" %>
-
+  <%= link_to notifications_path do %>
+    <i class="fas fa-bell"></i><span class="badge badge-dark badge-notif">Dark</span>
+  <% end %>
 </div>

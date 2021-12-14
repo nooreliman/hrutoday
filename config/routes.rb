@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :forums, only: [:index] do
     resources :posts
   end
-
+  
   resources :notifications
 
   resources :posts do
