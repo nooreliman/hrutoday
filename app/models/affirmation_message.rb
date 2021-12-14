@@ -8,7 +8,11 @@ class AffirmationMessage < ApplicationRecord
     (3...5) === self.get_dislikes.size
   end
 
-  def needs_review?
+  def offensive?
     self.get_dislikes.size >= 5
+  end
+
+  def destroy_message
+    self.delete
   end
 end
