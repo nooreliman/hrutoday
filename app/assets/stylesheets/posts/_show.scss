@@ -1,5 +1,5 @@
 .post-title {
-  position:relative;
+  position: relative;
 }
 
 .arrow-left {
@@ -11,10 +11,9 @@
   top: 15%;
 }
 
-.fa-arrow-left:before{
+.fa-arrow-left:before {
   text-decoration: none;
   color: #242424;
-
 }
 
 .user-name {
@@ -25,4 +24,50 @@
   display: flex;
   justify-content: space-between;
   vertical-align: bottom;
+}
+
+.flagged {
+  color: #242424;
+  padding-left: 35%;
+}
+
+.flag-btn {
+  background-color: inherit;
+  border: none;
+  color: #242424;
+  padding-left: 35%;
+}
+
+.fav-posts {
+  text-decoration: none;
+  color: #242424;
+}
+
+.fav-posts:hover {
+  text-decoration: none;
+  color: #242424;
+  padding-right: 35%;
+}
+
+.fav-posts:before {
+  margin-left: 1%;
+}
+
+.fa-edit:before {
+  color: #242424;
+  padding-right: 45%;
+}
+
+.delete-btn {
+  color: #242424;
+}
+
+.fa-flag:before {
+  color: #242424;
+  padding-left: 20%;
+}
+
+.fa-trash-alt:before {
+  color: #242424;
+  margin-right: 25%;
 }
