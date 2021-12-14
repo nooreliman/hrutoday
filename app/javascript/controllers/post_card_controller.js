@@ -25,6 +25,7 @@ export default class extends Controller {
     // fetch(url)
     //   .then((res) => res.json())
     //   .then((data) => console.log(data));
+    e.preventDefault();
     this.flagTarget.disabled = true;
     this.flagTarget.classList.remove("far", "fa-flag");
     this.flagTarget.classList.add("fas", "fa-flag", "flagged");
