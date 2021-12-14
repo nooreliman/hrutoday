@@ -40,7 +40,8 @@
 
 .fav-posts {
   text-decoration: none;
-  color:black
+  color:black;
+  padding-right: 1%;
 
 }
 
@@ -52,4 +53,10 @@
 
 .edit-btn {
   color:black;
+  padding-right: 1%;
+}
+
+.delete-btn {
+  padding-right: 1%;
+  padding-left: 1%;
 }
