@@ -15,20 +15,30 @@ user = User.new(
   email: "msjdtd@gmail.com",
   password: "punker77",
   age: 18,
-  photo: "",
+  photo: "https://avatars.dicebear.com/api/croodles/mario.svg",
 )
 
 user.save!
 
 user_one = User.new(
-  username: "mysterygenuis",
-  email: "mysterygenuis@gmail.com",
+  username: "paul99",
+  email: "paul@gmail.com",
   password: "password123",
   age: 21,
-  photo: "",
+  photo: "https://avatars.dicebear.com/api/croodles/jayz.svg",
 )
 
 user_one.save!
+
+user_two = User.new(
+  username: "coolkid",
+  email: "coolkid@gmail.com",
+  password: "password123",
+  age: 28,
+  photo: "https://avatars.dicebear.com/api/croodles/cool.svg",
+)
+
+user_two.save!
 
 puts "Users created"
 
