@@ -17,12 +17,22 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    # => Call the Google Api and check the content of the message
+    # binding.pry
+    analysis_result = LanguageService.analyze_sentiment(@post.content)
     @post.user = current_user
     @forum = Forum.find(params[:forum_id])
     @post.forum = @forum
-    if @post.save
-      redirect_to post_path(@post)
-      flash[:notice] = "Post successfully created!"
+    if analysis_result.document_sentiment.score > 0
+      @post.save
+        if @post.save
+          redirect_to post_path(@post)
+          flash[:notice] = "Post successfully created!"
+        end
+    else
+        # change the flash notice to show up longer
+      flash[:notice] = "This was too negative!"
+      render :edit
     end
   end
 
