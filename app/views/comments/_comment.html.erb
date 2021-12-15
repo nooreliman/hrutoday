@@ -29,10 +29,7 @@
       <div class="text-right">
         <a data-comment-target="reply" data-action="click->comment#reply", class="fas fa-reply reply-btn" ></a>
 
-        <div id="reply-form-<%= comment.id %>">
-            <% @comment.parent_id = comment.id %>
-            <%= render "comments/reply_form" %>
-        </div>
+
       </div>
 
 
@@ -56,6 +53,11 @@
       <% end %>
 
     </div>
+
+            <div id="reply-form-<%= comment.id %>">
+            <% @comment.parent_id = comment.id %>
+            <%= render "comments/reply_form" %>
+        </div>
 
 
 </li>
