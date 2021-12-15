@@ -18,7 +18,7 @@
 
         <div class="text-right pr-3">
             <% if current_user == @post.user %>
-              <%= link_to "", edit_post_path(@post), class: "fas fa-edit edit-btn" %>
+              <%= link_to "", edit_post_path(@post), class: "fas fa-edit edit-btn mr-1" %>
               <%= link_to "",
                           post_path(@post),
                           method: :delete,
@@ -29,10 +29,10 @@
 
             <%# flag post %>
             <% if @post.get_dislikes.size > 0 %>
-              <i class="fas fa-flag"></i>
+              <i class="fas fa-flag ml-1"></i>
             <% else %>
               <%= link_to flag_post_path(@post), method: :put, data: { confirm: "Are you sure you want to flag this message?"} do %>
-              <button data-action="click->post-card#flag" data-post-card-target="flag" class="far fa-flag flag-btn"></button>
+              <button data-action="click->post-card#flag" data-post-card-target="flag" class="far fa-flag flag-btn ml-1"></button>
               <% end %>
             <% end %>
 
