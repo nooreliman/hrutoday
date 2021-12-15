@@ -19,7 +19,7 @@
   </div>
 
   <!-- Button trigger modal -->
-  <% @messages.sample(5).each do |message| %>
+  <% @messages.sample(4).each do |message| %>
       <%= image_tag message.mood.image, data: {
         toggle: "modal",
         target: "#modal-#{message.id}"

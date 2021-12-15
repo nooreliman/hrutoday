@@ -44,6 +44,8 @@
               <button data-action="click->post-card#flag" data-post-card-target="flag" class="far fa-flag flag-btn comment-flag"></button>
               <% end %>
             <% end %>
+
+
             <!-- ./ heart -->
             <span class="heart-icon">
                 <%= link_to '', fav_post_path(post), method: :put, class: current_user.favorited?(post) ? "fas fa-bookmark fav-posts" : "far fa-bookmark fav-posts", data:{ post_card_target: 'favorite', action: 'click->post-card#favorite' } %>
