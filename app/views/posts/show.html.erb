@@ -4,7 +4,7 @@
    </div>
 </div>
 
-<div class="container post mt-3 py-3" style="background-color: <%= @post.forum.mood.color %>;>
+<div class="container post mt-3 py-3" style="background-color: <%= @post.forum.mood.color %>">
   <div class="card">
     <div class="card-body" style="background-color: #f6f5f0">
       <div class="card-wrapper" data-controller="post-card">
@@ -13,6 +13,8 @@
         <h6 class="card-subtitle mb-2 text-muted"><%= @post.created_at.strftime("%e %b %y") %></h6>
 
         <p class="card-text"><%= @post.content %></p>
+        <p style="font-size:14px"><em>Last edited at:<%= time_ago_in_words(@post.updated_at.in_time_zone('Singapore')).gsub('about','')%>
+        ago</em></p>
 
         <%# buttons %>
 
