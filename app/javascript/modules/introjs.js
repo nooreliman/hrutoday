@@ -18,32 +18,28 @@ const initIntro = () => {
             },
             {
               element: document.querySelector(".log-mood"),
-              intro: "First, you can start by logging your mood for the day.",
+              intro: "You can log your mood multiple times a day.",
             },
             {
               element: document.querySelector(".mood-tracker"),
-              intro: "This is the mood graph to track your moods.",
+              intro: "This is the mood graph to track your past moods.",
             },
             {
               element: document.querySelector(".home"),
-              intro: "Returns you to the homepage(here!)",
-            },
-            {
-              element: document.querySelector(".affirm"),
-              intro:
-                "To view our affirmation page and read supportive messages!",
+              intro: "Click here to return to the homepage",
             },
             {
               element: document.querySelector(".forum"),
-              intro: "To view our forums and start posting!",
+              intro:
+                "And here for our forums - start posting in our community!",
             },
             {
-              element: document.querySelector(".notification"),
-              intro: "Check your notifications here!",
+              element: document.querySelector(".notifications"),
+              intro: "You'll receive all notifications here",
             },
             {
               title: "Farewell!",
-              intro: "And we have come to the end of our tour!",
+              intro: "Start by logging how you feel right now! 😊",
             },
           ],
         })

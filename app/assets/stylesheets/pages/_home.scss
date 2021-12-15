@@ -22,6 +22,11 @@ body {
   font-size: 14px;
 }
 
+.mood-title:hover {
+  text-decoration: none;
+  color: $dark-gray;
+}
+
 .landing-page {
   background-color: #f6f5f0;
 }
@@ -40,11 +45,12 @@ body {
 
 .mood-selector {
   border-radius: 10px;
+  padding-bottom: 25px;
 }
 
 .card-mood {
   background-position: center;
-  height: 180px;
+  height: 120px;
   display: flex;
   justify-content: center;
   align-items: center;

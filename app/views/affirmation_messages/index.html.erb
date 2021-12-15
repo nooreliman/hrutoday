@@ -1,51 +1,46 @@
-<div class="container mt-2" >
+<div class="container affirm-box" style="background-color: <%= @mood.color %>;">
   <div class="flex-for-skip-btn">
-    <p><b><i><%= pluralize(@mood.user_moods.count, "user") %> have logged the same mood as you.</i></b></p>
-    <%= link_to "Skip", forums_path, class: "affirm-skip-btn" %>
+    <p><b><i><%= pluralize(@mood.user_moods.count, "user") %> logged the same mood as you.</i></b></p>
   </div>
-
-
 
  <!---input message--->
   <%= simple_form_for [ @mood, @affirmation_message ] do |f| %>
     <%= f.input :message, label: "Write something nice to other users:" %>
-    <%= f.submit "Submit", class: "btn btn-outline-primary btn-sm" %>
+    <%= f.submit "Submit", class: "btn btn-outline-dark btn-sm" %>
   <% end %>
 </div>
 
-
-
 <div class="container affirmation-page">
-
-  <div class="user-count mt-3">
-    <p>
-      Tap on the faces below to read their messages to you!
+  <div class="user-count mt-2">
+    <p class="text-center">
+      <span>Tap on the faces below <br> to read others' messages to you! <br>
+    <%= link_to icon("fas", "fa-sync"), "/affirmationmessages/#{@mood.name}", :method => :get, class: "btn btn-sm-refresh fas fa-sync"%>
+      </span>
     </p>
   </div>
 
   <!-- Button trigger modal -->
   <div id="messages" data-controller="affirmation" >
-    <% @messages.sample(5).each_with_index do |message, index| %>
+    <% @messages.sample(4).each_with_index do |message, index| %>
       <div class="mood-message <%= "message-alt" if index.even? %>" data-affirmation-target="face">
         <%= image_tag message.mood.image, data: {
           toggle: "modal",
           target: "#modal-#{message.id}"
-        }, class: "a mx-auto d-block"%>
+        }, class: "a mx-auto d-block", style:"width: 70px"%>
       </div>
 
        <!-- Modal -->
     <div class="modal fade" id="modal-<%= message.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog">
-        <div class="modal-content-bubble">
+        <div class="modal-content modal-content-bubble">
           <div class="modal-body-bubble">
             <div class="card-wrapper" data-controller="post-card">
 
-              <% unless message.needs_review? %>
+              <% unless message.offensive? %>
                 <p data-post-card-target="content" class="<%= "d-none" if message.sensitive? %>">
                 <p class="affirmation"><%= message.message %></p>
                 </p>
               <% end %>
-
 
               <% if message.sensitive? %>
                 <div data-post-card-target="message">
@@ -57,33 +52,30 @@
                 </div>
               <% end %>
 
-
-              <% if message.needs_review?%>
-                <p class="sensitive">This post is under review.</p>
+              <% if message.offensive?%>
+                  <%= message.destroy_message %>
               <% end %>
-
-
 
               <!---flag-affirmatiom-->
               <div class="affirmation-flag">
-                <%= link_to raw("<button data-action=\"click->post-card#flag\" data-post-card-target=\"flag\" class=\"far fa-flag flag-btn\"></button>"), flag_post_path(message), method: :put, data: { confirm: "Are you sure you want to flag this message?"} if message.get_dislikes.size === 0 %>
+
                   <% if message.get_dislikes.size > 0 %>
-                      <i class="fas fa-flag"></i>
+                    <i class="fas fa-flag"></i>
+                  <% else %>
+                    <%= link_to flag_affirmation_message_path(message), method: :put, data: { confirm: "Are you sure you want to flag this message?"} do %>
+                      <button data-action="click->post-card#flag" data-post-card-target="flag" class="far fa-flag flag-btn"></button>
+                    <% end %>
                   <% end %>
               </div>
-
             </div>
           </div>
         </div>
       </div>
     </div>
 
-
       <% end %>
   </div>
 
 
-
 </div>
-
-<%= link_to "refresh page for more messages!", "/affirmationmessages/#{@mood.name}", :method => :get, class: "btn btn-light btn-sm"%>
+<%= link_to "Next", forums_path, class: "btn btn-outline-dark btn-sm affirm-next-btn" %>

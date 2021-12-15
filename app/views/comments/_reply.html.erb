@@ -1,5 +1,15 @@
-<div class="card ml-5">
-  <div class="card-body">
+<div class="card card-reply w-100 overflow-hidden mt-1 py-4 flex-row align-items-center position-relative justify-content-end">
+
+  <%# reply %>
+  <div class="card-body reply-body text-right position-absolute">
+
     <%= reply.content %>
   </div>
+
+  <%# delete %>
+  <%= link_to icon("fas", "trash"), post_comment_path(@post, reply),
+    method: :delete,
+    data: { confirm: "Are you sure?" },
+    class: "reply-delete-btn mr-1" %>
+
 </div>

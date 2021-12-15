@@ -7,7 +7,22 @@
 
   <%= link_to icon("fas", "comments"), forums_path, class: "navbar-brand forum" %>
   
-  <%= link_to notifications_path, class:"position-relative" do %>
-    <i class="fas fa-bell"></i><span class="badge badge-notif"><%= current_user.notifications.unread.count %></span>
+   <%= link_to notifications_path, class:"position-relative" do %>
+    <i class="fas fa-bell notifications"></i><span class="badge badge-notif"><%= current_user.notifications.unread.count %></span>
   <% end %>
+
+  <div class="btn-group dropup">
+    <% if user_signed_in? %>
+      <%= image_tag "#{current_user.photo}", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <div class="dropdown-menu">
+        <%= link_to "My Posts", myposts_posts_path, class: "dropdown-item" %>
+        <%= link_to "My Bookmarks", favorites_posts_path, class: "dropdown-item" %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        <%= link_to "Account Settings", edit_user_registration_path, class:"dropdown-item" %>
+      </div>
+    <% else %>
+      <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+    <% end %>
+  </div>
+
 </div>

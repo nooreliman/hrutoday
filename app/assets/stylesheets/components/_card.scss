@@ -24,8 +24,21 @@
   border-radius: 10px;
 }
 
+.card-reply {
+  &:hover {
+    .reply-body {
+      transform: translateX(-30px);
+    }
+  }
+}
+
 .card-body {
+  background-color: #f6f5f0;
   border-radius: 10px;
+}
+
+.reply-body {
+  transition: 300ms;
 }
 
 // Smallest device
@@ -153,6 +166,12 @@
   border-radius: 10px;
 }
 
+
 .notification-card a {
   color: $dark-gray;
 }
+
+.reply-card {
+  background-color: transparent;
+}
+

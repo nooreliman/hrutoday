@@ -12,7 +12,6 @@ class AffirmationMessagesController < ApplicationController
     @messages = AffirmationMessage.where(mood: @mood)
   end
 
-
   def create
     @mood = Mood.find(params[:mood_id])
     @affirmation_message = AffirmationMessage.new(affirm_params)
@@ -23,7 +22,7 @@ class AffirmationMessagesController < ApplicationController
 
     if @affirmation_message.save
       redirect_to "/affirmationmessages/#{@mood.name}"
-      flash[:notice] = 'Thank you for sharing some kind words to others feeling the same!'
+      flash[:notice] = "Thank you for sharing some kind words to others feeling the same!"
     else
       render :index
     end
@@ -32,6 +31,11 @@ class AffirmationMessagesController < ApplicationController
   def flag
     @affirmation_message = AffirmationMessage.find(params[:id])
     @affirmation_message.dislike_by current_user
+
+    respond_to do |format|
+      format.html
+      format.json { render json: { status: "ok" } }
+    end
   end
 
   private

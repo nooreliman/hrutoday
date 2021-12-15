@@ -3,7 +3,7 @@
   <p>Pick one you would like to visit</p>
   <div class="forum-cards">
     <% @forums.each do |forum| %>
-      <div class="card-category justify-content-end pb-3 font-weight-regular" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= asset_path "forum-#{ forum.mood.name.downcase}.png" %>)">
+      <div class="card-category justify-content-end pb-2 font-weight-regular forum-card" style="background-image: url(<%= asset_path "forum-#{ forum.mood.name.downcase}.png"%>); background-color:<%= forum.mood.color %>">
         <%= link_to forum.mood.name.upcase, forum_posts_path(forum),  class: "forum-name ml-2" %>
         <p class="forum-context"><%= forum.context %></p>
       </div>

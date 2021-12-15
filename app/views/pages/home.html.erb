@@ -1,16 +1,23 @@
 <div class="container landing-page">
-  <h1 class="feeling-today">How are you feeling now,
+  <h1 class="feeling-today mb-1">How are you feeling now,
   <br>
   @<%= "#{current_user.username}" %> ?</h1>
+    <% if current_user.user_moods.empty? %>
+      <p>Last logged mood:</p>
+    <% else %>
+      <p class="mb-1 mt-1">Last logged mood: <%=  time_ago_in_words(current_user.user_moods.last.updated_at.in_time_zone('Singapore')).gsub('about','') %> ago</p>
+  <% end  %>
+
 
   <div class="container log-mood mood-selector">
     <div class="cards">
       <% @moods.each do |mood| %>
         <div class="card-mood">
-          <%= image_tag mood.image %><%= link_to mood.name, "/affirmationmessages/#{mood.name}", class:"mood-title" %>
+          <%= image_tag mood.image, style:"width: 60px" %><%= link_to mood.name, "/affirmationmessages/#{mood.name}", class:"mood-title"%>
         </div>
       <% end %>
     </div>
+
   </div>
 
   <%# mood log %>
