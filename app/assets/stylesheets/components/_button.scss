@@ -19,10 +19,17 @@
 }
 
 .btn-show {
-  border-radius: 20px;
-  border: 1px solid $dark-gray;
-  background: #f7eecb;
+  border-radius: 50%;
+  border: 3px solid #242424;
+  background-color: #f6f6f6;
   opacity: 85%;
+  height: 40px;
+  width: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 0px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 .post-bottom {
@@ -34,10 +41,11 @@
 
 #scrollBtn {
   // display: none; /* Hidden by default */
-  border: none;
-  border-radius: 20px;
-  border: 1px solid $dark-gray;
-  background: #f7eecb;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  border: 3px solid #242424;
+  background-color: #f6f6f6;
 }
 
 .btn-signup {
