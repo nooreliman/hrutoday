@@ -1,7 +1,8 @@
 <div class="container landing-page">
-  <h1 class="feeling-today">How are you feeling now,
+  <h1 class="feeling-today mb-1">How are you feeling now,
   <br>
   @<%= "#{current_user.username}" %> ?</h1>
+  <p class="mb-1 mt-1">Last logged mood: <%=  time_ago_in_words(current_user.moods.last.created_at.strftime("%I:%M") ).gsub('about','') %> ago</p>
 
   <div class="container log-mood mood-selector">
     <div class="cards">
@@ -11,6 +12,7 @@
         </div>
       <% end %>
     </div>
+
   </div>
 
   <%# mood log %>
