@@ -1,0 +1,10 @@
+.badge-notif {
+  position: relative;
+  top: -25%;
+  right: 39%;
+  border-radius: 5%;
+}
+
+.badge.badge-notif {
+  color: $dark-gray;
+}

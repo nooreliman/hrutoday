@@ -46,3 +46,17 @@
   position: absolute;
   left: 20;
 }
+
+.btn-notif {
+  background-color: $logo-green;
+  color: $logo-yellow;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn-notif:hover {
+  text-decoration: none;
+  background-color: #f7eecb;
+  border: none;
+  border-radius: 5px;
+}

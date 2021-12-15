@@ -1,28 +1,26 @@
 <div class="container">
-  <h2>You have <%= pluralize(@notifications.unread.count, "new notification") %></h2>
+  <h2>Updates</h2>
 
-  <% @notifications.each do |n| %>
+  <% @notifications.each do |notification| %>
 
-    <%= link_to post_path(n.params[:comment].post, anchor:"comment-#{n.params[:comment].id}") do %>
-      <div data-controller ="notification" data-notification-target="item" class="notification-card mt-1 p-1 <%= n.read? ? "" : "unread" %>">
+    <%= link_to post_path(notification.params[:comment].post, anchor:"comment-#{notification.params[:comment].id}") do %>
+      <div data-controller ="notification" data-notification-target="item" class="notification-card mt-1 p-1 <%= notification.read? ? "" : "unread" %>">
 
-        @<%= n.params[:comment].user.username %> commented on your post: <%= n.params[:comment].post.title %>
+        @<%= notification.params[:comment].user.username %> commented on your post: <%= notification.params[:comment].post.title %>
         <br>
-        <%= n.params[:comment].user.username %> commented: "<%= n.params[:comment].content %>"
+        <%= notification.params[:comment].user.username %> commented: "<%= notification.params[:comment].content %>"
         <br>
-        <p><strong><%= time_ago_in_words(n.params[:comment].created_at) %> ago</strong></p>
-        
-        <% unless n.read? %>
+        <p><strong><%= time_ago_in_words(notification.params[:comment].created_at) %> ago</strong></p>
+    <% end %>
+
+        <% unless notification.read? %>
           <div>
             <button 
-            data-link="<%= marked_path(n) %>"
-            data-action="click->notification#mark_as_read" data-notification-target="mark" type="button" class="btn btn-primary">Mark as read</button>
+            data-link="<%= marked_path(notification) %>"
+            data-action="click->notification#mark_as_read" data-notification-target="mark" type="button" class="btn-notif">Mark as read</button>
           </div>
         <% end %>
-        
-
       </div>
-    <% end %>
   <% end %>
   <%# link_to "Mark as read", "/notificationread/#{n.id}", data:{notification_target: 'mark', action: 'click->notification#mark_as_read'}, style: "text-decoration: none" %>
 </div>

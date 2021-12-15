@@ -8,6 +8,6 @@
   <%= link_to icon("fas", "comments"), forums_path, class: "navbar-brand forum" %>
   
   <%= link_to notifications_path, class:"position-relative" do %>
-    <i class="fas fa-bell"></i><span class="badge badge-dark badge-notif"><%= current_user.notifications.unread.count %></span>
+    <i class="fas fa-bell"></i><span class="badge badge-notif"><%= current_user.notifications.unread.count %></span>
   <% end %>
 </div>
