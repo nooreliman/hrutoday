@@ -7,8 +7,19 @@
   height: 55px;
   border-top: 1px solid darkgrey;
   border-radius: 5%;
-}
 
+}
 .navbar i {
   color: $dark-gray
+}
+
+.dropup .dropdown-menu {
+  bottom: 120%;
+}
+
+.dropdown-menu {
+  border-radius: 10px;
+  background-color: $container-beige;
+  right: 0;
+  left: initial;
 }
