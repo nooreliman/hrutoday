@@ -5,9 +5,11 @@ Rails.application.routes.draw do
   resources :forums, only: [:index] do
     resources :posts
   end
-
-  get 'notifications', to: 'pages#notifications'
-
+  
+  resources :notifications
+  # get 'comment_notifications/:id/mark', to: "comment_notifications#mark", as: 'notificationread'
+  get 'notificationread/:id', to: "comment_notifications#mark", as: "marked"
+  
   resources :posts do
     member do
       put "flag", to: "posts#flag"

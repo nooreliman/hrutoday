@@ -1,10 +1,15 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-bottom">
   <%= link_to icon("fas", "home"), root_path, class: "navbar-brand home" %>
+
   <% if !current_user.nil? && !current_user.moods.last.nil? %>
     <%= link_to icon("fas", "heart"), "/affirmationmessages/#{current_user.user_moods.last.mood.name}", class: "navbar-brand affirm" %>
   <% end %>
+
   <%= link_to icon("fas", "comments"), forums_path, class: "navbar-brand forum" %>
-  <%= link_to icon("fas", "bell"), notifications_path, class: "navbar-brand notifications" %>
+  
+   <%= link_to notifications_path, class:"position-relative" do %>
+    <i class="fas fa-bell notifications"></i><span class="badge badge-notif"><%= current_user.notifications.unread.count %></span>
+  <% end %>
 
   <div class="btn-group dropup">
     <% if user_signed_in? %>
@@ -19,4 +24,5 @@
       <%= link_to "Login", new_user_session_path, class: "nav-link" %>
     <% end %>
   </div>
+
 </div>

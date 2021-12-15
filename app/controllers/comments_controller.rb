@@ -20,11 +20,12 @@ class CommentsController < ApplicationController
       if comment_params.include? :parent_id
         # check if there is a parent
         @parent = Comment.find(comment_params.require(:parent_id))
-
+        
         # if yes, create the relationship
         @reply = @comment.reply_to(@parent)
       end
-
+      CommentNotification.with(comment: @comment).deliver(@comment.post.user)
+      
       redirect_to post_path(@comment.post, anchor: "comment-#{@parent ? @parent.id : @comment.id}")
 
       # @parent ? redirect_to(@parent) : redirect_to(post_path(@comment.post))

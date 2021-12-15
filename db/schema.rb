@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_14_024709) do
+ActiveRecord::Schema.define(version: 2021_12_14_071014) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,12 +73,15 @@ ActiveRecord::Schema.define(version: 2021_12_14_024709) do
   end
 
   create_table "notifications", force: :cascade do |t|
-    t.text "content"
-    t.string "status"
-    t.bigint "user_id", null: false
+    t.string "recipient_type", null: false
+    t.bigint "recipient_id", null: false
+    t.string "type", null: false
+    t.jsonb "params"
+    t.datetime "read_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_notifications_on_user_id"
+    t.index ["read_at"], name: "index_notifications_on_read_at"
+    t.index ["recipient_type", "recipient_id"], name: "index_notifications_on_recipient"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -145,7 +148,6 @@ ActiveRecord::Schema.define(version: 2021_12_14_024709) do
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "forums", "moods"
-  add_foreign_key "notifications", "users"
   add_foreign_key "posts", "forums"
   add_foreign_key "posts", "users"
   add_foreign_key "user_moods", "moods"
