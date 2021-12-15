@@ -32,7 +32,7 @@ class PostsController < ApplicationController
     else
         # change the flash notice to show up longer
       flash[:notice] = "This was too negative!"
-      render :edit
+      render :new
     end
   end
 
