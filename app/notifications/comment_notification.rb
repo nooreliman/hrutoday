@@ -26,6 +26,6 @@ class CommentNotification < Noticed::Base
   # end
 
   def color
-    self.read? ? 'white' : '$container-beige'
+    self.read? ?  '$container-beige' : '#D6CAB8'
   end
 end

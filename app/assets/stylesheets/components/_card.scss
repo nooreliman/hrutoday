@@ -140,4 +140,13 @@
 
 .notification-card {
   background-color: #f0eae1;
+  color: $dark-gray;
+
+  &.unread {
+    background-color: #D6CAB8;
+  }
+  }
+
+.notification-card:hover {
+  text-decoration: none;
 }
