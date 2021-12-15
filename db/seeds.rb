@@ -46,7 +46,7 @@ puts "Creating moods"
 
 mood_happy = Mood.new(
   name: "Happy",
-  image: "happy.png",
+  image: "happy3.png",
   color: "#bfd8e5"
 )
 
@@ -54,7 +54,7 @@ mood_happy.save!
 
 mood_sad = Mood.new(
   name: "Sad",
-  image: "sad.png",
+  image: "sad3.png",
   color: "#cbc6d6"
 )
 
@@ -62,7 +62,7 @@ mood_sad.save!
 
 mood_angry = Mood.new(
   name: "Angry",
-  image: "angry.png",
+  image: "angry3.png",
   color: "#dea6a6"
 )
 
@@ -70,7 +70,7 @@ mood_angry.save!
 
 mood_scared = Mood.new(
   name: "Scared",
-  image: "scared.png",
+  image: "scared3.png",
   color: "#e7ebbc"
 )
 
@@ -78,7 +78,7 @@ mood_scared.save!
 
 mood_love = Mood.new(
   name: "Love",
-  image: "love.png",
+  image: "love3.png",
   color: "#e1bddb"
 )
 
@@ -86,7 +86,7 @@ mood_love.save!
 
 mood_confused = Mood.new(
   name: "Confused",
-  image: "confused.png",
+  image: "confused3.png",
   color: "#b5dad1"
 )
 
