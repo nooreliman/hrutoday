@@ -178,6 +178,69 @@ puts "6 Mood Forums created"
 
 puts "Creating posts"
 
+post_happy_one = Post.new(
+  title: "What does happiness means to me",
+  content: "Happiness means that I don't have to see my mother tailoring clothes at 3 a.m just to earn some money.  I don't have to see my father driving auto for my education.I can ensure my sibling's education.
+            The bad times has taught me many things.
+            Hard work, patience, persistent are the basic qualities I have learned from my parents. These are what happiness means to me now.",
+  status: "true",
+)
+
+post_happy_one.forum = forum_happy
+post_happy_one.user = john
+post_happy_one.save!
+
+post_happy_two = Post.new(
+  title: "Babies",
+  content: "Life changes when you welcome a new person into your life. Life changes when you realise a dream comes true. Life changes when you experience something inexplicable.
+            For my husband and myself, this precious moment came twice in life.
+            How lucky we are! The birth of our daughters.
+            The moment my doctor showed me my first born, that unspeakable happiness.
+            I was overjoyed to hold her and love her. She continues to bring us joy with her smile and innocence.",
+  status: "true",
+)
+
+post_happy_two.forum = forum_happy
+post_happy_two.user = sarah
+post_happy_two.save!
+
+post_happy_three = Post.new(
+  title: "Little things in life",
+  content: "My life is filled with joy. My wife. Sleeping as I write this post.
+            Decades of love and life together. She is my love, best friend and soul mate. And she brings me joy.
+            Our children. Our daughter will stop by soon. Our son we will see later this week.
+            Our loves and thankfully now our best friends. And they bring me joy.",
+  status: "true",
+)
+
+post_happy_three.forum = forum_happy
+post_happy_three.user = george
+post_happy_three.save!
+
+post_happy_four = Post.new(
+  title: "Challenge for you guys!",
+  content: "Happiness is found in the simplest of things. If you are anything like me, sometimes life just gets to you and all you can do is take a step back and think of all the things that make you happy.
+            Writing about what makes me happy always seems to counteract a bad day.
+            I challenge you to write down a few things every day that makes you happy,
+            and you will be surprised at all the simple things in life that can put a smile on your face!",
+  status: "true",
+)
+
+post_happy_four.forum = forum_happy
+post_happy_four.user = john
+post_happy_four.save!
+
+post_happy_five = Post.new(
+  title: "My baby puppy!",
+  content: "Recently adopted a little cute maltese and I have to say that he is a bundle of joy and he brings me happiness everyday!",
+  status: "true",
+)
+
+post_happy_five.forum = forum_happy
+post_happy_five.user = sarah
+post_happy_five.save!
+
+puts "Creating posts"
 
 
 post_sad_1 = Post.new(
@@ -301,7 +364,7 @@ post_love_5 = Post.new(
   A man was walking by. He took a few coins from his pocket and dropped them into the hat. He then took the sign, turned it around, and wrote some words.
   Then he put the sign back in the boy’s hand so that everyone who walked by would see the new words. Soon the hat began to fill up. A lot more people were giving money to the blind boy.
   That afternoon, the man who had changed the sign returned to see how things were. The blind boy recognized his footsteps and asked, 'Were you the one who changed my sign this morning? What did you write?'
-  The man said, 'I only wrote the truth. I said what you said but in a different way.' 
+  The man said, 'I only wrote the truth. I said what you said but in a different way.'
   I wrote, 'Today is a beautiful day, but I cannot see it.'
   Both signs spoke the truth. But the first sign simply said the boy was blind, while the second sign conveyed to everyone walking by how grateful they should be to see.
   When your life seems full of troubles, it seems difficult to maintain an attitude of gratitude, doesn’t it? All we see are our problems, like a blackened storm cloud casting a dark shadow over our lives.
