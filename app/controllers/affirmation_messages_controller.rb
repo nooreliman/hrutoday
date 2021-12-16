@@ -15,22 +15,22 @@ class AffirmationMessagesController < ApplicationController
   def create
     @mood = Mood.find(params[:mood_id])
     @affirmation_message = AffirmationMessage.new(affirm_params)
-    analysis_result = LanguageService.analyze_sentiment(@affirmation_message.message)
+    # analysis_result = LanguageService.analyze_sentiment(@affirmation_message.message)
     @affirmation_message.user = current_user
     @affirmation_message.mood = @mood
 
     @messages = AffirmationMessage.where(mood: @mood)
 
-    if analysis_result.document_sentiment.score > -0.8
-      @affirmation_message.save
+    # if analysis_result.document_sentiment.score > -0.8
+      # @affirmation_message.save
         if @affirmation_message.save
           redirect_to "/affirmationmessages/#{@mood.name}"
           flash[:notice] = "Thank you for sharing some kind words to others feeling the same!"
         end
-    else
-      flash[:notice] = "This was too negative!"
-      render :index
-    end
+    # else
+      # flash[:notice] = "This was too negative!"
+      # render :index
+    # end
   end
 
   def flag
