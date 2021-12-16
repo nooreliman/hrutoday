@@ -6,8 +6,6 @@
   bottom: 0;
   height: 55px;
   border-top: 1px solid darkgrey;
-  border-radius: 5%;
-
 }
 
 .dropup .dropdown-menu {
@@ -19,10 +17,9 @@
   background-color: $container-beige;
   right: 0;
   left: initial;
- 
 }
 .navbar i {
-  color: $dark-gray
+  color: $dark-gray;
 }
 
 .dropup .dropdown-menu {

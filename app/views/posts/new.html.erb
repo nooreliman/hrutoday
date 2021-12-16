@@ -8,9 +8,9 @@
         <%= simple_form_for [@forum, @post] do |f| %>
           <%= f.input :title %>
           <%= f.input :content %>
-          <%= f.submit "Create post", class: "btn btn-primary" %>
+          <%= f.submit "Create post", class: "btn btn-outline-dark" %>
         <% end %>
-        <%= link_to "Cancel", forum_posts_path(@forum), class: "btn btn-danger mt-1" %>
+        <%= link_to "Cancel", forum_posts_path(@forum), class: "btn btn-outline-dark mt-1" %>
       </div>
   </div>
 
