@@ -152,12 +152,12 @@
 }
 
 .notification-card {
-  background-color: #f0eae1;
+  background-color: #d6cab8;
   color: $dark-gray;
   border-radius: 10px;
 
   &.unread {
-    background-color: #d6cab8;
+    background-color: #f0eae1;
   }
 }
 
@@ -168,6 +168,7 @@
 
 .notification-card a {
   color: $dark-gray;
+  text-decoration: none;
 }
 
 .reply-card {
