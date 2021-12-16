@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>Updates</h2>
+  <h1>Updates</h1>
 
   <% @notifications.each do |notification| %>
 
@@ -15,7 +15,7 @@
 
         <% unless notification.read? %>
           <div>
-            <button 
+            <button
             data-link="<%= marked_path(notification) %>"
             data-action="click->notification#mark_as_read" data-notification-target="mark" type="button" class="btn-notif">Mark as read</button>
           </div>
