@@ -28,6 +28,7 @@
 
 .flagged {
   color: #242424;
+  text-decoration: none;
 }
 
 .flag-btn {
@@ -35,6 +36,7 @@
   border: none;
   color: #242424;
   padding-left: 1%;
+  text-decoration: none;
 }
 
 .fav-posts {
@@ -56,22 +58,27 @@
 .fa-edit:before {
   color: #242424;
   padding-right: 1%;
+  text-decoration: none;
 }
 
 .delete-btn {
   color: #242424;
+  text-decoration: none;
 }
 
 .fa-flag:before {
   color: #242424;
   padding-left: 5%;
+  text-decoration: none;
 }
 
 .fa-trash-alt:before {
   color: #242424;
   margin-right: 5%;
+  text-decoration: none;
 }
 
 .reply-delete-btn {
   color: #242424;
+  text-decoration: none;
 }

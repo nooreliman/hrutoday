@@ -5,14 +5,15 @@ class AffirmationMessage < ApplicationRecord
   acts_as_votable
 
   def sensitive?
-    (3...5) === self.get_dislikes.size
+    (2...3) === self.get_dislikes.size
   end
 
   def offensive?
-    self.get_dislikes.size >= 5
+    self.get_dislikes.size >= 3
   end
 
   def destroy_message
     self.delete
   end
+
 end
