@@ -20,15 +20,15 @@ sarah = User.new(
 
 sarah.save!
 
-chloe = User.new(
-  username: "chloe",
-  email: "chloe@gmail.com",
+rachel = User.new(
+  username: "rachel",
+  email: "rachel@gmail.com",
   password: "123123",
   age: 21,
   photo: "https://avatars.dicebear.com/api/croodles/jayz.svg",
 )
 
-chloe.save!
+rachel.save!
 
 john = User.new(
   username: "john",
@@ -190,6 +190,7 @@ post_happy_one.forum = forum_happy
 post_happy_one.user = john
 post_happy_one.save!
 
+
 post_happy_two = Post.new(
   title: "Babies",
   content: "Life changes when you welcome a new person into your life. Life changes when you realise a dream comes true. Life changes when you experience something inexplicable.
@@ -304,7 +305,7 @@ post_sad_5 = Post.new(
 )
 
 post_sad_5.forum = forum_sad
-post_sad_5.user = chloe
+post_sad_5.user = rachel
 post_sad_5.save!
 
 
@@ -374,7 +375,7 @@ post_love_5 = Post.new(
 )
 
 post_love_5.forum = forum_love
-post_love_5.user = chloe
+post_love_5.user = rachel
 post_love_5.save!
 
 post_angry = Post.new(
@@ -483,7 +484,7 @@ post_scared4.save!
 
 post_scared5 = Post.new(
   title: "I'm not sure if I'm in the right job",
-  content: "I have been working as a UI/UX designer for the past few months. I always thought that I was meant for a design role (ADM grad here) and that I found something I liked. However, soon enough the excitement ran out and I started feeling jaded at work. If this was my passion, how is it that I lost interest in a few months? 
+  content: "I have been working as a UI/UX designer for the past few months. I always thought that I was meant for a design role (ADM grad here) and that I found something I liked. However, soon enough the excitement ran out and I started feeling jaded at work. If this was my passion, how is it that I lost interest in a few months?
   I think I'm interested in web dev now, what if the excitement dies again after a few weeks in the job? I'm 30 and it feels like other people have already found their calling but I'm still lost.",
   status: "true",
 )
@@ -531,7 +532,7 @@ reply_one = Comment.new(
 )
 
 reply_one.post = post_scared5
-reply_one.user = chloe
+reply_one.user = rachel
 reply_one.save!
 
 reply_one.reply_to(comment_one)
@@ -693,3 +694,54 @@ affirm_confused_two.mood = mood_confused
 affirm_confused_two.save!
 
 puts "Affirmation messages created"
+
+
+moods = Mood.all
+
+3.times do
+  mood1 = UserMood.new
+  mood1.user = rachel
+  mood1.mood = moods.sample
+  mood1.created_at = 6.days.ago
+  mood1.save!
+end
+
+2.times do
+  mood2 = UserMood.new
+  mood2.user = rachel
+  mood2.mood = moods.sample
+  mood2.created_at = 5.days.ago
+  mood2.save!
+end
+
+4.times do
+  mood3 = UserMood.new
+  mood3.user = rachel
+  mood3.mood = moods.sample
+  mood3.created_at = 4.days.ago
+  mood3.save!
+end
+
+2.times do
+  mood4 = UserMood.new
+  mood4.user = rachel
+  mood4.mood = moods.sample
+  mood4.created_at = 3.days.ago
+  mood4.save!
+end
+
+5.times do
+  mood5 = UserMood.new
+  mood5.user = rachel
+  mood5.mood = moods.sample
+  mood5.created_at = 2.days.ago
+  mood5.save!
+end
+
+2.times do
+  mood6 = UserMood.new
+  mood6.user = rachel
+  mood6.mood = moods.sample
+  mood6.created_at = 1.day.ago
+  mood6.save!
+end
