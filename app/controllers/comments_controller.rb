@@ -13,23 +13,30 @@ class CommentsController < ApplicationController
   def create
     # create the new comment
     @comment = Comment.new(comment_params.except(:parent_id))
+    analysis_result = LanguageService.analyze_sentiment(@comment.content)
     @comment.post = Post.find(params[:post_id])
     @comment.user = current_user
 
-    if @comment.save
-      if comment_params.include? :parent_id
-        # check if there is a parent
-        @parent = Comment.find(comment_params.require(:parent_id))
-        
-        # if yes, create the relationship
-        @reply = @comment.reply_to(@parent)
-      end
-      CommentNotification.with(comment: @comment).deliver(@comment.post.user)
-      
-      redirect_to post_path(@comment.post, anchor: "comment-#{@parent ? @parent.id : @comment.id}")
+    if analysis_result.document_sentiment.score > -0.8
+      @comment.save
+      if @comment.save
+        if comment_params.include? :parent_id
+          # check if there is a parent
+          @parent = Comment.find(comment_params.require(:parent_id))
 
-      # @parent ? redirect_to(@parent) : redirect_to(post_path(@comment.post))
-      # @parent ? flash[:notice] = 'Reply sent' : flash[:notice] = 'Comment successfully created!'
+          # if yes, create the relationship
+          @reply = @comment.reply_to(@parent)
+        end
+        CommentNotification.with(comment: @comment).deliver(@comment.post.user)
+
+        redirect_to post_path(@comment.post, anchor: "comment-#{@parent ? @parent.id : @comment.id}")
+
+        # @parent ? redirect_to(@parent) : redirect_to(post_path(@comment.post))
+        # @parent ? flash[:notice] = 'Reply sent' : flash[:notice] = 'Comment successfully created!'
+      end
+    else
+      flash[:notice] = "This was too negative!"
+      render :new
     end
   end
 

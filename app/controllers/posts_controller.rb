@@ -23,14 +23,13 @@ class PostsController < ApplicationController
     @post.user = current_user
     @forum = Forum.find(params[:forum_id])
     @post.forum = @forum
-    if analysis_result.document_sentiment.score > 0
+    if analysis_result.document_sentiment.score > -0.8
       @post.save
         if @post.save
           redirect_to post_path(@post)
           flash[:notice] = "Post successfully created!"
         end
     else
-        # change the flash notice to show up longer
       flash[:notice] = "This was too negative!"
       render :new
     end
