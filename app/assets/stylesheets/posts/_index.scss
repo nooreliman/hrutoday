@@ -28,3 +28,10 @@
 .new-post-content {
   border-radius: 10px;
 }
+
+.index-message {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
