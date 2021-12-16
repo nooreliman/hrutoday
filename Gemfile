@@ -34,8 +34,6 @@ gem 'turbolinks_render'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
-gem 'dotenv-rails', groups: [:development, :test]
-
 gem 'devise'
 
 gem 'autoprefixer-rails', '10.2.5'
@@ -74,7 +72,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "google-cloud-language", "~> 1.3"
 
 gem 'acts_as_votable'
-
-gem 'turbolinks_render'
 
 gem "noticed", "~> 1.5"
