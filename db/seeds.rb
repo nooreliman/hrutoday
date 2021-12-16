@@ -69,6 +69,7 @@ ringo = User.new(
 )
 
 ringo.save!
+
 puts "Users created"
 
 puts "Creating moods"
