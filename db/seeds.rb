@@ -190,16 +190,6 @@ post_happy_one.forum = forum_happy
 post_happy_one.user = john
 post_happy_one.save!
 
-post_happy_two = Post.new(
-  title: "Babies",
-  content: "Life changes when you welcome a new person into your life. Life changes when you realise a dream comes true. Life changes when you experience something inexplicable.
-            For my husband and myself, this precious moment came twice in life.
-            How lucky we are! The birth of our daughters.
-            The moment my doctor showed me my first born, that unspeakable happiness.
-            I was overjoyed to hold her and love her. She continues to bring us joy with her smile and innocence.",
-  status: "true",
-)
-
 post_happy_two.forum = forum_happy
 post_happy_two.user = sarah
 post_happy_two.save!
@@ -361,7 +351,7 @@ post_love_5 = Post.new(
   A man was walking by. He took a few coins from his pocket and dropped them into the hat. He then took the sign, turned it around, and wrote some words.
   Then he put the sign back in the boy’s hand so that everyone who walked by would see the new words. Soon the hat began to fill up. A lot more people were giving money to the blind boy.
   That afternoon, the man who had changed the sign returned to see how things were. The blind boy recognized his footsteps and asked, 'Were you the one who changed my sign this morning? What did you write?'
-  The man said, 'I only wrote the truth. I said what you said but in a different way.' 
+  The man said, 'I only wrote the truth. I said what you said but in a different way.'
   I wrote, 'Today is a beautiful day, but I cannot see it.'
   Both signs spoke the truth. But the first sign simply said the boy was blind, while the second sign conveyed to everyone walking by how grateful they should be to see.
   When your life seems full of troubles, it seems difficult to maintain an attitude of gratitude, doesn’t it? All we see are our problems, like a blackened storm cloud casting a dark shadow over our lives.

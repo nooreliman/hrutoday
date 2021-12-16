@@ -13,7 +13,7 @@
           </h4>
 
           <% unless post.offensive? %>
-            <p data-post-card-target="content" class="<%= "d-none" if post.sensitive? %>">
+            <p data-post-card-target="content" class="<%= "d-none" if post.sensitive? %> index-message">
               <%= post.content %>
             </p>
           <% end %>
