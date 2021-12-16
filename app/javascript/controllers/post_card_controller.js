@@ -8,7 +8,7 @@ import { Controller } from "stimulus";
 import { csrfToken } from "@rails/ujs";
 
 export default class extends Controller {
-  static targets = ["content", "message", "favorite", "flag"];
+  static targets = ["content", "message", "favorite", "flag", "flags"];
 
   // connect() {
   //   console.log(this.formTargets);
@@ -29,6 +29,19 @@ export default class extends Controller {
     this.flagTarget.disabled = true;
     this.flagTarget.classList.remove("far", "fa-flag");
     this.flagTarget.classList.add("fas", "fa-flag", "flagged");
+    // }
+    // user clicks confirm && the result is successful
+  }
+
+   flags(e) {
+    // const url = this.flagTarget.dataset.link;
+    // fetch(url)
+    //   .then((res) => res.json())
+    //   .then((data) => console.log(data));
+    e.preventDefault();
+    this.flagsTarget.disabled = true;
+    this.flagsTarget.classList.remove("far", "fa-flag");
+    this.flagsTarget.classList.add("fas", "fa-flag", "flagged");
     // }
     // user clicks confirm && the result is successful
   }
