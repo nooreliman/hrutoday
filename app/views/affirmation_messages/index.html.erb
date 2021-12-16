@@ -59,7 +59,7 @@
               <!---flag-affirmatiom-->
               <div class="affirmation-flag">
 
-                  <% if message.get_dislikes.size > 0 %>
+                  <% if current_user.disliked? post %>
                     <i class="fas fa-flag"></i>
                   <% else %>
                     <%= link_to flag_affirmation_message_path(message), method: :put, data: { confirm: "Are you sure you want to flag this message?"} do %>
