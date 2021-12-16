@@ -6,7 +6,7 @@
  <!---input message--->
   <%= simple_form_for [ @mood, @affirmation_message ] do |f| %>
     <%= f.input :message, label: "Write something nice to other users:" %>
-    <%= f.submit "Submit", class: "btn btn-outline-dark btn-sm" %>
+    <%= f.submit "Share my message", class: "btn btn-outline-dark btn-lg btn-block"%>
   <% end %>
 </div>
 
@@ -78,4 +78,4 @@
 
 
 </div>
-<%= link_to "Next", forums_path, class: "btn btn-outline-dark btn-sm affirm-next-btn" %>
+<%= link_to "Go to forums", forums_path, class: "btn btn-outline-dark btn-sm affirm-next-btn" %>
