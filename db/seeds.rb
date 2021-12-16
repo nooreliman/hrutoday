@@ -190,6 +190,16 @@ post_happy_one.forum = forum_happy
 post_happy_one.user = john
 post_happy_one.save!
 
+post_happy_two = Post.new(
+  title: "Babies",
+  content: "Life changes when you welcome a new person into your life. Life changes when you realise a dream comes true. Life changes when you experience something inexplicable.
+            For my husband and myself, this precious moment came twice in life.
+            How lucky we are! The birth of our daughters.
+            The moment my doctor showed me my first born, that unspeakable happiness.
+            I was overjoyed to hold her and love her. She continues to bring us joy with her smile and innocence.",
+  status: "true",
+)
+
 post_happy_two.forum = forum_happy
 post_happy_two.user = sarah
 post_happy_two.save!
