@@ -1,8 +1,10 @@
-<div class="post-title mt-1">
-  <h3 class="user-name">@<%= @post.user.username %><br>Posted:<%= @post.created_at.strftime("%e %b %y") %></h3>
+<div class="post-title mt-1 d-flex justify-content-center">
   <%= link_to "", forum_posts_path(@post.forum), class: "fas fa-arrow-left arrow-left" %>
-   </div>
+  <%= image_tag "#{current_user.photo}", class: "user-photo" %>
+  <h3 class="user-name">@<%= @post.user.username %><br>Posted:<%= @post.created_at.strftime("%e %b %y") %></h3>
 </div>
+
+
 
 <div class="container post mt-3 py-3" style="background-color: <%= @post.forum.mood.color %>">
   <div class="card">
