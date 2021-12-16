@@ -24,8 +24,4 @@ class CommentNotification < Noticed::Base
   # def url
   #   comment_path(params[:comment])
   # end
-
-  def color
-    self.read? ?  '$container-beige' : '#D6CAB8'
-  end
 end
