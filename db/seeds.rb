@@ -481,6 +481,17 @@ post_scared4.forum = forum_scared
 post_scared4.user = sarah
 post_scared4.save!
 
+post_scared5 = Post.new(
+  title: "I'm not sure if I'm in the right job",
+  content: "I have been working as a UI/UX designer for the past few months. I always thought that I was meant for a design role (ADM grad here) and that I found something I liked. However, soon enough the excitement ran out and I started feeling jaded at work. If this was my passion, how is it that I lost interest in a few months? 
+  I think I'm interested in web dev now, what if the excitement dies again after a few weeks in the job? I'm 30 and it feels like other people have already found their calling but I'm still lost.",
+  status: "true",
+)
+
+post_scared5.forum = forum_scared
+post_scared5.user = sarah
+post_scared5.save!
+
 post_confused = Post.new(
   title: "I am confused",
   content: "I have a friend that that i like really much and i feel like she gives hints of liking me too, but she says she likes someone else. Am I just overthinking and making myself confused?",
@@ -503,31 +514,49 @@ post_confused1.save!
 
 puts "6 Posts created"
 
-# puts "Creating comment and reply"
+puts "Creating comment and reply"
 
-# comment_one = Comment.new(
-#   content: "How are you?",
-#   status: "true",
-# )
+comment_one = Comment.new(
+  content: "Go for it OP, you're not even 30 yet! I'm still lost at 45 wishing I tried something new when I was younger. ",
+  status: "true",
+)
 
-# comment_one.post = post_happy
-# comment_one.user = john
-# comment_one.save!
+comment_one.post = post_scared5
+comment_one.user = john
+comment_one.save!
 
-# reply_one = Comment.new(
-#   content: "There's been better days but I'm still coping!",
-#   status: "true",
-# )
+reply_one = Comment.new(
+  content: "There's been better days but I'm still coping!",
+  status: "true",
+)
 
-# reply_one.post = post_happy
-# reply_one.user = user_one
-# reply_one.save!
+reply_one.post = post_scared5
+reply_one.user = chloe
+reply_one.save!
 
-# reply_one.reply_to(comment_one)
+reply_one.reply_to(comment_one)
 
-# puts "Comment and reply created"
+puts "Comment and reply created"
 
-# puts "Creating affirmation messages"
+comment_two = Comment.new(
+  content: "Go for it OP, you're not even 30 yet! I'm still lost at 45 wishing I tried something new when I was younger. ",
+  status: "true",
+)
+
+comment_two.post = post_scared5
+comment_two.user = paul
+comment_two.save!
+
+comment_three = Comment.new(
+  content: "You don't hear it often but there are many others who are still figuring life out. I thought that I had no hobbies and passions but after a few years of therapy, I realised that it's because I'm too afraid to commit to something lol trying to pick up photography currently",
+  status: "true",
+)
+
+comment_three.post = post_scared5
+comment_three.user = george
+comment_three.save!
+
+puts "Creating affirmation messages"
 
 affirm_happy_one = AffirmationMessage.new(
   message: "Don't know what went down but I'm so proud of you achieving big things!",
