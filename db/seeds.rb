@@ -10,35 +10,65 @@ Notification.destroy_all
 
 puts "Creating users"
 
-user = User.new(
-  username: "msjdtd",
-  email: "msjdtd@gmail.com",
-  password: "punker77",
+sarah = User.new(
+  username: "sarah",
+  email: "sarah@gmail.com",
+  password: "123123",
   age: 18,
   photo: "https://avatars.dicebear.com/api/croodles/mario.svg",
 )
 
-user.save!
+sarah.save!
 
-user_one = User.new(
-  username: "paul99",
-  email: "paul@gmail.com",
-  password: "password123",
+chloe = User.new(
+  username: "chloe",
+  email: "chloe@gmail.com",
+  password: "123123",
   age: 21,
   photo: "https://avatars.dicebear.com/api/croodles/jayz.svg",
 )
 
-user_one.save!
+chloe.save!
 
-user_two = User.new(
-  username: "coolkid",
-  email: "coolkid@gmail.com",
-  password: "password123",
+john = User.new(
+  username: "john",
+  email: "john@gmail.com",
+  password: "123123",
   age: 28,
   photo: "https://avatars.dicebear.com/api/croodles/cool.svg",
 )
 
-user_two.save!
+john.save!
+
+paul = User.new(
+  username: "paul",
+  email: "paul@gmail.com",
+  password: "123123",
+  age: 18,
+  photo: "https://avatars.dicebear.com/api/croodles/mario.svg",
+)
+
+paul.save!
+
+george = User.new(
+  username: "george",
+  email: "george@gmail.com",
+  password: "123123",
+  age: 21,
+  photo: "https://avatars.dicebear.com/api/croodles/jayz.svg",
+)
+
+george.save!
+
+ringo = User.new(
+  username: "ringo",
+  email: "ringo@gmail.com",
+  password: "123123",
+  age: 28,
+  photo: "https://avatars.dicebear.com/api/croodles/cool.svg",
+)
+
+ringo.save!
 
 puts "Users created"
 
