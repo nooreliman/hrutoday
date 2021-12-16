@@ -489,7 +489,7 @@ post_scared5 = Post.new(
 )
 
 post_scared5.forum = forum_scared
-post_scared5.user = chloe
+post_scared5.user = sarah
 post_scared5.save!
 
 post_confused = Post.new(
