@@ -35,10 +35,10 @@
 
       <%# flag comment %>
       <div class="engagement text-right">
-        <% if current_user.disliked? post %>
+        <% if current_user.disliked? comment %>
           <i class="fas fa-flag"></i>
         <% else %>
-          <%= link_to flag_comment_path(comment), method: :put, data: { confirm: "Are you sure you want to flag this message?"} do %>
+          <%= link_to flag_comment_path(comment), method: :put, data: { confirm: "Are you sure you want to flag this comment?"} do %>
           <button data-action="click->post-card#flag" data-post-card-target="flag" class="far fa-flag flag-btn comment-flag ml-1"></button>
           <% end %>
         <% end %>
