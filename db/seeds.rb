@@ -178,226 +178,66 @@ puts "6 Mood Forums created"
 
 puts "Creating posts"
 
-post_happy = Post.new(
-  title: "I am happy",
-  content: "Blehhhhh",
+post_happy_one = Post.new(
+  title: "What does happiness means to me",
+  content: "Happiness means that I don't have to see my mother tailoring clothes at 3 a.m just to earn some money.  I don't have to see my father driving auto for my education.I can ensure my sibling's education.
+            The bad times has taught me many things.
+            Hard work, patience, persistent are the basic qualities I have learned from my parents. These are what happiness means to me now.",
   status: "true",
 )
 
-post_happy.forum = forum_happy
-post_happy.user = user
-post_happy.save!
+post_happy_one.forum = forum_happy
+post_happy_one.user = john
+post_happy_one.save!
 
-post_sad = Post.new(
-  title: "I am sad",
-  content: "Blehhhhh",
+post_happy_two = Post.new(
+  title: "Babies",
+  content: "Life changes when you welcome a new person into your life. Life changes when you realise a dream comes true. Life changes when you experience something inexplicable.
+            For my husband and myself, this precious moment came twice in life.
+            How lucky we are! The birth of our daughters.
+            The moment my doctor showed me my first born, that unspeakable happiness.
+            I was overjoyed to hold her and love her. She continues to bring us joy with her smile and innocence.",
   status: "true",
 )
 
-post_sad.forum = forum_sad
-post_sad.user = user
-post_sad.save!
+post_happy_two.forum = forum_happy
+post_happy_two.user = sarah
+post_happy_two.save!
 
-post_angry = Post.new(
-  title: "I am angry",
-  content: "Blehhhhh",
+post_happy_three = Post.new(
+  title: "Little things in life",
+  content: "My life is filled with joy. My wife. Sleeping as I write this post.
+            Decades of love and life together. She is my love, best friend and soul mate. And she brings me joy.
+            Our children. Our daughter will stop by soon. Our son we will see later this week.
+            Our loves and thankfully now our best friends. And they bring me joy.",
   status: "true",
 )
 
-post_angry.forum = forum_angry
-post_angry.user = user
-post_angry.save!
+post_happy_three.forum = forum_happy
+post_happy_three.user = george
+post_happy_three.save!
 
-post_scared = Post.new(
-  title: "I am scared",
-  content: "Blehhhhh",
+post_happy_four = Post.new(
+  title: "Challenge for you guys!",
+  content: "Happiness is found in the simplest of things. If you are anything like me, sometimes life just gets to you and all you can do is take a step back and think of all the things that make you happy.
+            Writing about what makes me happy always seems to counteract a bad day.
+            I challenge you to write down a few things every day that makes you happy,
+            and you will be surprised at all the simple things in life that can put a smile on your face!",
   status: "true",
 )
 
-post_scared.forum = forum_scared
-post_scared.user = user
-post_scared.save!
+post_happy_four.forum = forum_happy
+post_happy_four.user = john
+post_happy_four.save!
 
-post_love = Post.new(
-  title: "I am loved",
-  content: "Blehhhhh",
+post_happy_five = Post.new(
+  title: "My baby puppy!",
+  content: "Recently adopted a little cute maltese and I have to say that he is a bundle of joy and he brings me happiness everyday!",
   status: "true",
 )
 
-post_love.forum = forum_love
-post_love.user = user
-post_love.save!
+post_happy_five.forum = forum_happy
+post_happy_five.user = sarah
+post_happy_five.save!
 
-post_confused = Post.new(
-  title: "I am confused",
-  content: "Blehhhhh",
-  status: "true",
-)
-
-post_confused.forum = forum_confused
-post_confused.user = user
-post_confused.save!
-
-puts "6 Posts created"
-
-puts "Creating comment and reply"
-
-comment_one = Comment.new(
-  content: "How are you?",
-  status: "true",
-)
-
-comment_one.post = post_happy
-comment_one.user = user
-comment_one.save!
-
-reply_one = Comment.new(
-  content: "There's been better days but I'm still coping!",
-  status: "true",
-)
-
-reply_one.post = post_happy
-reply_one.user = user_one
-reply_one.save!
-
-reply_one.reply_to(comment_one)
-
-puts "Comment and reply created"
-
-puts "Creating affirmation messages"
-
-affirm_happy_one = AffirmationMessage.new(
-  message: "Don't know what went down but I'm so proud of you achieving big things!",
-)
-
-affirm_happy_one.user = user
-affirm_happy_one.mood = mood_happy
-affirm_happy_one.save!
-
-affirm_happy_second = AffirmationMessage.new(
-  message: "Good things take time",
-)
-
-affirm_happy_second.user = user
-affirm_happy_second.mood = mood_happy
-affirm_happy_second.save!
-
-affirm_happy_third = AffirmationMessage.new(
-  message: "Love who you",
-)
-
-affirm_happy_third.user = user
-affirm_happy_third.mood = mood_happy
-affirm_happy_third.save!
-
-affirm_happy_four = AffirmationMessage.new(
-  message: "Less expectations, more satisfaction",
-)
-
-affirm_happy_four.user = user
-affirm_happy_four.mood = mood_happy
-affirm_happy_four.save!
-
-affirm_sad = AffirmationMessage.new(
-  message: "Remember to take a break if you're overwhelmed!",
-)
-
-affirm_sad.user = user_one
-affirm_sad.mood = mood_sad
-affirm_sad.save!
-
-affirm_sad_one = AffirmationMessage.new(
-  message: "You got this!",
-)
-
-affirm_sad_one.user = user_one
-affirm_sad_one.mood = mood_sad
-affirm_sad_one.save!
-
-affirm_sad_two = AffirmationMessage.new(
-  message: "I am so proud of you! Have a great day ahead",
-)
-
-affirm_sad_two.user = user_one
-affirm_sad_two.mood = mood_sad
-affirm_sad_two.save!
-
-affirm_sad_three = AffirmationMessage.new(
-  message: "You can do this! I am sure of it.",
-)
-
-affirm_sad_three.user = user_one
-affirm_sad_three.mood = mood_sad
-affirm_sad_three.save!
-
-affirm_sad_four = AffirmationMessage.new(
-  message: "You are not alone in this. Heads up!",
-)
-
-affirm_sad_four.user = user_one
-affirm_sad_four.mood = mood_sad
-affirm_sad_four.save!
-
-affirm_angry_one = AffirmationMessage.new(
-  message: "take a deep breath",
-)
-
-affirm_angry_one.user = user_one
-affirm_angry_one.mood = mood_angry
-affirm_angry_one.save!
-
-affirm_angry_two = AffirmationMessage.new(
-  message: "focus on yourself, not others",
-)
-
-affirm_angry_two.user = user_one
-affirm_angry_two.mood = mood_angry
-affirm_angry_two.save!
-
-affirm_scared_one = AffirmationMessage.new(
-  message: "don't be scared, you will be fine",
-)
-
-affirm_scared_one.user = user_one
-affirm_scared_one.mood = mood_scared
-affirm_scared_one.save!
-
-affirm_scared_two = AffirmationMessage.new(
-  message: "it is okay to feel scared, but i believe you will overcome it!",
-)
-
-affirm_scared_two.user = user_one
-affirm_scared_two.mood = mood_scared
-affirm_scared_two.save!
-
-affirm_love_one = AffirmationMessage.new(
-  message: "right people know your worth",
-)
-
-affirm_love_one.user = user_one
-affirm_love_one.mood = mood_love
-affirm_love_one.save!
-
-affirm_love_two = AffirmationMessage.new(
-  message: "putting yourself first is not selfish, it's your priority",
-)
-
-affirm_love_two.user = user_one
-affirm_love_two.mood = mood_love
-affirm_love_two.save!
-
-affirm_confused_one = AffirmationMessage.new(
-  message: "it is okay to not get have your life together all the time",
-)
-affirm_confused_one.user = user_one
-affirm_confused_one.mood = mood_confused
-affirm_confused_one.save!
-
-affirm_confused_two = AffirmationMessage.new(
-  message: "It is fine to get lost along the way, you will eventually reach your goal.",
-)
-affirm_confused_two.user = user_one
-affirm_confused_two.mood = mood_confused
-affirm_confused_two.save!
-
-puts "Affirmation messages created"
+puts "Creating posts"
