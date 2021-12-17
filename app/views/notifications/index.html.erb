@@ -10,7 +10,7 @@
         <br>
         <%= notification.params[:comment].user.username %> commented: "<%= notification.params[:comment].content %>"
         <br>
-        <p><strong><%= time_ago_in_words(notification.params[:comment].created_at) %> ago</strong></p>
+        <p><strong><%= time_ago_in_words(notification.created_at) %> ago</strong></p>
     <% end %>
 
         <% unless notification.read? %>
