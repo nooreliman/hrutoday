@@ -266,6 +266,7 @@ post_sad_2 = Post.new(
 
 post_sad_2.forum = forum_sad
 post_sad_2.user = paul
+post_sad_2.created_at = 2.days.ago
 post_sad_2.save!
 
 post_sad_3 = Post.new(
@@ -276,6 +277,7 @@ post_sad_3 = Post.new(
 
 post_sad_3.forum = forum_sad
 post_sad_3.user = george
+post_sad_3.created_at = 4.days.ago
 post_sad_3.save!
 
 post_sad_4 = Post.new(
@@ -291,6 +293,7 @@ post_sad_4 = Post.new(
 
 post_sad_4.forum = forum_sad
 post_sad_4.user = ringo
+post_sad_4.created_at = 4.days.ago
 post_sad_4.save!
 
 post_sad_5 = Post.new(
@@ -306,6 +309,7 @@ post_sad_5 = Post.new(
 
 post_sad_5.forum = forum_sad
 post_sad_5.user = rachel
+post_sad_5.created_at = 6.days.ago
 post_sad_5.save!
 
 
@@ -440,6 +444,7 @@ post_scared = Post.new(
 
 post_scared.forum = forum_scared
 post_scared.user = john
+post_scared.created_at = 1.day.ago
 post_scared.save!
 
 post_scared1 = Post.new(
@@ -450,6 +455,7 @@ post_scared1 = Post.new(
 
 post_scared1.forum = forum_scared
 post_scared1.user = paul
+post_scared1.created_at = 1.day.ago
 post_scared1.save!
 
 post_scared2 = Post.new(
@@ -460,6 +466,7 @@ post_scared2 = Post.new(
 
 post_scared2.forum = forum_scared
 post_scared2.user = george
+post_scared2.created_at = 3.days.ago
 post_scared2.save!
 
 post_scared3 = Post.new(
@@ -470,6 +477,7 @@ post_scared3 = Post.new(
 
 post_scared3.forum = forum_scared
 post_scared3.user = ringo
+post_scared3.created_at = 3.days.ago
 post_scared3.save!
 
 post_scared4 = Post.new(
@@ -480,6 +488,7 @@ post_scared4 = Post.new(
 
 post_scared4.forum = forum_scared
 post_scared4.user = sarah
+post_scared4.created_at = 4.days.ago
 post_scared4.save!
 
 post_scared5 = Post.new(
@@ -491,6 +500,7 @@ post_scared5 = Post.new(
 
 post_scared5.forum = forum_scared
 post_scared5.user = sarah
+post_scared5.created_at = 4.days.ago
 post_scared5.save!
 
 post_confused = Post.new(
