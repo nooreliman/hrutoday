@@ -834,9 +834,10 @@ notification_e.record.created_at = 2.days.ago
 notification_f.record.created_at = 3.days.ago
 
 
-notification_a.record.read_at = 2.days.ago
-notification_b.record.read_at = 2.days.ago
+notification_a.record.read_at = 3.days.ago
+notification_b.record.read_at = 3.days.ago
 notification_c.record.read_at = 2.days.ago
+notification_d.record.read_at = 2.days.ago
 
 notification_a.record.save!
 notification_b.record.save!
