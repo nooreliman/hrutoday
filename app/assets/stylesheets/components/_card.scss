@@ -152,12 +152,13 @@
 }
 
 .notification-card {
-  background-color: #d6cab8;
+  border: 1px solid #d6cab8;
   color: $dark-gray;
   border-radius: 10px;
 
   &.unread {
     background-color: #f0eae1;
+    font-weight: 700;
   }
 }
 
