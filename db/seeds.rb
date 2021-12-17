@@ -755,3 +755,66 @@ end
   mood6.created_at = 1.day.ago
   mood6.save!
 end
+
+puts "seeding notifications"
+
+comment_a = Comment.new(
+  content: "That's a nice perspective",
+  status: "true",
+)
+
+comment_a.post = post_love_5
+comment_a.user = john
+comment_a.save!
+
+comment_b = Comment.new(
+  content: "I agree, not many people appreciate the small things in life",
+  status: "true",
+)
+
+comment_b.post = post_love_5
+comment_b.user = paul
+comment_b.save!
+
+comment_c = Comment.new(
+  content: "I'm so grateful for the support and love I get from my family and friends",
+  status: "true",
+)
+
+comment_c.post = post_love_5
+comment_c.user = george
+comment_c.save!
+
+comment_d = Comment.new(
+  content: "It's ok OP, you'll find someone soon",
+  status: "true",
+)
+
+comment_d.post = post_sad_5
+comment_d.user = ringo
+comment_d.save!
+
+comment_e = Comment.new(
+  content: "Hang in there mate. I believe in you",
+  status: "true",
+)
+
+comment_e.post = post_sad_5
+comment_e.user = john
+comment_e.save!
+
+comment_f = Comment.new(
+  content: "I think you need some time to yourself to find some clarity. Hope it'll be ok",
+  status: "true",
+)
+
+comment_f.post = post_sad_5
+comment_f.user = paul
+comment_f.save!
+
+CommentNotification.with(comment: comment_a).deliver(rachel)
+CommentNotification.with(comment: comment_b).deliver(rachel)
+CommentNotification.with(comment: comment_c).deliver(rachel)
+CommentNotification.with(comment: comment_d).deliver(rachel)
+CommentNotification.with(comment: comment_e).deliver(rachel)
+CommentNotification.with(comment: comment_f).deliver(rachel)
