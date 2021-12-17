@@ -1,4 +1,4 @@
-<div class="container affirm-box" style="background-color: <%= @mood.color %>;">
+<div class="container affirm-box bg-<%= @mood.name.downcase %>">
   <div class="flex-for-skip-btn">
     <p><b><i><%= rand(30..80) %> users logged the same mood as you.</i></b></p>
         <%# <p><b><i><%= pluralize(@mood.user_moods.count, "user") %>
@@ -8,7 +8,7 @@
  <!---input message--->
   <%= simple_form_for [ @mood, @affirmation_message ] do |f| %>
     <%= f.input :message, label: "Write something nice to other users:" %>
-    <%= f.submit "Share my message", class: "btn btn-outline-dark btn-sm btn-block"%>
+    <%= f.submit "Share my message", class: "btn btn-sm btn-outline-dark btn-block bg-#{@mood.name.downcase} bg-full"%>
   <% end %>
 </div>
 

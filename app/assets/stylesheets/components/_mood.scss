@@ -10,3 +10,52 @@
   border-radius: 10px;
   background-color: #f0eae1;
 }
+
+// backgrounds
+.bg-happy {
+  background-color: rgba($happy, 0.4);
+
+  &.bg-full {
+    background-color: rgba($happy, 1);
+  }
+}
+
+.bg-sad {
+  background-color: rgba($sad, 0.4);
+
+  &.bg-full {
+    background-color: rgba($sad, 1);
+  }
+}
+
+.bg-love {
+  background-color: rgba($love, 0.4);
+
+  &.bg-full {
+    background-color: rgba($love, 1);
+  }
+}
+.bg-angry {
+  background-color: rgba($angry, 0.4);
+
+  &.bg-full {
+    background-color: rgba($angry, 1);
+  }
+}
+.bg-confused {
+  background-color: rgba($confused, 0.4);
+
+  &.bg-full {
+    background-color: rgba($confused, 1);
+  }
+}
+.bg-scared {
+  background-color: rgba($scared, 0.4);
+  .btn-block {
+    color: #000;
+  }
+
+  &.bg-full {
+    background-color: rgba($scared, 1);
+  }
+}
