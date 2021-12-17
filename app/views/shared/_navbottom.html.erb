@@ -6,20 +6,16 @@
   <% end %>
 
   <%= link_to icon("fas", "comments"), forums_path, class: "navbar-brand forum" %>
-  
+
   <% if !current_user.nil? %>
     <%= link_to notifications_path, class:"position-relative" do %>
       <i class="fas fa-bell notifications"></i><span class="badge badge-notif"><%= current_user.notifications.unread.count == 0 ? '' :  current_user.notifications.unread.count%></span>
     <% end %>
   <% end %>
-  
+
   <div class="btn-group dropup">
     <% if user_signed_in? %>
-      <% if current_user.photo.nil? %>
-        <%= image_tag "https://avatars.dicebear.com/api/croodles/new.svg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <% else %>
-        <%= image_tag "#{current_user.photo}", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <% end %>
+      <%= image_tag ("profile.jpg"), class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
       <div class="dropdown-menu">
         <%= link_to "My Posts", myposts_posts_path, class: "dropdown-item" %>
         <%= link_to "My Bookmarks", favorites_posts_path, class: "dropdown-item" %>
