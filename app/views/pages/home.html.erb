@@ -45,7 +45,7 @@
         </div>
       </div>
 
-      <% @curr_day = @curr_day == 6 ? 0 : @curr_day + 1  %>
+      <% @curr_day = @curr_day == 0 ? 6 : @curr_day - 1  %>
 
     <% end %>
   </div>
