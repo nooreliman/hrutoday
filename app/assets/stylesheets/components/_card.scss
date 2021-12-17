@@ -174,3 +174,10 @@
 .reply-card {
   background-color: transparent;
 }
+
+.index-message {
+  width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
