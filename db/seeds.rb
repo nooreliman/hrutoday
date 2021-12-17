@@ -812,9 +812,35 @@ comment_f.post = post_sad_5
 comment_f.user = paul
 comment_f.save!
 
-CommentNotification.with(comment: comment_a).deliver(rachel)
-CommentNotification.with(comment: comment_b).deliver(rachel)
-CommentNotification.with(comment: comment_c).deliver(rachel)
-CommentNotification.with(comment: comment_d).deliver(rachel)
-CommentNotification.with(comment: comment_e).deliver(rachel)
-CommentNotification.with(comment: comment_f).deliver(rachel)
+notification_a = CommentNotification.with(comment: comment_a)
+notification_b = CommentNotification.with(comment: comment_b)
+notification_c = CommentNotification.with(comment: comment_c)
+notification_d = CommentNotification.with(comment: comment_d)
+notification_e = CommentNotification.with(comment: comment_e)
+notification_f = CommentNotification.with(comment: comment_f)
+
+notification_a.deliver(rachel)
+notification_b.deliver(rachel)
+notification_c.deliver(rachel)
+notification_d.deliver(rachel)
+notification_f.deliver(rachel)
+notification_e.deliver(rachel)
+
+notification_a.record.created_at = 6.days.ago
+notification_b.record.created_at = 5.days.ago
+notification_c.record.created_at = 4.days.ago
+notification_d.record.created_at = 3.days.ago
+notification_e.record.created_at = 2.days.ago
+notification_f.record.created_at = 3.days.ago
+
+
+notification_a.record.read_at = 2.days.ago
+notification_b.record.read_at = 2.days.ago
+notification_c.record.read_at = 2.days.ago
+
+notification_a.record.save!
+notification_b.record.save!
+notification_c.record.save!
+notification_d.record.save!
+notification_f.record.save!
+notification_e.record.save!
