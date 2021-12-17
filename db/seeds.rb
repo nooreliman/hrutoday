@@ -528,21 +528,21 @@ puts "6 Posts created"
 puts "Creating comment and reply"
 
 comment_one = Comment.new(
-  content: "Go for it OP, you're not even 30 yet! I'm still lost at 45 wishing I tried something new when I was younger. ",
+  content: "Having a PHD is something to be happy about! You should feel proud that you finished it! Don't think about the 'what if I had done this or this or this?' but just focus on yourself now ",
   status: "true",
 )
 
-comment_one.post = post_scared5
+comment_one.post = post_scared3
 comment_one.user = john
 comment_one.save!
 
 reply_one = Comment.new(
-  content: "There's been better days but I'm still coping!",
+  content: "Yeah exactly! I'm happy I did my studies even though it's not relevant to what i do now lol",
   status: "true",
 )
 
-reply_one.post = post_scared5
-reply_one.user = rachel
+reply_one.post = post_scared3
+reply_one.user = george
 reply_one.save!
 
 reply_one.reply_to(comment_one)
@@ -550,21 +550,21 @@ reply_one.reply_to(comment_one)
 puts "Comment and reply created"
 
 comment_two = Comment.new(
-  content: "Go for it OP, you're not even 30 yet! I'm still lost at 45 wishing I tried something new when I was younger. ",
+  content: "There's still so much ahead in life! You can definitely find ways to milk your PHD.",
   status: "true",
 )
 
-comment_two.post = post_scared5
+comment_two.post = post_scared3
 comment_two.user = paul
 comment_two.save!
 
 comment_three = Comment.new(
-  content: "You don't hear it often but there are many others who are still figuring life out. I thought that I had no hobbies and passions but after a few years of therapy, I realised that it's because I'm too afraid to commit to something lol trying to pick up photography currently",
+  content: "You don't hear it often but many employers do value your education in other ways that your PHD might have affected you! Keep your head up!",
   status: "true",
 )
 
-comment_three.post = post_scared5
-comment_three.user = george
+comment_three.post = post_scared3
+comment_three.user = rachel
 comment_three.save!
 
 puts "Creating affirmation messages"
