@@ -19,20 +19,19 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     # => Call the Google Api and check the content of the message
     # binding.pry
-    analysis_result = LanguageService.analyze_sentiment(@post.content)
+    # analysis_result = LanguageService.analyze_sentiment(@post.content)
     @post.user = current_user
     @forum = Forum.find(params[:forum_id])
     @post.forum = @forum
-    if analysis_result.document_sentiment.score > -0.8
-      @post.save
+    # if analysis_result.document_sentiment.score > -0.8
+      # @post.save
         if @post.save
           redirect_to post_path(@post)
           flash[:notice] = "Post successfully created!"
+          else
+          flash[:notice] = "This was too negative!"
+          render :new
         end
-    else
-      flash[:notice] = "This was too negative!"
-      render :new
-    end
   end
 
   def edit
