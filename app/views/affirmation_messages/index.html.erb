@@ -1,7 +1,6 @@
 <div class="container affirm-box bg-<%= @mood.name.downcase %>">
   <div class="flex-for-skip-btn">
-    <p><b><i><%= rand(30..80) %> users logged the same mood as you.</i></b></p>
-        <%# <p><b><i><%= pluralize(@mood.user_moods.count, "user") %>
+    <p><b><i><%= pluralize(@mood.user_moods.count, "user") %> logged the same mood as you.</i></b></p>
 
   </div>
 
