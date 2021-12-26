@@ -13,12 +13,12 @@ class CommentsController < ApplicationController
   def create
     # create the new comment
     @comment = Comment.new(comment_params.except(:parent_id))
-    analysis_result = LanguageService.analyze_sentiment(@comment.content)
+    # analysis_result = LanguageService.analyze_sentiment(@comment.content)
     @comment.post = Post.find(params[:post_id])
     @comment.user = current_user
 
-    if analysis_result.document_sentiment.score > -0.8
-      @comment.save
+    # if analysis_result.document_sentiment.score > -0.8
+      # @comment.save
       if @comment.save
         if comment_params.include? :parent_id
           # check if there is a parent
@@ -33,11 +33,10 @@ class CommentsController < ApplicationController
 
         # @parent ? redirect_to(@parent) : redirect_to(post_path(@comment.post))
         # @parent ? flash[:notice] = 'Reply sent' : flash[:notice] = 'Comment successfully created!'
+      else
+        flash[:notice] = "This was too negative!"
+        render :new
       end
-    else
-      flash[:notice] = "This was too negative!"
-      render :new
-    end
   end
 
   def flag
