@@ -1,4 +1,4 @@
-require "google/cloud/language/v1"
+# require "google/cloud/language/v1"
 
 class LanguageService
   ::Google::Cloud::Language::V1::LanguageService::Client.configure do |config|
