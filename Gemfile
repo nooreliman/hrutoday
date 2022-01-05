@@ -4,8 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.4'
 
 # patch for fixing google cloud api calls
-gem 'google-protobuf', '~> 3.17.0'
-gem 'grpc', '~> 1.38.0'
+# gem 'google-protobuf', '~> 3.17.0'
+# gem 'grpc', '~> 1.38.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.4', '>= 6.1.4.1'
@@ -69,7 +69,7 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem "google-cloud-language", "~> 1.3"
+# gem "google-cloud-language", "~> 1.3"
 
 gem 'acts_as_votable'
 
